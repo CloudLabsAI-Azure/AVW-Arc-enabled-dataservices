@@ -19,9 +19,9 @@ Let’s take the journey together with Contoso and see how easy it is to accompl
 
 For customers who want to simplify complex and distributed environments across on-premises, edge, and multi-cloud, [Azure Arc](https://azure.microsoft.com/services/azure-arc/) enables deployment of Azure services anywhere and extends Azure management to any infrastructure.
 
-•	Organize and govern across environments - Get sprawling Windows and Linux servers and Kubernetes clusters under control by centrally organizing and governing from Azure-across clouds, datacenters, and edge.
-•	Manage Kubernetes Apps at scale - Deploy and manage Kubernetes applications across environments using DevOps techniques. Ensure that applications are consistently  deployed and configured at scale from source control.
-•	Run Azure data services anywhere - Get the latest cloud innovation and automation, elastic scale, and unified management for data workloads that are running across hybrid infrastructure. Ensure consistency in data governance and security and manage costs efficiently.
+  - Organize and govern across environments - Get sprawling Windows and Linux servers and Kubernetes clusters under control by centrally organizing and governing from Azure-across clouds, datacenters, and edge.
+  - Manage Kubernetes Apps at scale - Deploy and manage Kubernetes applications across environments using DevOps techniques. Ensure that applications are consistently  deployed and configured at scale from source control.
+  - Run Azure data services anywhere - Get the latest cloud innovation and automation, elastic scale, and unified management for data workloads that are running across hybrid infrastructure. Ensure consistency in data governance and security and manage costs efficiently.
 
 
 ### How Azure Arc Enabled Data Services adds value?
