@@ -3,6 +3,10 @@
       "Name": "Azure Arc enabled data services",
       "Language": "English",
       "Files": [
+          {
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/AVW-Arc-enabled-dataservices/main/Instructions/README.md",
+          "Order": 1  
+        },
         {
           "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/AVW-Arc-enabled-dataservices/main/Instructions/01.md",
           "Order": 1  
