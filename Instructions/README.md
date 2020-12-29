@@ -1,6 +1,6 @@
 # Azure Arc Enabled Data Services
 
-## Hands-on Labs context and scenario
+## Hands-on Labs Scenario
 
 The following labs provide you a quick and easy way to get started with Azure Arc through virtual environments that do not require any complex set-up or installations. For the purposes of these exercises, let’s consider Contoso, a large manufacturing organization. Their IT systems run Windows, Linux, Kubernetes, and SQL Servers across multiple locations, including on-premises datacenters, distribution centers and multiple public clouds. This poses operational challenges for Contoso. They’d like a consistent way to govern and operate across these disparate environments, ensure security across the entire organization, and enable innovation and developer agility (especially with their investments in cloud native practices), all while meeting regulatory and compliance requirements.
 
