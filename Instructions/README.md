@@ -12,24 +12,19 @@ For customers who want to simplify complex and distributed environments across o
 
 ### How Azure Arc Enabled Data Services add value?
 
-Azure Arc enabled data services component brings the managed data services such as SQL managed instance and PostgreSQL Hyperscale to hybrid and multi-cloud environments based on Kubernetes clusters. The value proposition of Azure Arc enabled data services articulates around:
+With Azure Arc, you can now bring Azure data services to any infrastructure across on-premises data centers, edge and 3rd party clouds, using Kubernetes on hardware of your choice. For customers who need to maintain data estate onpremises, you will gain unique benefits for those on-premises data workloads.
 
--	Always current
--	Elastic scale
--	Self-service provisioning
--	Unified management
--	Disconnected scenario support
+**First**, you will always be current, meaning updates and upgrades are fully automated, and the deployment is controlled by your policy. You will gain unique and cloud proven innovation ahead of any other hybrid cloud offering like the evergreen SQL with no end-of-support through Azure SQL Database, and the hyperscale deployment option of Azure Database for PostgreSQL. 
 
-Since they are managed services, they receive periodic updates, patches, and new features from Microsoft. With this, On-premises databases can stay up to date while ensuring that customers maintain control. Because Azure Arc enabled data services are a subscription service, customers will no longer face end-of-support situations databases.
-PostgreSQL Hyperscale deployed as a part of Arc delivers a Postgres database engine running in Kubernetes clusters on-premises, at the edge, and in public clouds. It supports self-service provisioning, elastic scale, unified management, and disconnected scenarios. 
+**Second**, we will bring cloud elasticity on-premises so you can optimize performance of data workloads with the ability to dynamically scale up/down and scale out, without application downtime. 
 
-Azure Arc enabled SQL Managed Instance has near 100% compatibility with the latest SQL Server database engine. It allows existing SQL Server customers to lift and shift applications to Azure Arc data services with minimal application and database changes while maintaining data sovereignty. 
+Moreover, by connecting to Azure you will gain unified management. Imagine being able to see your data services running on-premises along side those running in Azure through a single pane of glass, using familiar tools like Azure Portal, Azure Data Studio and Azure CLI.
+
+**Last** but not the least, you can get those benefits even if your environment does not have direct connection to Azure either due to network and security policies, or connection constraints, as long as you can set up a media to indirectly connect to Azure for telemetry data exchange and getting the latest container images. However, when you operate under an indirectly connected mode, you will not be able to fully leverage the unified management benefits such as using Azure Monitor, Azure Rolebased Access Control, and other value-added services from Azure. 
 
 ## Hands-on Labs Scenario
 
 The following labs provide you a quick and easy way to get started with Azure Arc through virtual environments that do not require any complex set-up or installations. For the purposes of these exercises, let’s consider Contoso, a large manufacturing organization. Their IT systems run Windows, Linux, Kubernetes, and SQL Servers across multiple locations, including on-premises data centers, distribution centers, and multiple public clouds. This poses operational challenges for Contoso. They’d like a consistent way to govern and operate across these disparate environments, ensure security across the entire organization, and enable innovation and developer agility (especially with their investments in cloud-native practices), all while meeting regulatory and compliance requirements.
-
-With Azure Arc, Contoso can unify inventory, governance, and compliance ensuring consistency for their entire IT landscape. They already take advantage of the core management capabilities such as tagging, update management, governance with Azure Policy, monitoring with Azure Monitor, security with Azure Security Center and Azure Sentinel, and more provided by the Azure Resource Manager for their Azure workloads but would like to extend these same capabilities to their resources outside Azure. By onboarding their servers and Kubernetes clusters running outside Azure to Azure Arc, Contoso can take advantage of all the ARM capabilities mentioned above. In addition, with Azure Arc enabled Kubernetes, Contoso can guarantee Kubernetes deployments and app consistency through GitOps-based configuration management for their Kubernetes clusters in Azure, other clouds, and on-premises.
 
 
 ## Lab Context
