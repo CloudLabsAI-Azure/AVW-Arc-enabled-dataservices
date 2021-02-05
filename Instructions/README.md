@@ -10,11 +10,11 @@ Azure Arc helps you accelerate innovation across hybrid and multi-cloud environm
    * **Build Cloud native apps anywhere, at scale** – Centrally code and deploy applications confidently to any Kubernetes distribution in any location. Accelerate development by using best in class applications services with standardized deployment, configuration, security, and observability.
    * **Run Azure data services anywhere** – Flexibly use cloud innovation where you need it by deploying Azure services anywhere. Implement cloud practices and automation to deploy faster, consistently, and at scale with always-up-to-date Azure Arc enabled services.
    
-![](media/Arc-Chart.png)
+![](images/Arc-data-arch.jpg)
 
 ### How Azure Arc Enabled Data Services add value?
 
-With Azure Arc, you can now bring Azure data services to any infrastructure across on-premises data centers, edge and 3rd party clouds, using Kubernetes on hardware of your choice. For customers who need to maintain data estate onpremises, you will gain unique benefits for those on-premises data workloads.
+Azure Arc enables you to bring Azure data services to any infrastructure across on-premises data centers, edge and 3rd party clouds, using Kubernetes on hardware of your choice. For customers who need to maintain data estate onpremises, you will gain unique benefits for those on-premises data workloads.
 
 **First**, you will always be current, meaning updates and upgrades are fully automated, and the deployment is controlled by your policy. You will gain unique and cloud proven innovation ahead of any other hybrid cloud offering like the evergreen SQL with no end-of-support through Azure SQL Database, and the hyperscale deployment option of Azure Database for PostgreSQL.
 
