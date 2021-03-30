@@ -22,7 +22,7 @@ Azure Arc enables you to bring Azure data services to any infrastructure across 
 
 Moreover, by connecting to Azure you will gain unified management. Imagine being able to see your data services running on-premises along side those running in Azure through a single pane of glass, using familiar tools like Azure Portal, Azure Data Studio and Azure CLI.
 
-**Last** but not the least, you can get those benefits even if your environment does not have direct connection to Azure either due to network and security policies, or connection constraints, as long as you can set up a media to indirectly connect to Azure for telemetry data exchange and getting the latest container images. However, when you operate under an indirectly connected mode, you will not be able to fully leverage the unified management benefits such as using Azure Monitor, Azure Rolebased Access Control, and other value-added services from Azure.
+**Last** but not the least, you can get those benefits even if your environment does not have direct connection to Azure either due to network and security policies, or connection constraints, as long as you can set up a media to indirectly connect to Azure for telemetry data exchange and getting the latest container images. However, when you operate under an indirectly connected mode, you will not be able to fully leverage the unified management benefits such as using Azure Monitor, Azure Role Based Access Control(RBAC), and other value-added services from Azure.
 
 ## Hands-on Labs Scenario
 
