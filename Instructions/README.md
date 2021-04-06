@@ -22,16 +22,24 @@ Azure Arc enables you to bring Azure data services to any infrastructure across 
 
 Moreover, by connecting to Azure you will gain unified management. Imagine being able to see your data services running on-premises along side those running in Azure through a single pane of glass, using familiar tools like Azure Portal, Azure Data Studio and Azure CLI.
 
-**Last** but not the least, you can get those benefits even if your environment does not have direct connection to Azure either due to network and security policies, or connection constraints, as long as you can set up a media to indirectly connect to Azure for telemetry data exchange and getting the latest container images. However, when you operate under an indirectly connected mode, you will not be able to fully leverage the unified management benefits such as using Azure Monitor, Azure Rolebased Access Control, and other value-added services from Azure.
+**Last** but not the least, you can get those benefits even if your environment does not have direct connection to Azure either due to network and security policies, or connection constraints, as long as you can set up a media to indirectly connect to Azure for telemetry data exchange and getting the latest container images. However, when you operate under an indirectly connected mode, you will not be able to fully leverage the unified management benefits such as using Azure Monitor, Azure Role Based Access Control(RBAC), and other value-added services from Azure.
 
 ## Hands-on Labs Scenario
 
-The following labs provide you a quick and easy way to get started with Azure Arc through virtual environments that do not require any complex set-up or installations. For the purposes of these exercises, let’s consider Contoso, a large manufacturing organization. Their IT systems run Windows, Linux, Kubernetes, and SQL Servers across multiple locations, including on-premises data centers, distribution centers, and multiple public clouds. This poses operational challenges for Contoso. They’d like a consistent way to govern and operate across these disparate environments, ensure security across the entire organization, and enable innovation and developer agility (especially with their investments in cloud-native practices), all while meeting regulatory and compliance requirements.
+The following labs provide you a quick and easy way to get started with Azure Arc through virtual environments that do not require any complex set-up or installations. 
+
+For the purposes of these exercises, let’s consider Contoso is a large manufacturing company. 
+
+Their IT systems run Windows, Linux, Kubernetes, SQL Servers, Oracle and PostgreSQL across multiple locations, including on-premises data centers, manufacturing plans, distribution centers, and multiple public clouds. This poses operational challenges for Contoso. They’d like a consistent way to govern and operate across these disparate environments, ensure security across the entire organization, and enable innovation and developer agility (especially with their investments in cloud-native practices), all while meeting regulatory and compliance requirements and being able to leverage the latest innovations of database technologies.
+
 
 ## Lab Context
 
-Leveraging Azure Arc enabled data services, Contoso is interested in implementing cloud-native, evergreen versions of SQL and PostgreSQL Hyperscale to reduce the management overhead and deploy their applications and databases anywhere with elastic scale.
+Contoso wants to migrate and modernize their databases. They have already migrated some of their Oracle databases to PostgreSQL and they have upgraded some of their SQL Servers to the latest version. Additionally, they would like to reduce the management overhead and stay always current with the evergreen versions of SQL and PostgreSQL Hyperscale. They would also like to get the benefits of the data services in Azure such as elastic scale and cloud billing without moving their databases to the cloud.
 
-Let’s take the journey together with Contoso and see how easy it is to accomplish all the above with Azure Arc.
+Let’s take the journey together with Contoso and see how easy it is accomplish all the above with Azure Arc enabled data services. 
+
+In this lab, you will leverage the existing Kubernetes cluster to deploy the Azure Arc data controller, Azure Arc enabled SQL Managed Instance, and Azure Arc enabled PostgreSQL Hyperscale. 
+
 
 
