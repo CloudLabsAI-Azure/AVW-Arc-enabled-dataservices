@@ -69,6 +69,9 @@ In the last excercise we had worked around security measures andmonitoring, so n
 1. After changing the directory to **Lab files**, run the command given below:
 
    ```
+   Copy-VMFile "sqlvm" -SourcePath "C:\LabFiles\creds.txt" -DestinationPath "C:\LabFiles\creds.txt" -CreateFullPath -FileSource Host
+   Copy-VMFile "sqlvm" -SourcePath "C:\LabFiles\RegisterSqlServerArc.ps1" -DestinationPath "C:\LabFiles\RegisterSqlServerArc.ps1" -CreateFullPath -FileSource Host
+
    .\Execute-RegisterSqlServerArc.ps1
    ```
      
