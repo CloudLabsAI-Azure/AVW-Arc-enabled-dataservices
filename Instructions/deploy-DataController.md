@@ -56,6 +56,7 @@
    az provider register --namespace Microsoft.Kubernetes
    az provider register --namespace Microsoft.KubernetesConfiguration
    az provider register --namespace Microsoft.ExtendedLocation
+   az provider register --namespace Microsoft.K8sConfiguration
    ```
 
 Task 2: Connect Azure Kubernetes cluster to Azure Arc kuberenets cluster and enable features on top op Azure Arc CLuster.
@@ -118,7 +119,7 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
  1. Now run the below command to deploy the extenstion of Azure Arc enabled Data Services on Azure Arc kubernetes cluster.
   
      ```
-     az k8s-extension create --name azdata --extension-type microsoft.arcdataservices --cluster-type connectedClusters -c Arc-Data-Demo -g azure-arc --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
+     az k8s-extension create --name azdata --extension-type microsoft.arcdataservices --cluster-type connectedClusters -c Arc-Data-Demo -g azure-arc --scope cluster --release-namespace arcdc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
      
      ```
  1. After running the above command you will notive that the **Installstate** in still pending, this is because the extension will take a few minutes to complete the installation.
@@ -132,4 +133,55 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
     ![](.././media/12.png "Lab Environment")
 
  
+ 1. Now run the below command to get the Azure Resource Manager identifier of the Azure Arc enabled Kubernetes cluster, you will be using the cluster id in later steps while creating the custom location.
+
+    ```  
+    $clusterID = az connectedk8s show -n Arc-Data-Demo -g azure-arc  --query id -o tsv
+    $clusterID
+    ```
+    -Note: The clusterID is stored in $clusterID parameter and you will be using this parameter only in later steps.
+    ![](.././media/13.png "Lab Environment")
     
+ 1. Now run the below command to get the Azure Resource Manager identifier of the cluster extension deployed on top of Azure Arc enabled Kubernetes cluster, referenced in later steps as extensionId:
+
+    ```
+    $extensionID = az k8s-extension show --name azdata --cluster-type connectedClusters -c Arc-Data-Demo -g azure-arc  --query id -o tsv
+    $extensionID
+    ```
+      -Note: The extension resource ID is stored in $extensionID parameter and you will be using this parameter only in later steps.
+    
+     ![](.././media/14.png "Lab Environment")
+    
+ 1. Now run the below command to create custom location by referencing the Azure Arc enabled Kubernetes cluster ID and the extension ID.
+
+    ```  
+    az customlocation create -n azurearc-customlocation -g azure-arc --namespace arcdc --host-resource-id $clusterID --cluster-extension-ids $extensionID
+    
+    ```
+    
+    The output should be similar as shown below:
+     ![](.././media/15.png "Lab Environment")
+     
+ 1. To verify the custom location deployment, Switch back to the browser and login to portal.azure.com if not already done.
+
+ 1. Search for custom location in search bar and select custom locations. 
+
+     ![](.././media/16.png "Lab Environment")
+      
+ 1. After selecting the custom locations from search bar, Select your **azurearc-customlocation** and explore the overview section.
+
+     ![](.././media/17.png "Lab Environment")
+     
+     You can see the namespace and kubernetes cluster details on overview page.
+     
+Task 3: Deploy Azure Arc Data Controller from Azure Portal.
+
+1. From the Azure Portal, search for ```Azure arc data controller``` from the search box and then click on it.  
+
+   ![](.././media/18.png "Lab Environment")
+ 
+1. After select the Azure Arc data controller click on ** + Create** button to deploy ```Azure arc data controller```.
+
+     ![](.././media/19.png "Lab Environment")
+     
+1. Now, on ```Create Azure Arc data controller``` blade select 
