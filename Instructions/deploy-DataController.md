@@ -182,6 +182,56 @@ Task 3: Deploy Azure Arc Data Controller from Azure Portal.
  
 1. After select the Azure Arc data controller click on ** + Create** button to deploy ```Azure arc data controller```.
 
-     ![](.././media/19.png "Lab Environment")
+    ![](.././media/19.png "Lab Environment")
      
-1. Now, on ```Create Azure Arc data controller``` blade select 
+1. Now, on ```Create Azure Arc data controller``` blade select **Azure Arc-enabled Kubernete (direct mode)**. and click on **Next: Data Controller details**.
+
+    ![](.././media/20.png "Lab Environment")
+   
+1. On **Data controller details** blade enter the following  details:
+
+   * Select the available subscription from drop down.
+   * Resource Group: Select **Azure-arc** from drop down.
+   * Data Controller Name: arcdc
+   * Custom location: Select the available custom location from drop down.
+
+      ![](.././media/21.png "Lab Environment")
+      
+   Now scroll down and enter the below details in the remaining sections.
+   
+   Under Kubernetes configuration enter the details below
+   * Kubernetes configuration template: Select **azure-arc-aks-default-storage** from drop down.
+   * Data Storage class: Leave default
+   * Log Storage class: Leave default 
+   * Service type: Load balancer
+   
+   Under Administrator account enter the below detals.
+   * Data controller login: ``` arcuser ```
+   * Password: ``` Password.1!! ```
+
+   Under Upload service principal details enter the details below.
+   * Client ID: 
+   * Tenant ID: 
+   * Authority: leave default
+   * Client Secret: 
+    ![](.././media/22.png "Lab Environment")
+   
+   After entering all the required details click on **Next : Additional settings**.
+
+1. In Addintional setting blade, Enter the **Log analytics workspace ID and key** that you copied from previos steps and click on **Next : Tags** button.
+
+    ![](.././media/23.png "Lab Environment")
+    
+1. Leave default on **Tags** blade and click on **Next: Review + Create** button. to start the Azure Arc data controller deployment.
+
+1. On Review + Create blade, you can check all the given details and click on **create** button to start the Azure Arc data controller deployment. 
+
+   ![](.././media/24.png "Lab Environment")
+   
+1. Once the deployment got completed got completed click on **Go to resource** button.
+
+   ![](.././media/25.png "Lab Environment")
+   
+1. On Azure Ac data controller resource overview blade, explore the given information about the Namespace and Connection mode.
+
+   ![](.././media/26.png "Lab Environment")
