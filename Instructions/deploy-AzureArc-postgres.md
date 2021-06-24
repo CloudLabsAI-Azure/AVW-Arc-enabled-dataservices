@@ -1,6 +1,11 @@
 ## Deploy Azure Database for PostgreSQL server groups - Azure Arc using Azure portal
 In this exercise you will be deployming Azure Database for PostgreSQL server groups - Azure Arc on top of a direct mode of Azure Arc data controller.
+Now that you are familiar with the existing Kubernetes cluster and Data controller, let's perform the following in this exercise:
 
+Create a Postgres Hyperscale Server group using Azure portal
+ * Configure & Scale, Connect source database
+ * Backup & Restore on Postgres DB
+ * Monitor/Visualize with Grafana & Kibana Dashboards****
 
 Task 1: Create Azure Database for PostgreSQL server groups - Azure Arc
 
@@ -63,6 +68,16 @@ Task 1: Create Azure Database for PostgreSQL server groups - Azure Arc
  
    ![](.././media/40.png "Lab Environment")
 
-1. Now Click on **Create** button to start the deployment.  
+1. Now Click on **Create** button to start the deployment. Note that the deployment can take up to few minutes.
  
    ![](.././media/41.png "Lab Environment")
+   
+1. Once the deployment got completed you will see the **Go to resource** button, click on that button and navigate to the newly created Azure Database for PostgreSQL server groups - Azure Arc.
+
+1. On the overview page of Azure Database for PostgreSQL server groups - Azure Arc using Azure portal, you can see all the detials and configirations.
+
+    ![](.././media/42.png "Lab Environment")
+   -Note : Please note that the **External endpoint** can take upto 5 mintues to reflect on Azure portal.
+  
+1. Once **External endpint** is available on azure portal please copy the endpoint and save it in a nptepad for later use.
+
