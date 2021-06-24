@@ -119,7 +119,7 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
  1. Now run the below command to deploy the extenstion of Azure Arc enabled Data Services on Azure Arc kubernetes cluster.
   
      ```
-     az k8s-extension create --name azdata --extension-type microsoft.arcdataservices --cluster-type connectedClusters -c Arc-Data-Demo -g azure-arc --scope cluster --release-namespace arcdc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
+    az k8s-extension create --name azdata --extension-type microsoft.arcdataservices --cluster-type connectedClusters -c Arc-Data-Demo -g azure-arc --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
      
      ```
  1. After running the above command you will notive that the **Installstate** in still pending, this is because the extension will take a few minutes to complete the installation.
