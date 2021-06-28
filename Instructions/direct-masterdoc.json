@@ -12,15 +12,15 @@
           "Order": 2 
         },
         {
-          "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/AVW-Arc-enabled-dataservices/aiw-arc/deploy-DataController.md",
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/AVW-Arc-enabled-dataservices/AIW_DirectDC/deploy-DataController.md",
           "Order": 3
         },
         {
-          "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/AVW-Arc-enabled-dataservices/aiw-arc/deploy-AzureArc-postgres.md",
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/AVW-Arc-enabled-dataservices/AIW_DirectDC/deploy-AzureArc-postgres.md",
           "Order": 4
         },
         {
-          "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/AVW-Arc-enabled-dataservices/aiw-arc/Instructions/deploy-AzureArc-SQLMI.md",
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/AVW-Arc-enabled-dataservices/AIW_DirectDC/Instructions/deploy-AzureArc-SQLMI.md",
           "Order": 5
         }
       ]
