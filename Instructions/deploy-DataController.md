@@ -20,7 +20,7 @@
 
 1. After adding the creds you will see that you have logged into the Microsoft Azure.
 
-    ![](../media/4.png "Lab Environment")
+    ![](./media/4.png "Lab Environment")
 
 1. Now switch back to Windows Powershell and you will be able to see that you have logged in to Azure.
 
