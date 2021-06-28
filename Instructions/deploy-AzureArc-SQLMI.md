@@ -1,7 +1,7 @@
 # Exercise 2: Deploy Azure Arc Enabled SQL Managed Instance
   Duration: 40 Minutes
   
- In this exercise, let's create an **Azure SQL Managed Instance - Azure Arc** using Azure Portal on top of a custom location and restore and migrate the database using multiple methods. 
+ In this exercise, let's create an **Azure SQL Managed Instance - Azure Arc** using Azure Portal on top of a directly connect Azure Arc Data controller and restore and migrate the database using multiple methods. 
 
  Also, we will be exploring the Kibana and Grafana Dashboards and upload the logs and metrics to the Azure portal and view the logs.
  
