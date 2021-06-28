@@ -13,11 +13,11 @@ Task 1: Create Azure Database for PostgreSQL server groups - Azure Arc
 
 1. Click on the search box and search for postgrs and select **Azure Database for PostgreSQL server groups - Azure Arc** from the list.
 
-    ![](.././media/36.png "Lab Environment")
+    ![](./media/36.png "Lab Environment")
    
 1. After selecting the **Azure Database for PostgreSQL server groups - Azure Arc* from the list click on **Create** button.
 
-    ![](.././media/36.png "Lab Environment")
+    ![](./media/36.png "Lab Environment")
     
 1. Now on **Basic** blade of **Azure Database for PostgreSQL server groups - Azure Arc* enter the below details in the required fields:
 
@@ -34,7 +34,7 @@ Task 1: Create Azure Database for PostgreSQL server groups - Azure Arc
     
    * **Compute+ Storage**: Click on **Configure compute + storage**
       
-      ![](.././media/37.png "Lab Environment")
+      ![](./media/37.png "Lab Environment")
       
       
    Now on **Compute+ Storage** blade enter the following details:
@@ -49,14 +49,14 @@ Task 1: Create Azure Database for PostgreSQL server groups - Azure Arc
    * Backup Storage class: leave default
    * Backups volume size (in Gi): 1
 
-   ![](.././media/38.png "Lab Environment")
+   ![](./media/38.png "Lab Environment")
    * CPU Request: ```1```
    * CPU limit: ```2```
    * Memory request (in GiB): ```2```
    * Memory limit (in GiB): ```2```
 
   Now click on apply to save these values.
-   ![](.././media/39.png "Lab Environment")
+   ![](./media/39.png "Lab Environment")
    
   * Extension: Leave default(citus)
   
@@ -66,17 +66,17 @@ Task 1: Create Azure Database for PostgreSQL server groups - Azure Arc
 
 1. After adding all the details click on **Review + Create** button to validate all the added details.
  
-   ![](.././media/40.png "Lab Environment")
+   ![](./media/40.png "Lab Environment")
 
 1. Now Click on **Create** button to start the deployment. Note that the deployment can take up to few minutes.
  
-   ![](.././media/41.png "Lab Environment")
+   ![](./media/41.png "Lab Environment")
    
 1. Once the deployment got completed you will see the **Go to resource** button, click on that button and navigate to the newly created Azure Database for PostgreSQL server groups - Azure Arc.
 
 1. On the overview page of Azure Database for PostgreSQL server groups - Azure Arc using Azure portal, you can see all the detials and configirations.
 
-    ![](.././media/42.png "Lab Environment")
+    ![](./media/42.png "Lab Environment")
    -Note : Please note that the **External endpoint** can take upto 5 mintues to reflect on Azure portal.
   
 1. Once **External endpint** is available on azure portal please copy the endpoint and save it in a nptepad for later use.
