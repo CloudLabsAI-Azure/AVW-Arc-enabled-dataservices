@@ -1,0 +1,28 @@
+[
+    {
+      "Name": "Azure Arc enabled data services",
+      "Language": "English",
+      "Files": [
+          {
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/AVW-Arc-enabled-dataservices/main/Instructions/README.md",
+          "Order": 1  
+        },
+        {
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/AVW-Arc-enabled-dataservices/aiw-arc/Instructions/01.md",
+          "Order": 2 
+        },
+        {
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/AVW-Arc-enabled-dataservices/aiw-arc/deploy-DataController.md",
+          "Order": 3
+        },
+        {
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/AVW-Arc-enabled-dataservices/aiw-arc/deploy-AzureArc-postgres.md",
+          "Order": 4
+        },
+        {
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/AVW-Arc-enabled-dataservices/aiw-arc/Instructions/deploy-AzureArc-SQLMI.md",
+          "Order": 5
+        }
+      ]
+    }
+  ]
