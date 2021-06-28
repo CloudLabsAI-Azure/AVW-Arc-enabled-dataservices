@@ -217,6 +217,7 @@ Task 3: Deploy Azure Arc Data Controller from Azure Portal.
    * Tenant ID: 
    * Authority: leave default
    * Client Secret: 
+
     ![](./media/22.png "Lab Environment")
    
    After entering all the required details click on **Next : Additional settings**.
