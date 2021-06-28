@@ -39,7 +39,7 @@ Contoso wants to migrate and modernize their databases. They have already migrat
 
 Let’s take the journey together with Contoso and see how easy it is accomplish all the above with Azure Arc enabled data services. 
 
-In this lab, you will leverage the existing Kubernetes cluster to deploy the Azure Arc data controller, Azure Arc enabled SQL Managed Instance, and Azure Arc enabled PostgreSQL Hyperscale. 
+In this lab, you will leverage the existing Kubernetes cluster to deploy the Azure Arc data controller with Directly connect mode, Azure Arc enabled SQL Managed Instance, and Azure Arc enabled PostgreSQL Hyperscale all the help on Azure portal. 
 
 
 
