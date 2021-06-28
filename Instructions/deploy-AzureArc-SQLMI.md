@@ -389,13 +389,10 @@ Now that we have the database created, let us view some metrics, usages, and log
    
    ![](images/workspace3.png "Confirm")
 
-1. Double click on the table name to generate the query.
+1. Double click on the table name to generate the query in query editor and click on Run button to execute the query to get the logs.
    
-   ![](images/workspace4.png "Confirm")
+   ![](media/49.png "Confirm")
 
-1. Now you will have a query in the query editor that will show the most recent 10 events in the log. 
-   
-   ![](images/workspace5.png "Confirm")
 
 ## Task 7: Monitor with Azure Data Studio
 
