@@ -13,7 +13,7 @@ Task 1: Create Azure Database for PostgreSQL server groups - Azure Arc
 
 1. Click on the search box and search for postgrs and select **Azure Database for PostgreSQL server groups - Azure Arc** from the list.
 
-   ![](.././media/36.png "Lab Environment")
+    ![](.././media/36.png "Lab Environment")
    
 1. After selecting the **Azure Database for PostgreSQL server groups - Azure Arc* from the list click on **Create** button.
 
