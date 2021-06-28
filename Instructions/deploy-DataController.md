@@ -33,7 +33,7 @@
    
    ```
    
-    ![](.././media/5.png "Lab Environment")
+    ![](./media/5.png "Lab Environment")
 1. If you've previously installed the connectedk8s, k8s-extension, and customlocation extensions, update to the latest version using the following command:
 
    ```
@@ -74,7 +74,7 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
    
  1. Once the previous command is executed successfully, the provisioning state in output will show as succeeded.
 
-     ![](.././media/6.png "Lab Environment")
+     ![](./media/6.png "Lab Environment")
    
  1. Now let us verify if the Kubernetes cluster is connected to Azure Arc and is in a healthy state.
 
@@ -84,7 +84,7 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
     az connectedk8s list -g azure-arc -o table
     
     ```
-    ![](.././media/7.png "Lab Environment")
+    ![](./media/7.png "Lab Environment")
     
  1. Azure Arc enabled Kubernetes deploys a few operators into the azure-arc namespace. You can view these deployments and pods by running the command in the command prompt:  
 
@@ -94,12 +94,12 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
      ```
     The output should be similar as shown below:
     
-    ![](.././media/8.png "Lab Environment")
+    ![](./media/8.png "Lab Environment")
     
     
  1. Navigate to the Resource Group from the Azure portal navigation pane and click on the Resource Group named azure-arc. Look for the resource named **Arc-Data-Demo** of resource type Azure Arc enabled Kubernetes resource.
 
-     ![](.././media/9.png "Lab Environment")
+     ![](./media/9.png "Lab Environment")
         
  # Create custom location of Arc Cluster. 
  
@@ -111,7 +111,7 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
     ```
     The output should be similar as shown below:
     
-    ![](.././media/10.png "Lab Environment")
+    ![](./media/10.png "Lab Environment")
     
     
     -Note: Custom Locations feature is dependent on the Cluster Connect feature. So both features have to be enabled for custom locations to work.Also az connectedk8s enable-features needs to be run on a machine where the kubeconfig file is pointing to the cluster on which the features are to be enabled.
@@ -124,13 +124,13 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
      ```
  1. After running the above command you will notive that the **Installstate** in still pending, this is because the extension will take a few minutes to complete the installation.
 
-    ![](.././media/11.png "Lab Environment")
+    ![](./media/11.png "Lab Environment")
 
  1. To verify the extension installation, Switch back to browser and search for **Kuberenetes - Azure Arc** and select your cluster.
 
  1. Now select **Extension (preview)** from left side menu and check if the Install status in **Installed** or not, if not please refresh after sometime and then check.
 
-    ![](.././media/12.png "Lab Environment")
+    ![](./media/12.png "Lab Environment")
 
  
  1. Now run the below command to get the Azure Resource Manager identifier of the Azure Arc enabled Kubernetes cluster, you will be using the cluster id in later steps while creating the custom location.
@@ -140,7 +140,7 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
     $clusterID
     ```
     -Note: The clusterID is stored in $clusterID parameter and you will be using this parameter only in later steps.
-    ![](.././media/13.png "Lab Environment")
+    ![](./media/13.png "Lab Environment")
     
  1. Now run the below command to get the Azure Resource Manager identifier of the cluster extension deployed on top of Azure Arc enabled Kubernetes cluster, referenced in later steps as extensionId:
 
@@ -150,7 +150,7 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
     ```
       -Note: The extension resource ID is stored in $extensionID parameter and you will be using this parameter only in later steps.
     
-     ![](.././media/14.png "Lab Environment")
+     ![](./media/14.png "Lab Environment")
     
  1. Now run the below command to create custom location by referencing the Azure Arc enabled Kubernetes cluster ID and the extension ID.
 
@@ -160,17 +160,17 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
     ```
     
     The output should be similar as shown below:
-     ![](.././media/15.png "Lab Environment")
+     ![](./media/15.png "Lab Environment")
      
  1. To verify the custom location deployment, Switch back to the browser and login to portal.azure.com if not already done.
 
  1. Search for custom location in search bar and select custom locations. 
 
-     ![](.././media/16.png "Lab Environment")
+     ![](./media/16.png "Lab Environment")
       
  1. After selecting the custom locations from search bar, Select your **azurearc-customlocation** and explore the overview section.
 
-     ![](.././media/17.png "Lab Environment")
+     ![](./media/17.png "Lab Environment")
      
      You can see the namespace and kubernetes cluster details on overview page.
      
@@ -178,15 +178,15 @@ Task 3: Deploy Azure Arc Data Controller from Azure Portal.
 
 1. From the Azure Portal, search for ```Azure arc data controller``` from the search box and then click on it.  
 
-   ![](.././media/18.png "Lab Environment")
+   ![](./media/18.png "Lab Environment")
  
 1. After select the Azure Arc data controller click on ** + Create** button to deploy ```Azure arc data controller```.
 
-    ![](.././media/19.png "Lab Environment")
+    ![](./media/19.png "Lab Environment")
      
 1. Now, on ```Create Azure Arc data controller``` blade select **Azure Arc-enabled Kubernete (direct mode)**. and click on **Next: Data Controller details**.
 
-    ![](.././media/20.png "Lab Environment")
+    ![](./media/20.png "Lab Environment")
    
 1. On **Data controller details** blade enter the following  details:
 
@@ -195,7 +195,7 @@ Task 3: Deploy Azure Arc Data Controller from Azure Portal.
    * Data Controller Name: arcdc
    * Custom location: Select the available custom location from drop down.
 
-      ![](.././media/21.png "Lab Environment")
+      ![](./media/21.png "Lab Environment")
       
    Now scroll down and enter the below details in the remaining sections.
    
@@ -214,27 +214,27 @@ Task 3: Deploy Azure Arc Data Controller from Azure Portal.
    * Tenant ID: 
    * Authority: leave default
    * Client Secret: 
-    ![](.././media/22.png "Lab Environment")
+    ![](./media/22.png "Lab Environment")
    
    After entering all the required details click on **Next : Additional settings**.
 
 1. In Addintional setting blade, Enter the **Log analytics workspace ID and key** that you copied from previos steps and click on **Next : Tags** button.
 
-    ![](.././media/23.png "Lab Environment")
+    ![](./media/23.png "Lab Environment")
     
 1. Leave default on **Tags** blade and click on **Next: Review + Create** button. to start the Azure Arc data controller deployment.
 
 1. On Review + Create blade, you can check all the given details and click on **create** button to start the Azure Arc data controller deployment. 
 
-   ![](.././media/24.png "Lab Environment")
+   ![](./media/24.png "Lab Environment")
    
 1. Once the deployment got completed click on **Go to resource** button.
 
-   ![](.././media/25.png "Lab Environment")
+   ![](./media/25.png "Lab Environment")
    
 1. On Azure Ac data controller resource overview blade, explore the given information about the Namespace and Connection mode.
 
-   ![](.././media/26.png "Lab Environment")
+   ![](./media/26.png "Lab Environment")
    
   # Monitor the creation of azure Arc data controller on cluster.
    
