@@ -243,7 +243,7 @@ Task 3: Deploy Azure Arc Data Controller from Azure Portal.
 1. When the Azure portal deployment status shows the deployment was successful, you can check the status of the Arc data controller deployment on the cluster to run the below command on powershell window:
 
    ```
-   kubectl get datacontrollers -n arcdc
+   kubectl get datacontrollers -n arc
    ```
    
 ## Task 4: Connect to the data controller using Azure Data Studio/ Azure Data CLI.
