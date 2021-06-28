@@ -1,8 +1,10 @@
-## Deploy Azure Database for PostgreSQL server groups - Azure Arc using Azure portal
+## Exercise 3: Deploy Azure Database for PostgreSQL server groups - Azure Arc using Azure portal
+   Duration 40
+
 In this exercise you will be deployming Azure Database for PostgreSQL server groups - Azure Arc on top of a direct mode of Azure Arc data controller.
 Now that you are familiar with the existing Kubernetes cluster and Data controller, let's perform the following in this exercise:
 
-Create a Postgres Hyperscale Server group using Azure portal
+## Create a Postgres Hyperscale Server group using Azure portal
  * Configure & Scale, Connect source database
  * Backup & Restore on Postgres DB
  * Monitor/Visualize with Grafana & Kibana Dashboards****
@@ -613,89 +615,36 @@ Now that you are connected to a data controller, let's view the dashboards for t
   
     > You can learn more about Grafana here: https://docs.microsoft.com/en-us/azure/azure-arc/data/monitor-grafana-kibana
 
-## Task 7: Upload logs, metrics, and usages to Azure Monitor. 
+## Task 7:  View SQL Mi logs in Azure portal.
 
-In this task, let's upload logs for your Azure Arc enabled PostgreSQL Hyperscale server groups to Azure Monitor and view your logs in the Azure portal
-
-1. Now in the command prompt run the following command to make sure that all environment variables required are set. As you can see from the outputs, we have already set the values in the environment for the variables. Azure Log Analytics Workspace has been pre-created for you and the Workspace ID and Shared Key are also added in the environment variables.
-
-   ```BASH
-   echo %WORKSPACE_ID%
-   ```
-
-   ```BASH
-   echo %WORKSPACE_SHARED_KEY%
-   ```
-
-   ```BASH
-   echo %SPN_TENANT_ID%
-   ```
-
-   ```BASH
-   echo %SPN_CLIENT_ID%
-   ```
-
-   ```BASH
-   echo %SPN_CLIENT_SECRET%
-   ```
-
-   ```BASH
-   echo %SPN_AUTHORITY%
-   ```
-
-   > **Note**: You have already added the variables of Service principal details, So you don't have to add these variables value.
-   ![](./images/Echo-env-var.PNG "")
-
-1. In the command prompt run the following to log in to the Azure Arc data controller. Follow the prompts to set the namespace as **arcdc**.
-
-   ```BASH
-   azdata login
-   ```
-
-   ![](./images/Azdata-login.PNG "")
-
-1. Export all logs to the specified file:
-
-   ```BASH
-   azdata arc dc export --type logs --path logs.json
-   ```
+In this task, let's view logs for your Azure Arc enabled PostgreSQL Hyperscale server groups in the Azure portal.
    
-1. Upload logs to an Azure monitor log analytics workspace:
+1. Switch back to azure portal and navigate to your Azure arc enabled SQLMI.
 
-   ```BASH
-   azdata arc dc upload --path logs.json
-   ```
+1. Now select the logs from Left side menu.
+
+    ![](media/45.png "Confirm")
+
+1. if you see any queries window, click on the close button from right corner.
+
+    ![](media/46.png "Confirm")
+     
+1. Now click on **Select scope** button to select the log analytics workspace that is connect with Azure Arc data controller to get the logs.
+
+    ![](media/47.png "Confirm")
+    
+1. Select your log analytics workspace with the name of **logazure-arc** and click on **Apply** button to select the scope.
+    
+    ![](media/47.png "Confirm")
    
-   ![](./images/Export-upload-logs.PNG "")
-
-1. Now to view your logs in the Azure portal, open the Azure portal and then search for log analytics workspace in the search bar at the top and then open it from the search results.
-
-1. In the **Log Analytics workspaces** page, select your workspace.
-
-   ![](./images/Log-workspace.PNG "")
-
-1. Now in your log analytics workspace page, from the left navigation menu under **General** select **Logs** and click on **Get Started**.
-
-   ![](./images/Log-workspace-logs.PNG "")
-
-1. In the logs page, expand Custom Logs at the bottom of the list of tables and you will see a table called **postgresInstances_logs_CL**.
-
-   ![](./images/Logs-table-custom.PNG "")
-
-1. Select the **eye** icon next to the table name then click on the preview data in to pop-up window. 
-
-   ![](./images/Logs-custom-query.png "")
-
-1. Now select the **See in query editor** button at the bottom end of the preview window. 
-
-   ![](./images/Logs-query-editor.PNG "")
-
-1. You will have a query in the query editor that will show the most recent 10 events in the log. In the query editor click on **Run** to display the results.
-
-   ![](./images/Logs-editor-run.PNG "")
-
-   > **Note**  Now you have created the **Log Analytics workspaces** but you can't upload any usages or logs. Move on to next exercise to upload the Logs and usages.
+1. In the logs page, expand Custom Logs at the bottom of the list of tables and you will see a table called **postgresInstances_logs_CL**..
    
+   ![](images/workspace3.png "Confirm")
+
+1. Double click on the table name to generate the query in query editor and click on Run button to execute the query to get the logs.
+   
+   ![](media/49.png "Confirm")
+
 ## After this exercise, you have learned the following
 
    - Create a Postgres Hyperscale Server group using Azure Portal.
