@@ -1,5 +1,7 @@
 # Deploy Azure Arc Data Controller 
- In this Exercise you will Connect the AKS to Azure Arc Kuberenetes cluster and after you will be deploying Azure Arc Data Controller and cutom location with the help of Azure Portal and Az CLI on top of Azure Arc kubernetes cluster.
+  Duration: 30 Minutes
+  
+ In this Exercise you will Connect the AKS to Azure Arc Kuberenetes cluster and after you will be deploying Azure Arc Data Controller with direct connected mode and custom location with the help of Azure Portal and Az CLI on top of Azure Arc kubernetes cluster.
  
  
 ## Exercise 1: Connect Existing Azure Kuberenets Cluset to Azure Arc Kuberenetes cluster.
