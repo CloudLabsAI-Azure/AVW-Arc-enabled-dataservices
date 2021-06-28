@@ -11,11 +11,11 @@
 
 1. Now Search for SQL Managed Instance -  Azure Arc and select it.
 
-   ![](.././media/27.png "Lab Environment")
+   ![](./media/27.png "Lab Environment")
    
 1. Click on create ** + Create ** button to create the SQL Managed instance - Azure Arc.
 
-   ![](.././media/28.png "Lab Environment")
+   ![](./media/28.png "Lab Environment")
  
 1. Now on **Basics** tab enter the below details:
  
@@ -38,7 +38,7 @@
     
     **Compute+ Storage**: Click on **Configure compute + storage**
       
-      ![](.././media/29.png "Lab Environment")
+      ![](./media/29.png "Lab Environment")
       
       
     Now on     **Compute+ Storage** blade enter the following details:
@@ -55,8 +55,8 @@
      * Backup Storage class: leave default
      * Backups volume size (in Gi): 1
     
-      ![](.././media/30.png "Lab Environment")
-      ![](.././media/31.png "Lab Environment")
+      ![](./media/30.png "Lab Environment")
+      ![](./media/31.png "Lab Environment")
     
     After adding all the above details click on **Apply** button.
     
@@ -70,11 +70,11 @@
   
 1. After adding all the required details click on **Review + Create button** to review the all details.
     
-    ![](.././media/32.png "Lab Environment")
+    ![](./media/32.png "Lab Environment")
     
 1  Now Click on **Create** button to start the deployment.  
  
-   ![](.././media/33.png "Lab Environment")
+   ![](./media/33.png "Lab Environment")
  
 1. After some time you see that the deployment of **SQL Managed Instance - Azure Arc** in completed. Now click on Go to resource button to navigate to the resource.
 
@@ -84,18 +84,18 @@
   azdata arc sql mi list
   ```
   
-  ![](.././media/44.png "Lab Environment")
+  ![](./media/44.png "Lab Environment")
   > Note: If the state is showing creating then please run the above command after some time and check if the state is changed to ready or not.This can take upto few minutes to change the state to ready.
 
 1. Now switch back to azure portak and on the overview blade of newly deployed **SQL Managed Instance - Azure Arc**, you can explore the details of namespace and other details of data controller and Azure Arc enabled SQLMI.
 
-    ![](.././media/34.png "Lab Environment")
+    ![](./media/34.png "Lab Environment")
 
   -Note: Please note that the External endpoint details can take few minutes to reflect on azure portal.
  
 1. Copy the **External endpoint** and save it in a notepad, we will use it later while connecting to SQLMI using Azure data studio.
 
-   ![](.././media/34.png "Lab Environment")
+   ![](./media/34.png "Lab Environment")
 
 
 
