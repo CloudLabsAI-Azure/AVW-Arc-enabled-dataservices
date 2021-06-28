@@ -228,10 +228,104 @@ Task 3: Deploy Azure Arc Data Controller from Azure Portal.
 
    ![](.././media/24.png "Lab Environment")
    
-1. Once the deployment got completed got completed click on **Go to resource** button.
+1. Once the deployment got completed click on **Go to resource** button.
 
    ![](.././media/25.png "Lab Environment")
    
 1. On Azure Ac data controller resource overview blade, explore the given information about the Namespace and Connection mode.
 
    ![](.././media/26.png "Lab Environment")
+   
+  # Monitor the creation of azure Arc data controller on cluster.
+   
+1. When the Azure portal deployment status shows the deployment was successful, you can check the status of the Arc data controller deployment on the cluster to run the below command on powershell window:
+
+   ```
+   kubectl get datacontrollers -n arcdc
+   ```
+   
+## Task 4: Connect to the data controller using Azure Data Studio/ Azure Data CLI.
+
+Now let us connect to the data controller using Azure Data Studio and Azure Data CLI
+
+In the environment provided, the Azure Arc Data controller is already deployed on to the Kubernetes Cluster. We are using **indirect** connectivity mode for the Azure Arc enabled data services environment to Azure.
+  
+   > ***Info***: There are multiple modes available to connect to Azure. if the Azure Arc enabled data services are directly connected to Azure, then users can use Azure Resource Manager APIs, the Azure CLI, and the Azure portal to operate the Azure Arc data services. The experience in directly connected mode is much like how you would use any other Azure service with provisioning/de-provisioning, scaling, configuring, and so on all in the Azure portal.
+   
+   If you want to know more about this, refer to the [Connectivity Modes](https://docs.microsoft.com/en-us/azure/azure-arc/data/connectivity)
+
+   First let us see how to connect to the data controller using Azure Data CLI.
+
+1. On your JumpVM, open a **Command Prompt** window from the desktop shortcut if not already opened.
+
+1. Run the following command in the command prompt window.
+
+   ```BASH
+   azdata login
+   ```
+   
+   ![](./images/azdata.png "azdata")
+   
+1. When prompted to enter the Namespace, copy the value of Arc DC Name from the Environment details page and paste it in the command prompt. After executing the command, copy the data controller service API endpoint URL value from the output to a **Notepad**.
+
+   ![](./images/namespace.png "namespace")
+   
+   ![](./images/endpoint.png "endpoint")
+   
+1. Now you are logged in to the Azure Arc data controller. You can minimize the command prompt window.
+
+1. Next, let us see how to connect to Azure Arc Data controller using Azure data studio.
+
+1. On your JumpVM, open **Azure Data studio** from the desktop shortcut and select **Connections**.
+
+   ![](./images/arcdc.png "Connection")
+   
+1. In the **Connections** panel under **Azure Arc Controllers**, click on **Connect Controller**.
+
+1. In the **Connect to Controller** page, provide the following details and click on **Connect**.
+
+   - **Controller URL**: Enter the Azure Arc data controller service API endpoint URL value which you copied to **Notepad** earlier 
+   
+   - **Name** : Enter arcdc
+     ```BASH
+     arcdc
+     ```
+   
+   - **Username** : Enter arcuser
+     ```BASH
+     arcuser
+     ```
+   
+   - **Password** : Enter Password.1!!
+     ```BASH
+     Password.1!!
+     ```
+   
+   - Select the Remember Password checkbox
+   
+     ![](./images/loginarc.png "")
+    
+1. Once the connection is successful, you can see the Azure Arc data controller listed under Azure Arc Controllers on the bottom left of the Azure Data Studio.
+
+    ![](./images/arcdatacontroller.png "")
+
+## Task 5: Monitor with Data Controller Dashboard
+
+Now that you are connected to an Azure Arc data controller, let us view the dashboards for the data controller and any SQL managed instances or PostgreSQL Hyperscale server group resources that you have.
+
+1. In the **Connections** panel, under **AZURE ARC CONTROLLERS**, right-click on the **arcdc** data controller and select **Manage**.
+
+   > **Note**: You will see that there is no Azure Arc Resources. This is because you have not deployed any resource on the Azure Arc data services environment yet. In the next exercises, you will be deploying the resources.
+
+    ![](./images/arcconnect.png "")
+
+1. Once you are in the Azure Arc Data Controller dashboard, you can see following details about the data controller 
+   - Name of the Arc Data Controller
+   - Region where it is deployed
+   - Connection mode
+   - Resource Group
+   - Subscription ID of the Azure Subscription
+   - Controller Endpoint
+   - Namespace
+   
+   You will also see that we have deployed using the Direct connection mode of the Azure Arc Data controller.
