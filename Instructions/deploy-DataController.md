@@ -77,8 +77,6 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
  1. Once the previous command is executed successfully, the provisioning state in output will show as succeeded.
 
      ![](./media/6.png "Lab Environment")
-   
- 1. Now let us verify if the Kubernetes cluster is connected to Azure Arc and is in a healthy state.
 
  1. Verify whether the Azure Arc Kubernets cluster is connected by running the following command:
 
