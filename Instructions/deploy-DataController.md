@@ -4,9 +4,9 @@
  In this Exercise you will Connect the AKS to Azure Arc Kuberenetes cluster and after you will be deploying Azure Arc Data Controller with direct connected mode and custom location with the help of Azure Portal and Az CLI on top of Azure Arc kubernetes cluster.
  
  
-## Exercise 1: Connect Existing Azure Kuberenets Cluset to Azure Arc Kuberenetes cluster.
+# Exercise 1: Connect Existing Azure Kuberenets Cluset to Azure Arc Kuberenetes cluster.
  
- # Task 1: Login to Azure and install Azure CLI extensions.
+ ## Task 1: Login to Azure and install Azure CLI extensions.
  
 1. Open **Windows Powershell** from the desktop of your ARCHOST VM and run the below command to login to Azure.
     ```
