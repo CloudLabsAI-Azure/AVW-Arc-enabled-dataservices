@@ -363,111 +363,33 @@ In this scenario, you will be using the command kubectl cp to copy the file from
 
 5. Now you can see that the database is created.
    
-## Task 6: View SQL MI resource and SQL Mi logs in Azure portal.
+## Task 6: View SQL Mi logs in Azure portal.
    
-Now that we have the database created, let us upload some metrics, usages, and logs to the Azure Portal and view SQLMI Resource in the Azure portal.
+Now that we have the database created, let us view some metrics, usages, and logs in the Azure portal.
    
-1. Navigate back to the command prompt window. Login to the Azure Arc Data controller using the below command if you are not already logged in.
-   
-   ```
-   azdata login
-   ```
+1. Switch back to azure portal and navigate to your Azure arc enabled SQLMI.
 
-1. Run these below commands to check if the variables are set or not.
-   
-   ```BASH
-   echo %WORKSPACE_ID%
-   ```
+1. Now select the logs from Left side menu.
 
-   ```BASH
-   echo %WORKSPACE_SHARED_KEY%
-   ```
+    ![](media/45.png "Confirm")
 
-   ```BASH
-   echo %SPN_TENANT_ID%
-   ```
+1. if you see any queries window, click on the close button from right corner.
 
-   ```BASH
-   echo %SPN_CLIENT_ID%
-   ```
-
-   ```BASH
-   echo %SPN_CLIENT_SECRET%
-   ```
-
-   ```BASH
-   echo %SPN_AUTHORITY%
-   ```
-       
-1. If the variables are not defined, set it now using the below commands.
-   
-   ```
-   SET WORKSPACE_ID=<customerId>
-   ```
-
-   ```
-   SET WORKSPACE_SHARED_KEY=<primarySharedKey>
-   ```
-
-   ```
-   SET SPN_CLIENT_ID=<appId>
-   ```
-
-   ```   
-   SET SPN_CLIENT_SECRET=<password>
-   ```
-
-   ```
-   SET SPN_TENANT_ID=<tenant>
-   ```
-
-   ```
-   SET SPN_AUTHORITY=https://login.microsoftonline.com
-   ```
-
-   > **Note**: You can get the workspace ID and key from the Azure portal and service principal details from the Environment Details tab at the top and then navigating to Service Principal details.
-
-1. Export all logs to the specified file:
-   
-   ```
-   azdata arc dc export --type logs --path logs.json
-   ```
-
-1. Upload logs to an Azure monitor log analytics workspace:
-      
-   > **Note**: We have already deployed the log analytics workspace in the previous exercise.
-   
-   ```
-   azdata arc dc upload --path logs.json
-   ```
-      
-1. After some time, you will see some outputs uploaded to Azure.
-
-   ![](images/logs.png "Confirm")
-    
-1. Now open the Azure portal and search for **Azure SQL Managed instances - azure arc**  and select the resource.
-
-   ![](images/sqlportal1.png "Confirm")
-      
-1. Now you will see some basic information about the Azure Arc enabled SQL MI.
-      
-   ![](images/sqlportal2.png "Confirm")
-   
-1. Now to view your logs in the Azure portal, open the Azure portal and then search for your log analytics workspace by name in the search bar at the top and then select it.
-
-1. In the **Log Analytics workspaces** page, select your workspace.
-   
-   ![](images/workspace.png "Confirm")
-
-1. Now in your log analytics workspace page, from the left navigation menu under **General** select **Logs** and one page will open, on the age click on close button.
+    ![](media/46.png "Confirm")
      
-   ![](images/workspace2.png "Confirm")
+1. Now click on **Select scope** button to select the log analytics workspace that is connect with Azure Arc data controller to get the logs.
 
-1. In the logs page, expand Custom Logs at the bottom of the list of tables and you will see a table called **sqlManagedInstances_lo**.
+    ![](media/47.png "Confirm")
+    
+1. Select your log analytics workspace with the name of **logazure-arc** and click on **Apply** button to select the scope.
+    
+    ![](media/47.png "Confirm")
+   
+1. In the logs page, expand Custom Logs at the bottom of the list of tables and you will see a table called **sqlManagedInstances#####**.
    
    ![](images/workspace3.png "Confirm")
 
-1. Select the **eye** icon next to the table name and select the **View in the query editor** button.
+1. Double click on the table name to generate the query.
    
    ![](images/workspace4.png "Confirm")
 
