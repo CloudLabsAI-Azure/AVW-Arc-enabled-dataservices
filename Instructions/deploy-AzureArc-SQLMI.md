@@ -22,7 +22,7 @@
  
    **Under project details**
     
-    **Subscription: Leave default.
+    **Subscription**: Leave default.
     
     **Resource Group**: Select azure-arc from drop down
     
@@ -78,7 +78,16 @@
  
 1. After some time you see that the deployment of **SQL Managed Instance - Azure Arc** in completed. Now click on Go to resource button to navigate to the resource.
 
-1. Now on the overview blade of newly deployed **SQL Managed Instance - Azure Arc**, you can explore the details of namespace and other details of data controller and Azure Arc enabled SQLMI.
+ ## validate the **Azure SQL Managed Instance - Azure Arc** is deployed.
+ 
+  ```
+  azdata arc sql mi list
+  ```
+  
+  ![](.././media/44.png "Lab Environment")
+  > Note: If the state is showing creating then please run the above command after some time and check if the state is changed to ready or not.This can take upto few minutes to change the state to ready.
+
+1. Now switch back to azure portak and on the overview blade of newly deployed **SQL Managed Instance - Azure Arc**, you can explore the details of namespace and other details of data controller and Azure Arc enabled SQLMI.
 
     ![](.././media/34.png "Lab Environment")
 
@@ -86,7 +95,7 @@
  
 1. Copy the **External endpoint** and save it in a notepad, we will use it later while connecting to SQLMI using Azure data studio.
 
-1.
+   ![](.././media/34.png "Lab Environment")
 
 
 
