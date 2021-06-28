@@ -78,25 +78,20 @@ Task 1: Create Azure Database for PostgreSQL server groups - Azure Arc
 
     ![](./media/42.png "Lab Environment")
    -Note : Please note that the **External endpoint** can take upto 5 mintues to reflect on Azure portal.
+  #Validate the deployment of Azure Arc enabled PostgreSQL.
   
-1. Once **External endpint** is available on azure portal please copy the endpoint and save it in a nptepad for later use.
-
-
-
-
-
-
-
-
-**Connect source database and Azure Arc enabled PostgreSQL server**
-
-1. Open the command prompt window and run the following to get the Postgres servers list in AKS using the Azure Arc data controller. You will see the output as mentioned in the screenshot below.
+  1. Open the command prompt window and run the following to get the Postgres servers list in AKS using the Azure Arc data controller. You will see the output as mentioned in the screenshot below.
    
    ```BASH
    azdata arc postgres server list
    ```
-  
    ![](./images/serverlist-output.png "")
+   
+1. Once the status of postgre SQL is changed to ready, Switch back to azure portal and on overview blade of Azure Arc enabled PostgreSQL serveryou will see that  **External endpint** is available on azure portal now, Please copy the endpoint and save it in a nptepad for later use.
+
+
+**Connect source database and Azure Arc enabled PostgreSQL server**
+
 
 1. On your JumpVM, open the PgAdmin tool from the start menu to connect to the Azure arc enabled Postgres Hyperscale database 
 
