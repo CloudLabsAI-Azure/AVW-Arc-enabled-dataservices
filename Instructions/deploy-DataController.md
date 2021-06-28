@@ -245,12 +245,14 @@ Task 3: Deploy Azure Arc Data Controller from Azure Portal.
    ```
    kubectl get datacontrollers -n arc
    ```
-   
+ 1. Once the data controller state is changed to ready then proceed to next steps, Please note the data controller deployment can take 5 to 10 minutes to change it to ready.
+
+
 ## Task 4: Connect to the data controller using Azure Data Studio/ Azure Data CLI.
 
 Now let us connect to the data controller using Azure Data Studio and Azure Data CLI
 
-In the environment provided, the Azure Arc Data controller is already deployed on to the Kubernetes Cluster. We are using **indirect** connectivity mode for the Azure Arc enabled data services environment to Azure.
+In this lab we have deployed  Azure Arc Data controller with directly connected mode on to the Kubernetes Cluster. 
   
    > ***Info***: There are multiple modes available to connect to Azure. if the Azure Arc enabled data services are directly connected to Azure, then users can use Azure Resource Manager APIs, the Azure CLI, and the Azure portal to operate the Azure Arc data services. The experience in directly connected mode is much like how you would use any other Azure service with provisioning/de-provisioning, scaling, configuring, and so on all in the Azure portal.
    
