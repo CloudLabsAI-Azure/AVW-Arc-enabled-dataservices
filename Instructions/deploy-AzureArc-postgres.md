@@ -1,5 +1,5 @@
 ## Exercise 3: Deploy Azure Database for PostgreSQL server groups - Azure Arc using Azure portal
-   Duration 40
+   Duration: 40 Minutes
 
 In this exercise you will be deployming Azure Database for PostgreSQL server groups - Azure Arc on top of a direct mode of Azure Arc data controller.
 Now that you are familiar with the existing Kubernetes cluster and Data controller, let's perform the following in this exercise:
