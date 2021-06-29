@@ -174,8 +174,18 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
     ![](./media/17.png "Lab Environment")
      
 1. You can see the namespace and kubernetes cluster details on overview page.
+
+1. Now search for the log analytics workspace in you azure portal and navigate to ```logazure-arc``` workspace. 
+
+1. Select **Agent managment** from the left side menu.
+
+    ![](./media/50.png "Lab Environment")
+    
+1. Now in the Agent managment window copy the value of **Workspace ID** and **Primary key** and save the values in a notepad for later use while creating the Azure arc data controller.
      
-## Task 3: Deploy Azure Arc Data Controller from Azure Portal.
+    ![](./media/51.png "Lab Environment")
+    
+   ## Task 3: Deploy Azure Arc Data Controller from Azure Portal.
 
 1. From the Azure Portal, search for ```Azure arc data controller``` from the search box and then click on it.  
 
