@@ -639,7 +639,7 @@ In this task, let's view logs for your Azure Arc enabled PostgreSQL Hyperscale s
    
 1. In the logs page, expand Custom Logs at the bottom of the list of tables and you will see a table called **postgresInstances_logs_CL**..
    
-   ![](images/54.png "Confirm")
+   ![](media/54.png "Confirm")
 
 1. Double click on the table name to generate the query in query editor and click on Run button to execute the query to get the logs.
    
