@@ -7,7 +7,7 @@ Now that you are familiar with the existing Kubernetes cluster and Data controll
 ## Create a Postgres Hyperscale Server group using Azure portal
  * Configure & Scale, Connect source database
  * Backup & Restore on Postgres DB
- * Monitor/Visualize with Grafana & Kibana Dashboards****
+ * Monitor/Visualize with Grafana & Kibana Dashboards
 
 Task 1: Create Azure Database for PostgreSQL server groups - Azure Arc
 
@@ -17,11 +17,11 @@ Task 1: Create Azure Database for PostgreSQL server groups - Azure Arc
 
     ![](./media/36.png "Lab Environment")
    
-1. After selecting the **Azure Database for PostgreSQL server groups - Azure Arc* from the list click on **Create** button.
+1. After selecting the **Azure Database for PostgreSQL server groups - Azure Arc** from the list click on **Create** button.
 
     ![](./media/37.png "Lab Environment")
     
-1. Now on **Basic** blade of **Azure Database for PostgreSQL server groups - Azure Arc* enter the below details in the required fields:
+1. Now on **Basic** blade of **Azure Database for PostgreSQL server groups - Azure Arc** enter the below details in the required fields:
 
    * Subscription: Leave default
    * Resource Group: Select azure-arc from the drop down list
@@ -34,10 +34,7 @@ Task 1: Create Azure Database for PostgreSQL server groups - Azure Arc
    
    * **Service type**: Select **Load balancer** from drop down
     
-   * **Compute+ Storage**: Click on **Configure compute + storage**
-      
-      ![](./media/37.png "Lab Environment")
-      
+   * **Compute+ Storage**: Click on **Configure compute + storage**      
       
    Now on **Compute+ Storage** blade enter the following details:
    
@@ -58,6 +55,7 @@ Task 1: Create Azure Database for PostgreSQL server groups - Azure Arc
    * Memory limit (in GiB): ```2```
 
   Now click on apply to save these values.
+  
    ![](./media/39.png "Lab Environment")
    
   * Extension: Leave default(citus)
