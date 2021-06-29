@@ -42,7 +42,7 @@
       ![](./media/29.png "Lab Environment")
       
       
-    Now on     **Compute+ Storage** blade enter the following details:
+    Now on **Compute+ Storage** blade enter the following details:
     
      * High availability : Select 1 replica
      * Memory Limit(in Gi): Enter 4
@@ -73,7 +73,7 @@
     
     ![](./media/32.png "Lab Environment")
     
-1  Now Click on **Create** button to start the deployment.  
+1. Now Click on **Create** button to start the deployment.  
  
     ![](./media/33.png "Lab Environment")
  
