@@ -9,7 +9,7 @@ Now that you are familiar with the existing Kubernetes cluster and Data controll
  * Backup & Restore on Postgres DB
  * Monitor/Visualize with Grafana & Kibana Dashboards
 
-Task 1: Create Azure Database for PostgreSQL server groups - Azure Arc
+## Task 1: Create Azure Database for PostgreSQL server groups - Azure Arc
 
 1. Open you browser and navigate to portal.azure.com and login with you alb credentials if not already done.
 
@@ -23,46 +23,46 @@ Task 1: Create Azure Database for PostgreSQL server groups - Azure Arc
     
 1. Now on **Basic** blade of **Azure Database for PostgreSQL server groups - Azure Arc** enter the below details in the required fields:
 
-   * Subscription: Leave default
-   * Resource Group: Select azure-arc from the drop down list
+    * Subscription: Leave default
+    * Resource Group: Select azure-arc from the drop down list
 
-**Under Managed Instance details**
+   **Under Managed Instance details**
    
-   * **Instance name**: Enter arcpostgres
+    * **Instance name**: Enter arcpostgres
   
-   * **Custom location**: Select available custom location from dropdown.
+    * **Custom location**: Select available custom location from dropdown.
    
-   * **Service type**: Select **Load balancer** from drop down
+    * **Service type**: Select **Load balancer** from drop down
     
-   * **Compute+ Storage**: Click on **Configure compute + storage**      
+    * **Compute+ Storage**: Click on **Configure compute + storage**      
       
-   Now on **Compute+ Storage** blade enter the following details:
+    Now on **Compute+ Storage** blade enter the following details:
    
-   * Number of worker nodes : Enter 2
-   * Data storage class: leave default
-   * data volume size (in Gi): 1
-   * Data-logs storage class: leave default
-   * Data-logs volume size(in Gi): 1
-   * Logs storage class: Leave deault
-   * Logs storage class: Enter 1
-   * Backup Storage class: leave default
-   * Backups volume size (in Gi): 1
+    * Number of worker nodes : Enter 2
+    * Data storage class: leave default
+    * data volume size (in Gi): 1
+    * Data-logs storage class: leave default
+    * Data-logs volume size(in Gi): 1
+    * Logs storage class: Leave deault
+    * Logs storage class: Enter 1
+    * Backup Storage class: leave default
+    * Backups volume size (in Gi): 1
 
-   ![](./media/38.png "Lab Environment")
-   * CPU Request: ```1```
-   * CPU limit: ```2```
-   * Memory request (in GiB): ```2```
-   * Memory limit (in GiB): ```2```
+     ![](./media/38.png "Lab Environment")
+    * CPU Request: ```1```
+    * CPU limit: ```2```
+    * Memory request (in GiB): ```2```
+    * Memory limit (in GiB): ```2```
 
-  Now click on apply to save these values.
+   Now click on apply to save these values.
   
-   ![](./media/39.png "Lab Environment")
+     ![](./media/39.png "Lab Environment")
    
-  * Extension: Leave default(citus)
+    * Extension: Leave default(citus)
   
-  Under administrator account.
-  * Password: ```Password.1!!```
-  * Confirm Password : ```Password.1!!```
+   Under administrator account.
+    * Password: ```Password.1!!```
+    * Confirm Password : ```Password.1!!```
 
 
 1. After adding all the details click on **Review + Create** button to validate all the added details.
@@ -79,9 +79,9 @@ Task 1: Create Azure Database for PostgreSQL server groups - Azure Arc
 
     ![](./media/42.png "Lab Environment")
  
-  > -Note : Please note that the **External endpoint** can take upto 5 mintues to reflect on Azure portal.
+  > **Note:** Please note that the **External endpoint** can take upto 5 mintues to reflect on Azure portal.
 
-#Validate the deployment of Azure Arc enabled PostgreSQL.
+# Validate the deployment of Azure Arc enabled PostgreSQL.
   
 1. Open the command prompt window and run the following to get the Postgres servers list in AKS using the Azure Arc data controller. You will see the output as mentioned in the screenshot below.
    
@@ -169,12 +169,11 @@ Let's take a backup of the Postgres Server running on a server named **PostgreLo
    Password.!!1
    ```
 
-   ![](./images/ex3-pgadmin-server-expand.png "")
+    ![](./images/ex3-pgadmin-server-expand.png "")
    
 1. You will get below screen after entring the password.
 
    ![](./images/pg-source-db.png "")   
-
    
 1. Then right-click on the **Arc-Demo-PG** and select **Backup...** option
 
@@ -191,7 +190,7 @@ Let's take a backup of the Postgres Server running on a server named **PostgreLo
      ```BASH
      Custom
      ```
-
+     
    ![](./images/postgresdatabase.png "")
 
 1. You can keep rest of the values as default and then click on **Backup**.
@@ -225,9 +224,7 @@ Now, you will restore the database into your Arc enabled data services environme
 1. In the restore window that comes up, provide the following path for the Filename: **C:\Users\arcadmin\Arc-Demo-Bkp**
    ```BASH
    C:\Users\arcadmin\Arc-Demo-Bkp
-   ```
-
-   
+   ``` 
 
 1. Keep the default values for the rest of the options and then click on **Restore**.
    
