@@ -64,6 +64,7 @@ Task 1: Create Azure Database for PostgreSQL server groups - Azure Arc
   * Password: ```Password.1!!```
   * Confirm Password : ```Password.1!!```
 
+
 1. After adding all the details click on **Review + Create** button to validate all the added details.
  
    ![](./media/40.png "Lab Environment")
@@ -77,10 +78,12 @@ Task 1: Create Azure Database for PostgreSQL server groups - Azure Arc
 1. On the overview page of Azure Database for PostgreSQL server groups - Azure Arc using Azure portal, you can see all the detials and configirations.
 
     ![](./media/42.png "Lab Environment")
-   -Note : Please note that the **External endpoint** can take upto 5 mintues to reflect on Azure portal.
-  #Validate the deployment of Azure Arc enabled PostgreSQL.
+ 
+  > -Note : Please note that the **External endpoint** can take upto 5 mintues to reflect on Azure portal.
+
+#Validate the deployment of Azure Arc enabled PostgreSQL.
   
-  1. Open the command prompt window and run the following to get the Postgres servers list in AKS using the Azure Arc data controller. You will see the output as mentioned in the screenshot below.
+1. Open the command prompt window and run the following to get the Postgres servers list in AKS using the Azure Arc data controller. You will see the output as mentioned in the screenshot below.
    
    ```BASH
    azdata arc postgres server list
