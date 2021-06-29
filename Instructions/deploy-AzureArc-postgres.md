@@ -33,7 +33,7 @@ Now that you are familiar with the existing Kubernetes cluster and Data controll
       * **Service type**: Select **Load balancer** from drop down    
       * **Compute+ Storage**: Click on **Configure compute + storage**      
     
-     Now on **Compute+ Storage** blade enter the following details:
+      Now on **Compute+ Storage** blade enter the following details:
    
       * Number of worker nodes : Enter 2
       * Data storage class: leave default
@@ -65,11 +65,11 @@ Now that you are familiar with the existing Kubernetes cluster and Data controll
 
 1. After adding all the details click on **Review + Create** button to validate all the added details.
  
-   ![](./media/40.png "Lab Environment")
+    ![](./media/40.png "Lab Environment")
 
 1. Now Click on **Create** button to start the deployment. Note that the deployment can take up to few minutes.
  
-   ![](./media/41.png "Lab Environment")
+    ![](./media/41.png "Lab Environment")
    
 1. Once the deployment got completed you will see the **Go to resource** button, click on that button and navigate to the newly created Azure Database for PostgreSQL server groups - Azure Arc.
 
