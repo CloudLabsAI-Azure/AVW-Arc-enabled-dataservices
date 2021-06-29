@@ -213,7 +213,7 @@ First, let's create an empty database on the destination system in your Azure Ar
 
    ![](./images/pg-dest-db-create02.png "")
 
-Now, you will restore the database into your Arc enabled data services environment:
+   Now, you will restore the database into your Arc enabled data services environment:
 
 1. Expand the postres01 server by clicking on the " > " icon next to postgres01.
 
@@ -445,33 +445,33 @@ In this task, let's see how to backup the database in Arc enabled PostgreSQL Ser
    
 1. You can look at the shard placements in *pg_dist_placement*. Joining it with the other metadata tables you can see where each shard is placed.
 
-   ```BASH
-   select
-    shard.logicalrelid as table,
-    placement.shardid as shard,
-    node.nodename as host
-   from
-    pg_dist_placement placement,
-    pg_dist_node node,
-    pg_dist_shard shard
-   where placement.groupid = node.groupid
-     and shard.shardid = placement.shardid
-   order by shard
-   limit 5;
-   ```
+    ```BASH
+    select
+     shard.logicalrelid as table,
+     placement.shardid as shard,
+     node.nodename as host
+    from
+     pg_dist_placement placement,
+     pg_dist_node node,
+     pg_dist_shard shard
+    where placement.groupid = node.groupid
+      and shard.shardid = placement.shardid
+    order by shard
+    limit 5;
+     ```
    
-   ![](./images/pg-shard-query-06.png "")
+    ![](./images/pg-shard-query-06.png "")
    
-   > **Note**: In the above result you can see distribution of shards into different worker nodes under *host text* coloumn. 
+    > **Note**: In the above result you can see distribution of shards into different worker nodes under *host text* coloumn. 
 
 
 1. Run the following query to find the average age of users which gets data from distributed table **users**. 
 
-   ```BASH
-   select avg(current_date - bday) as avg_days_old from users;
-   ```
+    ```BASH
+    select avg(current_date - bday) as avg_days_old from users;
+    ```
 
-   You have executed the above query by treating the distributed **users** table like it's a normal table
+    You have executed the above query by treating the distributed **users** table like it's a normal table
 
    ![](./images/pg-shard-query-09.png "")
 
