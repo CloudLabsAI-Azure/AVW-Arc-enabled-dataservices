@@ -184,8 +184,8 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
 1. Now in the Agent managment window copy the value of **Workspace ID** and **Primary key** and save the values in a notepad for later use while creating the Azure arc data controller.
      
     ![](./media/51.png "Lab Environment")
-    
-   ## Task 3: Deploy Azure Arc Data Controller from Azure Portal.
+      
+## Task 3: Deploy Azure Arc Data Controller from Azure Portal.
 
 1. From the Azure Portal, search for ```Azure arc data controller``` from the search box and then click on it.  
 
