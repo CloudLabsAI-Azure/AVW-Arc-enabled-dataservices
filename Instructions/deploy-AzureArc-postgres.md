@@ -95,14 +95,21 @@ Task 1: Create Azure Database for PostgreSQL server groups - Azure Arc
 
 **Connect source database and Azure Arc enabled PostgreSQL server**
 
-
-1. On your JumpVM, open the PgAdmin tool from the start menu to connect to the Azure arc enabled Postgres Hyperscale database 
-
-   ![](./images/pgadmin-startmenu.png "")   
-
-   > Note: If you get any prompts to unlock master password, please provide "Password.1!!", select Save Password and then click on OK.
+1. Open the **command prompt** window and run the following to get the Postgres servers list in AKS using the Azure Arc data controller. You will see the output as mentioned in the screenshot below.
+   
    ```BASH
-   Password.1!!
+   azdata arc postgres server list
+   ```
+  
+   ![](./images/serverlist-output.png "")
+
+1. On your LabVM, open the **PgAdmin** tool from desktop to connect to the Azure arc enabled Postgres Hyperscale database.
+
+   ![](./images/select-pgAdmin.png "")   
+
+   > **Note**: If you get any prompts to unlock master password, please provide `Password.!!1`, select **Save Password** and then click on **OK**.
+   ```BASH
+   Password.!!1
    ```
 
 1. Now, right-click on the Servers and click on **Create**. Then, click on **Server**.
@@ -118,14 +125,14 @@ Task 1: Create Azure Database for PostgreSQL server groups - Azure Arc
    
    ![](./images/pg-add-arc-db.png "")
 
-1. Run the following command in command prompt window to get connection string details for postgres01 server endpoint.
+1. Run the following command in command prompt window to get connection string details for **postgres01** server endpoint.
 
    ```BASH
    azdata arc postgres endpoint list -n arcpostgres
    ```
    ![](images/arcpostgres-connstring.png "")
 
-1. Now, select the connection tab and enter the connection string details by getting the values from the output of the previous azdata endpoint list command. You will see the following line in the previous output. Fetch the IP Address from the endpoint URL and add it in the connection string details.
+1. Now, select the connection tab and enter the connection string details by getting the values from the output of the previous azdata endpoint list command. You will see the following line in the previous output. Fetch the **IP Address** from the endpoint URL and add it in the **connection string details**.
 
    ```BASH
    PostgreSQL Instance   postgresql://postgres:<replace with password>@40.121.8.176:5432
@@ -136,13 +143,13 @@ Task 1: Create Azure Database for PostgreSQL server groups - Azure Arc
    - Username: postgres
    - Password: 
      ```
-     Password.1!!
+     Password.!!1
      ```
    - Tick "Save Password?" field
 
    ![](./images/pg-add-arc-db02.png "")
 
-1. After you click on Save, you will be connected to the server.
+1. After you click on **Save**, you will be connected to the server.
 
    ![](images/arcpostgres-conn-server.png "")
 
@@ -156,26 +163,28 @@ Let's take a backup of the Postgres Server running on a server named **PostgreLo
 
 #### Take a backup of the source database in on-premises
 
-1. In the pgAdmin, click on the arrow icon next to postgreLocal Server to expand the menu
+1. In the pgAdmin, click on the arrow icon next to **PostgreLocal** Server to expand the menu. If you get any prompts for password, please provide "Password.!!1"
+  
+   ```BASH
+   Password.!!1
+   ```
 
    ![](./images/ex3-pgadmin-server-expand.png "")
-
-   ![](./images/pg-source-db.png "")
    
-    > Note: If you get any prompts for password, please provide "Password.1!!"
-   ```BASH
-   Password.1!!
-   ```
-   
-1. Then right-click on the Arc-Demo-PG and select **Backup..** option
+1. You will get below screen after entring the password.
 
-   ![](./images/pg-source-db-backup.png "")
+   ![](./images/pg-source-db.png "")   
+
+   
+1. Then right-click on the **Arc-Demo-PG** and select **Backup...** option
+
+   ![](./images/postgresdatabase.png "")
 
 1. Then provide the following details: 
 
-   - Filename: **C:\Users\arcdemo\Arc-Demo-Bkp**
+   - Filename: **C:\Users\arcadmin\Arc-Demo-Bkp**
      ```BASH
-     C:\Users\arcdemo\Arc-Demo-Bkp
+     C:\Users\arcadmin\Arc-Demo-Bkp
      ```
         
    - Format: **Custom**
@@ -183,7 +192,7 @@ Let's take a backup of the Postgres Server running on a server named **PostgreLo
      Custom
      ```
 
-   ![](./images/pg-source-db-backup01.png "")
+   ![](./images/postgresdatabase.png "")
 
 1. You can keep rest of the values as default and then click on **Backup**.
 
@@ -199,31 +208,30 @@ Now let's restore the sample database **Arc-Demo-Bkp** from source server **Post
 
 First, let's create an empty database on the destination system in your Azure Arc enabled PostgreSQL Hyperscale server group
 
-1. Right-click on the postgres01 server on the pgAdmin and then Select Create -> Database option from postgres01 database menu
+1. Right-click on the **postgres01** server on the pgAdmin and then Select **Create -> Database** option from postgres01 database menu
 
    ![](./images/pg-dest-db-create.png "")
 
-1. In the create window that comes up, provide the Database name as **Restored_Arc-Demo-PG** and then click on the Save button at the bottom of the blade.
+1. In the create window that comes up, provide the Database name as **Restored_Arc-Demo-PG** and then click on the **Save** button at the bottom of the blade.
 
    ![](./images/pg-dest-db-create02.png "")
 
 Now, you will restore the database into your Arc enabled data services environment:
 
-
 1. Expand the postres01 server by clicking on the " > " icon next to postgres01.
 
 1. Right-click on the **Restored_Arc-Demo-PG** database and then click on the **Restore** option.
 
-1. In the restore window that comes up, provide the following path for the Filename: **C:\Users\arcdemo\Arc-Demo-Bkp**
+1. In the restore window that comes up, provide the following path for the Filename: **C:\Users\arcadmin\Arc-Demo-Bkp**
    ```BASH
-   C:\Users\arcdemo\Arc-Demo-Bkp
+   C:\Users\arcadmin\Arc-Demo-Bkp
    ```
 
-   ![](./images/pg-dest-db-restore.png "")
+   
 
 1. Keep the default values for the rest of the options and then click on **Restore**.
    
-   ![](./images/pg-dest-db-restore.png "")
+   ![](./images/restore2.png "")
    
 1. Now, a restore job will be created which will take around 1 second to complete successfully. 
       
@@ -233,15 +241,15 @@ Now, you will restore the database into your Arc enabled data services environme
 
 #### **Verification of the restored database on Azure Arc enabled PostgreSQL Hyperscale server group**:
 
-Now we are done with the backup and restoration, let's verify if the database has been restored from the database running on the source server to the Arc enabled PostgreSQL Server by querying the data in both databases.
+Now, we are done with the backup and restoration, let's verify if the database has been restored from the database running on the source server to the Arc enabled PostgreSQL Server by querying the data in both databases.
 
    Now, use PgAdmin in which you are already connected to both Postgres instances ( local and Arc ).
 
-1. First, you will connect to the database **Arc-Demo-PG** in PostgreLocal server and query the row count in table pgbench_accounts:
+1. First, you will connect to the database **Arc-Demo-PG** in **PostgreLocal** server and query the row count in table pgbench_accounts:
 
 1. Right-click on the database **Arc-Demo-PG**  and select Query tool to open a new query window 
 
-   ![](./images/pg-query-tool-db.png "")
+   ![](./images/arcpostgres.png "")
 
 1. Copy and paste the below query in the Query Editor 
 
@@ -277,7 +285,7 @@ In this task, let us work on the Distribution (Shard) of data on worker nodes.
 
    > ***Info***: Distributing table rows across multiple PostgreSQL servers is a key technique for scalable queries in Hyperscale (Citus). Together, multiple nodes can hold more data than a traditional database, and in many cases can use worker CPUs in parallel to execute queries. To know more about **Shard data on PostgreSQL – Hyperscale**, you can check : [Shard data on PostgreSQL – Hyperscale](https://docs.microsoft.com/en-us/azure/postgresql/tutorial-hyperscale-shard#data-skew)
 
-First, open the query tool by right-clicking on Postgres database in postgres01 server and select the "Query Tool" option.
+First, open the query tool by right-clicking on **postgres** database in **postgres01** server and select the **Query Tool...** option.
 
 ![](./images/pg-query-tool-db.png "")
 
@@ -375,7 +383,7 @@ In the previous sections, you have seen how distributed table rows are placed in
 
 In this task, let's see how to backup the database in Arc enabled PostgreSQL Servers and restore it.
 
-1. To get started, open the Command Prompt window.
+1. To get started, open the **Command Prompt** window.
 
 1. Now, let's verify if the Hyperscale server group has been configured to use a backup storage class.
 
@@ -431,9 +439,9 @@ In this task, let's see how to backup the database in Arc enabled PostgreSQL Ser
 
 > **Note**: Distributing a table assigns each row to a logical group called a shard. Here only the table and it's rows are distributed to different shards. So, the resulted output data will remain same even after distributing the table rows. 
 
-1. Now, go back to the pgAdmin. In distributed table by default create_distributed_table() makes 32 shards, as you can see by counting in the metadata table **pg_dist_shard**
+1. Now, go back to the **pgAdmin** portal in Edge Browser. In distributed table by default create_distributed_table() makes 32 shards, as you can see by counting in the metadata table **pg_dist_shard**
 
-   Run following query against postgres database in postgres01 server to check the count in the metadata table **pg_dist_shard**
+   Run following query against postgres database in **postgres01** server to check the count in the metadata table **pg_dist_shard**
    ```BASH
    select logicalrelid, count(shardid) from pg_dist_shard group by logicalrelid;
    ```
@@ -480,7 +488,7 @@ Contoso is happy with the current performance of PostgreSQL Hyperscale but they 
 
 Now let's see how to Configure & Scale, and review the distribution of data on the Database.
 
-1. Launch **Command Prompt** from desktop of the JumpVM.
+1. Launch **Command Prompt** from desktop of the LabVM.
 
 1. Run the following query to verify that you currently have three Hyperscale worker nodes, each corresponding to a Kubernetes pod.
 
@@ -512,7 +520,7 @@ Now let's see how to Configure & Scale, and review the distribution of data on t
 
 > **Note**: Distributing a table assigns each row to a logical group called a shard. Here only the table and it's rows are distributed to different shards. So, the resulted output data will remain same even after distributing the table rows. 
 
-1. In distributed table by default create_distributed_table() makes 32 shards, as you can see by counting in the metadata table **pg_dist_shard**
+1. Now, go back to the **pgAdmin** portal in Edge Browser. In distributed table by default create_distributed_table() makes 32 shards, as you can see by counting in the metadata table **pg_dist_shard**
 
    Run following query to check the count in the metadata table **pg_dist_shard**
    ```BASH
@@ -592,7 +600,7 @@ Now that you are connected to a data controller, let's view the dashboards for t
  
 ### View the Visualization and metric using grafana graph
     
-1. Now copy the endpoint for the Grafana dashboard and paste this endpoint url in a browser. If you get a prompt - connection isn't private, you can click on Advanced and then select Continue to ip address to access the link.
+1. Now, copy the endpoint for the Grafana dashboard and paste this endpoint url in a browser. If you get a prompt - connection isn't private, you can click on Advanced and then select Continue to ip address to access the link.
   
 1. Enter below user name and password for Postgres DB.
   
@@ -615,6 +623,7 @@ Now that you are connected to a data controller, let's view the dashboards for t
    You can explore the metrics for postgres server on this Grafana page. 
   
     > You can learn more about Grafana here: https://docs.microsoft.com/en-us/azure/azure-arc/data/monitor-grafana-kibana
+
 
 ## Task 7:  View Azure Arc enabled PostgreSQL Hyperscale server groups in Azure portal.
 
