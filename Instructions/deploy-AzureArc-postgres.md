@@ -616,7 +616,7 @@ Now that you are connected to a data controller, let's view the dashboards for t
   
     > You can learn more about Grafana here: https://docs.microsoft.com/en-us/azure/azure-arc/data/monitor-grafana-kibana
 
-## Task 7:  View SQL Mi logs in Azure portal.
+## Task 7:  View Azure Arc enabled PostgreSQL Hyperscale server groups in Azure portal.
 
 In this task, let's view logs for your Azure Arc enabled PostgreSQL Hyperscale server groups in the Azure portal.
    
