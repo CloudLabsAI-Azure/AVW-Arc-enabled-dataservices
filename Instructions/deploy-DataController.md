@@ -105,13 +105,13 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
  
  1. Now run the below command to enable features to create the custom location:
 
-    ```
-    az connectedk8s enable-features -n Arc-Data-Demo -g azure-arc --features cluster-connect custom-locations
+     ```
+     az connectedk8s enable-features -n Arc-Data-Demo -g azure-arc --features cluster-connect custom-locations
     
-    ```
-    The output should be similar as shown below:
-    
-    ![](./media/10.png "Lab Environment")
+     ```
+   The output should be similar as shown below:
+   
+   ![](./media/10.png "Lab Environment")
     
     
     > **Note:** Custom Locations feature is dependent on the Cluster Connect feature. So both features have to be enabled for custom locations to work.Also az connectedk8s enable-features needs to be run on a machine where the kubeconfig file is pointing to the cluster on which the features are to be enabled.
@@ -119,7 +119,7 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
  1. Now run the below command to deploy the extenstion of Azure Arc enabled Data Services on Azure Arc kubernetes cluster.
   
      ```
-    az k8s-extension create --name azdata --extension-type microsoft.arcdataservices --cluster-type connectedClusters -c Arc-Data-Demo -g azure-arc --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
+    az k8s-extension create --name azdata --extension-type microsoft.arcdataservices --cluster-type connectedClusters -c Arc-Data-Demo -g azure-arc --scope cluster --release-namespace arcdc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
      
      ```
  1. After running the above command you will notive that the **Installstate** in still pending, this is because the extension will take a few minutes to complete the installation.
@@ -161,6 +161,7 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
     ```
     
     The output should be similar as shown below:
+    
      ![](./media/15.png "Lab Environment")
      
  1. To verify the custom location deployment, Switch back to the browser and login to portal.azure.com if not already done.
@@ -173,7 +174,7 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
 
      ![](./media/17.png "Lab Environment")
      
-     You can see the namespace and kubernetes cluster details on overview page.
+ 1. You can see the namespace and kubernetes cluster details on overview page.
      
 Task 3: Deploy Azure Arc Data Controller from Azure Portal.
 
