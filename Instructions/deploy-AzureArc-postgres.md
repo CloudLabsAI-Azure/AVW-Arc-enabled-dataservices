@@ -623,7 +623,7 @@ In this task, let's view logs for your Azure Arc enabled PostgreSQL Hyperscale s
 
 1. Now select the logs from Left side menu.
 
-    ![](media/45.png "Confirm")
+    ![](media/52.png "Confirm")
 
 1. if you see any queries window, click on the close button from right corner.
 
@@ -631,7 +631,7 @@ In this task, let's view logs for your Azure Arc enabled PostgreSQL Hyperscale s
      
 1. Now click on **Select scope** button to select the log analytics workspace that is connect with Azure Arc data controller to get the logs.
 
-    ![](media/47.png "Confirm")
+    ![](media/53.png "Confirm")
     
 1. Select your log analytics workspace with the name of **logazure-arc** and click on **Apply** button to select the scope.
     
@@ -639,11 +639,11 @@ In this task, let's view logs for your Azure Arc enabled PostgreSQL Hyperscale s
    
 1. In the logs page, expand Custom Logs at the bottom of the list of tables and you will see a table called **postgresInstances_logs_CL**..
    
-   ![](images/workspace3.png "Confirm")
+   ![](images/54.png "Confirm")
 
 1. Double click on the table name to generate the query in query editor and click on Run button to execute the query to get the logs.
    
-   ![](media/49.png "Confirm")
+   ![](media/55.png "Confirm")
 
 ## After this exercise, you have learned the following
 
