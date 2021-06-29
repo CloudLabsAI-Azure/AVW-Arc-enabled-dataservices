@@ -22,28 +22,24 @@ Now that you are familiar with the existing Kubernetes cluster and Data controll
     ![](./media/37.png "Lab Environment")
     
 1. Now on **Basic** blade of **Azure Database for PostgreSQL server groups - Azure Arc** enter the below details in the required fields:
-
-      * Subscription: Leave default
-      * Resource Group: Select azure-arc from the drop down list
-
-     **Under Managed Instance details**
-   
-      * **Instance name**: Enter arcpostgres
-      * **Custom location**: Select available custom location from dropdown.
-      * **Service type**: Select **Load balancer** from drop down    
-      * **Compute+ Storage**: Click on **Configure compute + storage**      
+    * Subscription: Leave default
+    * Resource Group: Select azure-arc from the drop down list
+    **Under Managed Instance details**   
+       * **Instance name**: Enter arcpostgres
+       * **Custom location**: Select available custom location from dropdown.
+       * **Service type**: Select **Load balancer** from drop down    
+       * **Compute+ Storage**: Click on **Configure compute + storage**      
     
       Now on **Compute+ Storage** blade enter the following details:
-   
-      * Number of worker nodes : Enter 2
-      * Data storage class: leave default
-      * data volume size (in Gi): 1
-      * Data-logs storage class: leave default
-      * Data-logs volume size(in Gi): 1
-      * Logs storage class: Leave deault
-      * Logs storage class: Enter 1
-      * Backup Storage class: leave default
-      * Backups volume size (in Gi): 1
+       * Number of worker nodes : Enter 2
+       * Data storage class: leave default
+       * data volume size (in Gi): 1
+       * Data-logs storage class: leave default
+       * Data-logs volume size(in Gi): 1
+       * Logs storage class: Leave deault
+       * Logs storage class: Enter 1
+       * Backup Storage class: leave default
+       * Backups volume size (in Gi): 1
 
       ![](./media/38.png "Lab Environment")
      
@@ -52,16 +48,15 @@ Now that you are familiar with the existing Kubernetes cluster and Data controll
       * Memory request (in GiB): ```2```
       * Memory limit (in GiB): ```2```
 
-     Now click on apply to save these values.
+      Now click on apply to save these values.
   
-      ![](./media/39.png "Lab Environment")
+     ![](./media/39.png "Lab Environment")
    
       * Extension: Leave default(citus)
   
      Under administrator account.
       * Password: ```Password.1!!```
       * Confirm Password : ```Password.1!!```
-
 
 1. After adding all the details click on **Review + Create** button to validate all the added details.
  
