@@ -626,7 +626,7 @@ Now that you are connected to a data controller, let's view the dashboards for t
 
 In this task, let's view logs for your Azure Arc enabled PostgreSQL Hyperscale server groups in the Azure portal.
    
-1. Switch back to azure portal and navigate to your Azure arc enabled SQLMI.
+1. Switch back to azure portal and navigate to your Azure arc enabled PostgreSQL Hyperscale server group.
 
 1. Now select the logs from Left side menu.
 
@@ -642,7 +642,7 @@ In this task, let's view logs for your Azure Arc enabled PostgreSQL Hyperscale s
     
 1. Select your log analytics workspace with the name of **logazure-arc** and click on **Apply** button to select the scope.
     
-    ![](media/47.png "Confirm")
+    ![](media/48.png "Confirm")
    
 1. In the logs page, expand Custom Logs at the bottom of the list of tables and you will see a table called **postgresInstances_logs_CL**..
    
