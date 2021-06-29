@@ -92,16 +92,6 @@
   
    > Note: If the state is showing creating then please run the above command after some time and check if the state is changed to ready or not.This can take upto few minutes to change the state to ready.
 
-1. Now switch back to azure portak and on the overview blade of newly deployed **SQL Managed Instance - Azure Arc**, you can explore the details of namespace and other details of data controller and Azure Arc enabled SQLMI.
-
-    ![](./media/34.png "Lab Environment")
-
-    > Note: Please note that the External endpoint details can take few minutes to reflect on azure portal.
- 
-1. Copy the **External endpoint** and save it in a notepad, we will use it later while connecting to SQLMI using Azure data studio.
-
-    ![](./media/34.png "Lab Environment")
-
 ## Task 2: Connect to Azure Arc enabled Azure SQL Managed Instance using Azure Data Studio.
 
 In this task, let us learn how to connect to your newly created Azure Arc enabled Azure SQL Managed instance using Azure Data Studio.
