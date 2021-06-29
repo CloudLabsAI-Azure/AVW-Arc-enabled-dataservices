@@ -57,17 +57,18 @@
      * Backups volume size (in Gi): 1
     
       ![](./media/30.png "Lab Environment")
+      
       ![](./media/31.png "Lab Environment")
     
     After adding all the above details click on **Apply** button.
     
-    **Under Administrator account** Enter the below details
+     * **Under Administrator account** Enter the below details
     
-     **Managed Instance admin login**:  Enter arcsqluser
+     * **Managed Instance admin login**:  Enter arcsqluser
    
-     **Password**: Enter Password.1!!
+     * **Password**: Enter Password.1!!
      
-     **Confirm Password**: Enter Password.1!!
+     * **Confirm Password**: Enter Password.1!!
   
 1. After adding all the required details click on **Review + Create button** to review the all details.
     
@@ -79,11 +80,13 @@
  
 1. After some time you see that the deployment of **SQL Managed Instance - Azure Arc** in completed. Now click on Go to resource button to navigate to the resource.
 
- ## validate the **Azure SQL Managed Instance - Azure Arc** is deployed.
+## validate the **Azure SQL Managed Instance - Azure Arc** is deployed.
  
-   ```
-    azdata arc sql mi list
-   ```
+1. Run the following command in powershell and check if the state is ready or not.
+ 
+    ```
+     azdata arc sql mi list
+    ```
   
    ![](./media/44.png "Lab Environment")
   
@@ -98,8 +101,6 @@
 1. Copy the **External endpoint** and save it in a notepad, we will use it later while connecting to SQLMI using Azure data studio.
 
    ![](./media/34.png "Lab Environment")
-
-
 
 ## Task 2: Connect to Azure Arc enabled Azure SQL Managed Instance using Azure Data Studio.
 
@@ -135,7 +136,7 @@ In this task, let us learn how to connect to your newly created Azure Arc enable
      Password.1!!
      ```
    
-   ![](images/sqlconnect.png "Confirm")
+     ![](images/sqlconnect.png "Confirm")
    
 1. Now you can see that you are successfully connected with your Azure Arc enabled SQL MI Server. Under servers you can see that you are successfully connected with your Azure Arc enabled SQL MI Server. You can explore the SQL Managed Instance - Azue Arc Dashboard to view the databases and run a query.
 
@@ -241,35 +242,35 @@ There are two methods to do the migration and restore - One is by using the Azur
 
 1. From the home page, select Resource groups from under Navigate or Azure services.
 
-   ![](images/ex4t5-2.png "Confirm")
+    ![](images/ex4t5-2.png "Confirm")
 
 1. From the list of resource groups in the next page, click on the **azure-arc** resource group. 
 
 1. From the next page, you will be able to find a resource of type Azure blob storage with name as **arcstorage<inject key="DeploymentID/Suffix" />**. Click on that resource. 
 
-   ![](images/storage.png "Confirm")
+    ![](images/storage.png "Confirm")
 
 1. You will be directed to the overview blade of the resource. Then, scroll down the menu on the left side bar and click on the **Shared access signature**. Now click on the **Generate SAS and connection string** button to get the keys.
 
    > **Note**: Before generating SAS token make sure all the three check boxes(Service, Container, Object) under **Allow resource types** are checked. Also, you can update the expiry Date/Time to match your requirement
 
-   ![](images/Blob_SAS_generate.PNG "Confirm")
+    ![](images/Blob_SAS_generate.PNG "Confirm")
    
    > **Info**: **Shared Access Signature** makes sure that the database backups are only available for authorized users. 
 
-   ![](images/ex4t5-s1-3.gif "Confirm")
+    ![](images/ex4t5-s1-3.gif "Confirm")
 
 1. Now you will be able to see the storage account name at the top and Shared access signature token. Copy the Storage account name and SAS token from the portal and save it in a **notepad** for later usage. Then, click on Overview from the left tab and then select **Containers** and copy the container name onto the notepad for later use.
 
-   ![](images/Blob_SAS.PNG "Confirm")
+    ![](images/Blob_SAS.PNG "Confirm")
 
    > **Note**: After copying SAS token to notepad remove **?** at the beginning of the token before using it later.
 
-   ![](images/ex4t5-s1-4.gif "Confirm")
+    ![](images/ex4t5-s1-4.gif "Confirm")
 
 1. In Azure Data Studio, to connect the Source SQL Server, Click on the **New Connection** Button to add the details. 
 
-   ![](images/sqlminewconnection.png "addnew")
+    ![](images/sqlminewconnection.png "addnew")
 
 1. Provide the following details in the blade that comes up:
    
@@ -284,11 +285,11 @@ There are two methods to do the migration and restore - One is by using the Azur
      
 1. Click on **Connect** button after entering the above values.
    
-   ![](images/newconnect.png "Confirm")
+    ![](images/newconnect.png "Confirm")
    
 1. After connecting, **expand** the localhost server from within the server tab on the left and click on the databases folder and right-click on **AdventureWorks2019** Database, and select **New Query**.
 
-   ![](images/sqlquery.png "Confirm")
+    ![](images/sqlquery.png "Confirm")
 
 1. Copy the query into the Azure Data Studio **Query Editor** window and prepare your query by replacing the placeholders indicated by the <...> using the **Storage account name** and **SAS token** in earlier steps. 
 
@@ -301,7 +302,7 @@ There are two methods to do the migration and restore - One is by using the Azur
 
    Once you verify that the Command is executed successfully go to the next step.
           
-   ![](images/SQL_q1.PNG "Confirm")
+    ![](images/SQL_q1.PNG "Confirm")
 
 1. Similarly, prepare the BACKUP DATABASE command by copying the below query and replacing the existing query in the Query Editor to backup the database to the blob container. 
 
@@ -313,11 +314,11 @@ There are two methods to do the migration and restore - One is by using the Azur
 
    Once you see that the command is executed successfully, you can go to the next step.
 
-   ![](images/SQL_q2.PNG "Confirm")
+    ![](images/SQL_q2.PNG "Confirm")
    
 1. Navigate to Azure portal and validate that the backup file created in the previous step is visible in the Blob container. For this, you have to go to the storage account and click on the **container** button and then open the **arcstorage** to view the backup file.
   
-   ![](images/arcstorage-img-ex4-t5.png "Confirm")
+    ![](images/arcstorage-img-ex4-t5.png "Confirm")
 
 **Step 2: Restore the database from Azure blob storage to Azure SQL Managed instance - Azure Arc**
 
@@ -327,7 +328,7 @@ There are two methods to do the migration and restore - One is by using the Azur
 
 1. Then, right-click on the **master** database, and select **New Query**.
 
-   ![](images/img-ex4-t5-st2.png "Confirm")
+    ![](images/img-ex4-t5-st2.png "Confirm")
 
 1. In the query editor window, prepare and run the below query by replacing with the required values to create the credentials.
 
@@ -355,7 +356,7 @@ There are two methods to do the migration and restore - One is by using the Azur
    GO
    ```
    
-   ![](images/restore.png "Confirm")
+    ![](images/restore.png "Confirm")
     
 **Method 2: Copy the backup file into an Azure SQL Managed instance - Azure Arc pod using kubectl**
    
