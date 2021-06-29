@@ -52,8 +52,8 @@
    
 1. After making sure the required tools are installed, next step is to register your subscription with Arc for kubernetes.
 
-
 1. Run the below command to register the required Resource providers if not already registered. 
+
    ```
    az provider register --namespace Microsoft.Kubernetes
    az provider register --namespace Microsoft.KubernetesConfiguration
