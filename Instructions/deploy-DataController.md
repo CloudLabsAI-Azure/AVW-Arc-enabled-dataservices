@@ -58,7 +58,7 @@
    az provider register --namespace Microsoft.Kubernetes
    az provider register --namespace Microsoft.KubernetesConfiguration
    az provider register --namespace Microsoft.ExtendedLocation
-   az provider register --namespace Microsoft.K8sConfiguration
+ 
    ```
 
 ## Task 2: Connect Azure Kubernetes cluster to Azure Arc kuberenets cluster and enable features on top op Azure Arc CLuster.
@@ -131,7 +131,6 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
 
     ![](./media/12.png "Lab Environment")
 
- 
 1. Now run the below command to get the Azure Resource Manager identifier of the Azure Arc enabled Kubernetes cluster, you will be using the cluster id in later steps while creating the custom location.
 
     ```  
