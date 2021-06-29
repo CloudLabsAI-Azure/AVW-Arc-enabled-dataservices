@@ -75,23 +75,23 @@
     
 1  Now Click on **Create** button to start the deployment.  
  
-   ![](./media/33.png "Lab Environment")
+    ![](./media/33.png "Lab Environment")
  
 1. After some time you see that the deployment of **SQL Managed Instance - Azure Arc** in completed. Now click on Go to resource button to navigate to the resource.
 
  ## validate the **Azure SQL Managed Instance - Azure Arc** is deployed.
  
-  ```
-  azdata arc sql mi list
-  ```
+   ```
+    azdata arc sql mi list
+   ```
   
-  ![](./media/44.png "Lab Environment")
+   ![](./media/44.png "Lab Environment")
   
   > Note: If the state is showing creating then please run the above command after some time and check if the state is changed to ready or not.This can take upto few minutes to change the state to ready.
 
 1. Now switch back to azure portak and on the overview blade of newly deployed **SQL Managed Instance - Azure Arc**, you can explore the details of namespace and other details of data controller and Azure Arc enabled SQLMI.
 
-    ![](./media/34.png "Lab Environment")
+   ![](./media/34.png "Lab Environment")
 
     > Note: Please note that the External endpoint details can take few minutes to reflect on azure portal.
  
@@ -151,13 +151,13 @@ In this task, let's learn to edit the configuration of Azure Arc enabled Azure S
 
 1. Now run the following command to set the custom CPU core and memory requests and limit. 
 
-   >**Note**: Make sure to replace <NAME_OF_SQL_MI> with your Azure SQL Managed instance name which will be **arcsql** if you also provided the same for Instance name during creation of Azure SQL Managed Instance. Also, you shouldn't select the Core and memory limit more than the given limits.
+    >**Note**: Make sure to replace <NAME_OF_SQL_MI> with your Azure SQL Managed instance name which will be **arcsql** if you also provided the same for Instance name during creation of Azure SQL Managed Instance. Also, you shouldn't select the Core and memory limit more than the given limits.
 
    ```BASH
    azdata arc sql mi edit --cores-limit 3 --cores-request 2 --memory-limit 2Gi --memory-request 2Gi -n <NAME_OF_SQL_MI>
    ```      
 
-   ![](images/ex4t3-2.png "Confirm")
+    ![](images/ex4t3-2.png "Confirm")
 
 1. Now, you can run the below command to view the changes that you made to the Azure SQL Managed instance.
 
@@ -167,7 +167,7 @@ In this task, let's learn to edit the configuration of Azure Arc enabled Azure S
    azdata arc sql mi show -n <NAME_OF_SQL_MI>
    ```
 
-   ![](images/ex4t3-3.png "Confirm")
+    ![](images/ex4t3-3.png "Confirm")
 
 ## Task 4: Restore the AdventureWorks sample database into Azure SQL Managed instance - Azure Arc Using Kubectl.
 
@@ -179,7 +179,7 @@ Now let's restore the sample backup file i.e AdventureWorks backup (.bak) into y
 
 1. In the Command Prompt, run the following command to get the list of pods that are running on your data controller. 
 
-   > **Note**: Please make sure to replace the namespace name with your data controller namespace name which will be **arcdc**.
+    > **Note**: Please make sure to replace the namespace name with your data controller namespace name which will be **arcdc**.
 
    ```BASH
    kubectl get pods -n <your namespace name>
@@ -187,9 +187,9 @@ Now let's restore the sample backup file i.e AdventureWorks backup (.bak) into y
    
 1. From the output of the above command, copy the pod name of the SQL MI instance from the output which will be in following format sqlinstancename-0. If you followed the same naming convention as in the instructions, the pod name will be **arcsql-0**.
 
-   > **Note**: Please copy the Pod Name for the next step.
+    > **Note**: Please copy the Pod Name for the next step.
 
-   ![](images/ex4t4-2.png "Confirm")
+    ![](images/ex4t4-2.png "Confirm")
    
 1. In the Command Prompt, run the following command after replacing the required values. This will remotely execute a command in the Azure SQL Managed instance container to download the .bak file onto the container.
 
@@ -199,7 +199,7 @@ Now let's restore the sample backup file i.e AdventureWorks backup (.bak) into y
    kubectl exec <SQL pod name> -n <your namespace name> -c arc-sqlmi -- wget https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2019.bak -O /var/opt/mssql/data/AdventureWorks2019.bak
    ```
 
-   ![](images/ex4t4-3.png "Confirm")
+    ![](images/ex4t4-3.png "Confirm")
 
 1. Now, to restore the AdventureWorks database, you can run the following command.
 
@@ -209,13 +209,13 @@ Now let's restore the sample backup file i.e AdventureWorks backup (.bak) into y
    kubectl exec <SQL pod name> -n <your namespace name> -c arc-sqlmi -- /opt/mssql-tools/bin/sqlcmd -S localhost -U arcsqluser -P Password.1!! -Q "RESTORE DATABASE AdventureWorks2019 FROM  DISK = N'/var/opt/mssql/data/AdventureWorks2019.bak' WITH MOVE 'AdventureWorks2017' TO '/var/opt/mssql/data/AdventureWorks2019.mdf', MOVE 'AdventureWorks2017_Log' TO '/var/opt/mssql/data/AdventureWorks2019_Log.ldf'"
    ```
 
-   ![](images/ex4t4-4.png "Confirm")
+    ![](images/ex4t4-4.png "Confirm")
 
 1. Now you can switch back to Azure Data Studio, and then right-click on the SQL MI Server under CONNECTIONS on the top left of the Azure Data Studio and click on refresh
 
 1. Then, expand your SQL MI server if not already by clicking on the arrow icon on the left of the IP Address, then expand Databases and verify that AdventureWorks2019 Database is listed there.
 
-   ![](images/ex4t4-6.png "Confirm")
+    ![](images/ex4t4-6.png "Confirm")
 
 ## Task 5: Migrate and Restore SQL Server DB to Azure Arc enabled Azure SQL Managed instance from Blob storage and Azure arc pod.
 
@@ -231,33 +231,33 @@ There are two methods to do the migration and restore - One is by using the Azur
 
 1. From the home page, select Resource groups under Navigate.
 
-   ![](images/ex4t5-2.png "Confirm")
+    ![](images/ex4t5-2.png "Confirm")
 
 1. From the next page, open the resource group you have access to. You will be able to find a resource of type Azure blob storage with name as arcstorageUNIQUEID. Click on that resource. 
 
-   ![](images/ex4t5-s1-2.gif "Confirm")
+    ![](images/ex4t5-s1-2.gif "Confirm")
 
 1. You will be directed to the overview blade of the resource. Then, click on the **Shared access signature** from the left side bar. Now click on the **Generate SAS and connection string** button to get the keys.
 
    > **Note**: Before generating SAS token make sure all the three check boxes(Service, Container, Object) under **Allow resource types** are checked.
 
-   ![](images/Blob_SAS_generate.PNG "Confirm")
+    ![](images/Blob_SAS_generate.PNG "Confirm")
    
    > **Info**: **Shared Access Signature** makes sure that the database backups are only available for authorized users. Since we are talking about security, could be a good idea to also say that backups can also be encrypted if needed.
 
-   ![](images/ex4t5-s1-3.gif "Confirm")
+    ![](images/ex4t5-s1-3.gif "Confirm")
 
 1. Now you will be able to see the storage account name at the top and Shared access signature token. Copy the Storage account name and SAS token from the portal and save it in a **notepad** for later usage. Then, click on Overview from the left tab and then select **Containers** and copy the container name onto the notepad for later use.
 
-   ![](images/Blob_SAS.PNG "Confirm")
+    ![](images/Blob_SAS.PNG "Confirm")
 
    > **Note**: After copying SAS token to notepad remove **?** at the beginning of the token before useing it later.
 
-   ![](images/ex4t5-s1-4.gif "Confirm")
+    ![](images/ex4t5-s1-4.gif "Confirm")
 
 1. Launch Azure Data Studio and double click on the **localhost** to connect with the local server. After connecting, click on the databases folder and right-click on **AdventureWorks2019** Database, and select **New Query**.
 
-   ![](images/sqlquery.png "Confirm")
+    ![](images/sqlquery.png "Confirm")
 
 1. Prepare your query in the following format replacing the placeholders indicated by the <...> using the information from the Storage account name and SAS token in earlier steps. 
 
@@ -270,7 +270,7 @@ There are two methods to do the migration and restore - One is by using the Azur
 
    Once you see that the Command is executed successfully go to the next step.
           
-   ![](images/SQL_q1.PNG "Confirm")
+    ![](images/SQL_q1.PNG "Confirm")
 
 1. Similarly, prepare the BACKUP DATABASE command as follows to create a backup file to the blob container. 
 
@@ -282,11 +282,11 @@ There are two methods to do the migration and restore - One is by using the Azur
 
    Once you see that the command is executed successfully, you can go to the next step.
 
-   ![](images/SQL_q2.PNG "Confirm")
+    ![](images/SQL_q2.PNG "Confirm")
    
 1. Open the Azure portal and validate that the backup file created in the previous step is visible in the Blob container. For this, you have to go to the storage account and click on the container button and then open the arccontainer to view the backup file.
   
-   ![](images/sqlquery2.png "Confirm")
+    ![](images/sqlquery2.png "Confirm")
 
 **Step 2: Restore the database from Azure blob storage to Azure SQL Managed instance - Azure Arc**
 
@@ -319,7 +319,7 @@ There are two methods to do the migration and restore - One is by using the Azur
    GO
    ```
    
-   ![](images/SQL_q3.PNG "Confirm")
+    ![](images/SQL_q3.PNG "Confirm")
     
 **Method 2: Copy the backup file into an Azure SQL Managed instance - Azure Arc pod using kubectl**
    
@@ -388,11 +388,11 @@ Now that we have the database created, let us view some metrics, usages, and log
    
 1. In the logs page, expand Custom Logs at the bottom of the list of tables and you will see a table called **sqlManagedInstances#####**.
    
-   ![](images/workspace3.png "Confirm")
+    ![](images/workspace3.png "Confirm")
 
 1. Double click on the table name to generate the query in query editor and click on Run button to execute the query to get the logs.
    
-   ![](media/49.png "Confirm")
+    ![](media/49.png "Confirm")
 
 
 ## Task 7: Monitor with Azure Data Studio
@@ -417,9 +417,9 @@ Now let us Monitor the SQL MI status using Grafana and Kibana.
      Password.1!!
      ```
 
-   ![](images/sql-mon-kibana-login.png "")
+    ![](images/sql-mon-kibana-login.png "")
    
-   ![](images/sql-mon-kibana.png "")
+    ![](images/sql-mon-kibana.png "")
 
 1. You can explore the page for kibana. 
   
@@ -445,7 +445,7 @@ Now let us Monitor the SQL MI status using Grafana and Kibana.
      Password.1!!
      ```
 
-   ![](images/sql-mon-grafana.png "")
+    ![](images/sql-mon-grafana.png "")
    
 1. You can explore the page for Grafana. 
   
