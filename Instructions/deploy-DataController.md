@@ -61,7 +61,7 @@
    az provider register --namespace Microsoft.K8sConfiguration
    ```
 
-Task 2: Connect Azure Kubernetes cluster to Azure Arc kuberenets cluster and enable features on top op Azure Arc CLuster.
+## Task 2: Connect Azure Kubernetes cluster to Azure Arc kuberenets cluster and enable features on top op Azure Arc CLuster.
 
 In this Task you will be Connecting the existing AKS to Azure Arc kubernetes cluster and will be enabling custom features to create the extension and custom location on Azure Arc kubernetes cluster.
 
@@ -101,7 +101,7 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
 
     ![](./media/9.png "Lab Environment")
         
-# Create custom location of Arc Cluster. 
+## Create custom location of Arc Cluster. 
  
 1. Now run the below command to enable features to create the custom location:
 
@@ -175,7 +175,7 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
      
 1. You can see the namespace and kubernetes cluster details on overview page.
      
-Task 3: Deploy Azure Arc Data Controller from Azure Portal.
+##Task 3: Deploy Azure Arc Data Controller from Azure Portal.
 
 1. From the Azure Portal, search for ```Azure arc data controller``` from the search box and then click on it.  
 
