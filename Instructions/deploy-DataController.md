@@ -257,5 +257,98 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
  1. Once the data controller state is changed to ready then proceed to next steps, Please note the data controller deployment can take 5 to 10 minutes to change it to ready.
 
 
+## Deploy Azure Arc-enabled SQL Managed Instance with Direct Connected Mode.
 
- In this exercise we have connected our AKS cluster to Azure Arc-enabled cluster and deployed custom locaiton and data controller with direct connected mode with the help of Azure portal and Azure CLI
+In this exercise, let's create an **SQL Managed Instance - Azure Arc** using Azure Portal on top of a directly connect Azure Arc Data controller.
+
+ Also, we will be exploring the Kibana and Grafana Dashboards and upload the logs and metrics to the Azure portal and view the logs.
+ 
+ 
+ Task 1. Deploy Azure Arc SQL Managed instance.
+ 
+ 1. Open your browser and login to Azure portal if not already done.
+
+1. Now Search for SQL Managed Instance -  Azure Arc and select it.
+
+   ![](./media/27.png "Lab Environment")
+   
+1. Click on create ** + Create ** button to create the SQL Managed instance - Azure Arc.
+
+   ![](./media/28.png "Lab Environment")
+ 
+1. Now on **Basics** tab enter the below details:
+ 
+ 
+   **Under project details**
+    
+    **Subscription**: Leave ```default```.
+    
+    **Resource Group**: Select ```azure-arc``` from drop down
+    
+     
+   
+   **Under Managed Instance details**
+   
+    **Instance name**: Enter ```arcsql```
+  
+    **Custom location**: Select available custom location from dropdown.
+   
+    **Service type**: Select ```**Load balancer**``` from drop down
+    
+    **Compute+ Storage**: Click on **Configure compute + storage**
+      
+      ![](./media/29.png "Lab Environment")
+      
+      
+    Now on **Compute+ Storage** blade enter the following details:
+    
+     * High availability : Select ```1``` replica
+     * Memory Limit(in Gi): Enter ```4```
+     * CPU Limit: Enter ```2```
+     * Data storage class: leave default
+     * data volume size (in Gi): ```2```
+     * Data-logs storage class: leave ```default```
+     * Data-logs volume size(in Gi): ```1```
+     * Logs storage class: Leave ```deault```
+     * Logs storage class: Enter ```1```
+     * Backup Storage class: leave ```default```
+     * Backups volume size (in Gi): ```1```
+    
+      ![](./media/30.png "Lab Environment")
+      
+      ![](./media/31.png "Lab Environment")
+    
+    After adding all the above details click on **Apply** button.
+    
+     * **Under Administrator account** Enter the below details
+    
+     * **Managed Instance admin login**:  Enter ```arcsqluser```
+   
+     * **Password**: Enter ```Password.1!!```
+     
+     * **Confirm Password**: Enter ```Password.1!!```
+  
+1. After adding all the required details click on **Review + Create button** to review the all details.
+    
+    ![](./media/32.png "Lab Environment")
+    
+1. Now Click on **Create** button to start the deployment.  
+ 
+    ![](./media/33.png "Lab Environment")
+ 
+1. After some time you see that the deployment of **SQL Managed Instance - Azure Arc** in completed. Now click on Go to resource button to navigate to the resource.
+
+## validate the **Azure SQL Managed Instance - Azure Arc** is deployed.
+ 
+1. Run the following command in powershell and check if the state is ready or not.
+ 
+    ```
+     azdata arc sql mi list
+    ```
+  
+    ![](./media/44.png "Lab Environment")
+  
+   > Note: If the state is showing creating then please run the above command after some time and check if the state is changed to ready or not.This can take upto few minutes to change the state to ready.
+
+
+ In this exercise we have connected our AKS cluster to Azure Arc-enabled cluster and deployed custom locaiton and data controller with direct connected mode with the help of Azure portal and Azure CLI and created a Azure Arc-enabled SQLMI server on directly connected mode of Azure Arc data controller.
