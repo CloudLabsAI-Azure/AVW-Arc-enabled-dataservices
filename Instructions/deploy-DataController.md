@@ -252,7 +252,7 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
 1. When the Azure portal deployment status shows the deployment was successful, you can check the status of the Arc data controller deployment on the cluster to run the below command on powershell window:
 
    ```
-   kubectl get datacontrollers -n arc
+   kubectl get datacontrollers -n arcdc
    ```
  1. Once the data controller state is changed to ready then proceed to next steps, Please note the data controller deployment can take 5 to 10 minutes to change it to ready.
 
