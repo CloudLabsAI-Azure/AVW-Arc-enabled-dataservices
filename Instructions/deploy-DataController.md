@@ -86,7 +86,7 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
     ```
     ![](./media/7.png "Lab Environment")
     
-1. Azure Arc enabled Kubernetes deploys a few operators into the azure-arc namespace. You can view these deployments and pods by running the command in the command prompt:  
+1. Azure Arc-enabled Kubernetes deploys a few operators into the azure-arc namespace. You can view these deployments and pods by running the command in the command prompt:  
 
      ```
      kubectl -n azure-arc get deployments,pods
@@ -97,7 +97,7 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
     ![](./media/8.png "Lab Environment")
     
     
-1. Navigate to the Resource Group from the Azure portal navigation pane and click on the Resource Group named azure-arc. Look for the resource named **Arc-Data-Demo** of resource type Azure Arc enabled Kubernetes resource.
+1. Navigate to the Resource Group from the Azure portal navigation pane and click on the Resource Group named azure-arc. Look for the resource named **Arc-Data-Demo** of resource type Azure Arc-enabled Kubernetes resource.
 
     ![](./media/9.png "Lab Environment")
         
@@ -115,7 +115,7 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
         
       > **Note:** Custom Locations feature is dependent on the Cluster Connect feature. So both features have to be enabled for custom locations to work.Also az connectedk8s enable-features needs to be run on a machine where the kubeconfig file is pointing to the cluster on which the features are to be enabled.
     
-1. Now run the below command to deploy the extenstion of Azure Arc enabled Data Services on Azure Arc kubernetes cluster.
+1. Now run the below command to deploy the extenstion of Azure Arc-enabled Data Services on Azure Arc kubernetes cluster.
   
      ```
     az k8s-extension create --name azdata --extension-type microsoft.arcdataservices --cluster-type connectedClusters -c Arc-Data-Demo -g azure-arc --scope cluster --release-namespace arcdc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
@@ -131,7 +131,7 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
 
     ![](./media/12.png "Lab Environment")
 
-1. Now run the below command to get the Azure Resource Manager identifier of the Azure Arc enabled Kubernetes cluster, you will be using the cluster id in later steps while creating the custom location.
+1. Now run the below command to get the Azure Resource Manager identifier of the Azure Arc-enabled Kubernetes cluster, you will be using the cluster id in later steps while creating the custom location.
 
     ```  
     $clusterID = az connectedk8s show -n Arc-Data-Demo -g azure-arc  --query id -o tsv
@@ -141,7 +141,7 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
     
     ![](./media/13.png "Lab Environment")
     
-1. Now run the below command to get the Azure Resource Manager identifier of the cluster extension deployed on top of Azure Arc enabled Kubernetes cluster, referenced in later steps as extensionId:
+1. Now run the below command to get the Azure Resource Manager identifier of the cluster extension deployed on top of Azure Arc-enabled Kubernetes cluster, referenced in later steps as extensionId:
 
     ```
     $extensionID = az k8s-extension show --name azdata --cluster-type connectedClusters -c Arc-Data-Demo -g azure-arc  --query id -o tsv
@@ -151,7 +151,7 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
     
     ![](./media/14.png "Lab Environment")
     
-1. Now run the below command to create custom location by referencing the Azure Arc enabled Kubernetes cluster ID and the extension ID.
+1. Now run the below command to create custom location by referencing the Azure Arc-enabled Kubernetes cluster ID and the extension ID.
 
     ```  
     az customlocation create -n azurearc-customlocation -g azure-arc --namespace arcdc --host-resource-id $clusterID --cluster-extension-ids $extensionID
@@ -257,23 +257,5 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
  1. Once the data controller state is changed to ready then proceed to next steps, Please note the data controller deployment can take 5 to 10 minutes to change it to ready.
 
 
-## Task 5: Monitor with Data Controller Dashboard
 
-Now that you are connected to an Azure Arc data controller, let us view the dashboards for the data controller and any SQL managed instances or PostgreSQL Hyperscale server group resources that you have.
-
-1. In the **Connections** panel, under **AZURE ARC CONTROLLERS**, right-click on the **arcdc** data controller and select **Manage**.
-
-   > **Note**: You will see that there is no Azure Arc Resources. This is because you have not deployed any resource on the Azure Arc data services environment yet. In the next exercises, you will be deploying the resources.
-
-    ![](./images/arcconnect.png "")
-
-1. Once you are in the Azure Arc Data Controller dashboard, you can see following details about the data controller 
-   - Name of the Arc Data Controller
-   - Region where it is deployed
-   - Connection mode
-   - Resource Group
-   - Subscription ID of the Azure Subscription
-   - Controller Endpoint
-   - Namespace
-   
-   You will also see that we have deployed using the Direct connection mode of the Azure Arc Data controller.
+ In this exercise we have connected our AKS cluster to Azure Arc-enabled cluster and deployed custom locaiton and data controller with direct connected mode with the help of Azure portal and Azure CLI
