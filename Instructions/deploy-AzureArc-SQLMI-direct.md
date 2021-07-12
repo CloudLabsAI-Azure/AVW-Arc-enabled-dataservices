@@ -92,9 +92,9 @@
   
    > Note: If the state is showing creating then please run the above command after some time and check if the state is changed to ready or not.This can take upto few minutes to change the state to ready.
 
-## Task 2: Connect to Azure Arc enabled Azure SQL Managed Instance using Azure Data Studio.
+## Task 2: Connect to Azure Arc-Enabled Azure SQL Managed Instance using Azure Data Studio.
 
-In this task, let us learn how to connect to your newly created Azure Arc enabled Azure SQL Managed instance using Azure Data Studio.
+In this task, let us learn how to connect to your newly created Azure Arc-Enabled Azure SQL Managed instance using Azure Data Studio.
 
 1. In the **Azure Arc Data Controller dashboard**, under Azure Arc Resources right-click on your newly created Azure SQL Managed instance and select manage, this will open  **SQL Managed instance - Azure Arc Dashboard**.
 
@@ -128,13 +128,13 @@ In this task, let us learn how to connect to your newly created Azure Arc enable
    
      ![](images/sqlconnect.png "Confirm")
    
-1. Now you can see that you are successfully connected with your Azure Arc enabled SQL MI Server. Under servers you can see that you are successfully connected with your Azure Arc enabled SQL MI Server. You can explore the SQL Managed Instance - Azue Arc Dashboard to view the databases and run a query.
+1. Now you can see that you are successfully connected with your Azure Arc-Enabled SQL MI Server. Under servers you can see that you are successfully connected with your Azure Arc-Enabled SQL MI Server. You can explore the SQL Managed Instance - Azue Arc Dashboard to view the databases and run a query.
 
    ![](images/sqlmiserver.png "Confirm")
 
-## Task 3: Configure Azure Arc enabled Azure SQL Managed Instance
+## Task 3: Configure Azure Arc-Enabled Azure SQL Managed Instance
 
-In this task, you will learn to update the configuration of Azure Arc enabled SQL Managed instances with Azure Data CLI.
+In this task, you will learn to update the configuration of Azure Arc-Enabled SQL Managed instances with Azure Data CLI.
 
 1. If the **Command Prompt** window is already not opened, open a new one by clicking on Command Prompt icon from the desktop shortcut and run the following command to see configuration options of Azure SQL Managed instance.
 
@@ -166,7 +166,7 @@ In this task, you will learn to update the configuration of Azure Arc enabled SQ
 
 ## Task 4: Restore the AdventureWorks sample database into Azure SQL Managed instance - Azure Arc Using Kubectl.
 
-Migrating an existing SQL database from a SQL Server to Azure Arc enabled SQL MI is very simple. All you have to do is to take a backup from your existing SQL Server, and then restore that backup to SQL MI.
+Migrating an existing SQL database from a SQL Server to Azure Arc-Enabled SQL MI is very simple. All you have to do is to take a backup from your existing SQL Server, and then restore that backup to SQL MI.
 
 Now let's restore the sample backup file i.e AdventureWorks backup (.bak) into your Azure SQL Managed instance container using Kubectl commands.
 
@@ -218,15 +218,15 @@ Now let's restore the sample backup file i.e AdventureWorks backup (.bak) into y
 
    ![](images/ex4t4-6.png "Confirm")
 
-## Task 5: Migrate and Restore SQL Server DB to Azure Arc enabled Azure SQL Managed instance from Blob storage and Azure arc pod.
+## Task 5: Migrate and Restore SQL Server DB to Azure Arc-Enabled Azure SQL Managed instance from Blob storage and Azure arc pod.
 
-Now that we have the Azure SQL Managed instance ready, let's migrate and restore the SQL server database to the Azure arc enabled SQLMI. 
+Now that we have the Azure SQL Managed instance ready, let's migrate and restore the SQL server database to the Azure Arc-Enabled SQLMI. 
    
 There are two methods to do the migration and restore - One is by using the Azure blob storage to back up and restore DB to SQLMI, and the Second one is by using the kubectl commands. 
 
  **Method 1: Using Azure blob storage** 
  
- **Step 1: Migrate: SQL Server to Azure Arc enabled Azure SQL Managed instance**
+ **Step 1: Migrate: SQL Server to Azure Arc-Enabled Azure SQL Managed instance**
 
 1. Navigate to Azure Portal Home - https://portal.azure.com/home and login if you haven't already.
 
@@ -397,7 +397,7 @@ In this scenario, you will be using the command kubectl cp to copy the file from
    
 Now that we have the database created, let us view some metrics, usages, and logs in the Azure portal.
    
-1. Switch back to azure portal and navigate to your Azure arc enabled SQLMI.
+1. Switch back to azure portal and navigate to your Azure Arc-Enabled SQLMI.
 
 1. Now select the logs from Left side menu.
 
@@ -484,9 +484,9 @@ Now let us Monitor the SQL MI status using Grafana and Kibana.
 ## After this exercise, you have performed the following
 
    - Created Azure SQL Managed instance.
-   - Connected to Azure Arc enabled Azure SQL Managed instance.
-   - Configured Azure Arc enabled SQL Managed Instance.
+   - Connected to Azure Arc-Enabled Azure SQL Managed instance.
+   - Configured Azure Arc-Enabled SQL Managed Instance.
    - Restored the AdventureWorks sample database into Azure SQL Managed instance - Azure Arc.
-   - Migrated and Restored SQL Server DB to Azure Arc enabled Azure SQL Managed instance from Blob storage and Azure arc pod.
+   - Migrated and Restored SQL Server DB to Azure Arc-Enabled Azure SQL Managed instance from Blob storage and Azure arc pod.
    - Viewed SQL MI resources and logs in Azure portal.
    - Monitored with kibana and grafana.
