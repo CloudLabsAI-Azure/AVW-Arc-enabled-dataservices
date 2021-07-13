@@ -32,7 +32,7 @@ For the purposes of these exercises, let’s consider Contoso is a large manufac
 
 Their IT systems run Windows, Linux, Kubernetes, SQL Servers, Oracle and PostgreSQL across multiple locations, including on-premises data centers, manufacturing plans, distribution centers, and multiple public clouds. This poses operational challenges for Contoso. They’d like a consistent way to govern and operate across these disparate environments, ensure security across the entire organization, and enable innovation and developer agility (especially with their investments in cloud-native practices), all while meeting regulatory and compliance requirements and being able to leverage the latest innovations of database technologies.
 
-Contoso is using both type of Azure Ar-enabled scanrios: Direct mode and Disconnected mode, In this lab you will also be working on both of the types, basically Direct moode will be having access to azure portal like any Azure service and  you will be able to manage it through Azure portal but in disconnected mode you will not be connected to Azure portal and can access the resources and later you can even upload the logs to azure from a different location.
+Contoso is using both type of Azure Arc-enabled Data controller scanrios: Direct connected mode and Disconnected mode, In this lab you will be working on both of the types, basically Direct moode will be having access to azure portal like and worklike any Azure service and  you will be able to manage it through Azure portal but in disconnected mode you don't have to connect to Azure portal and still you can access the resources with any machines and later you can even upload the logs to azure from a different location.
 
 
 ## Lab Context
@@ -41,7 +41,7 @@ Contoso wants to migrate and modernize their databases. They have already migrat
 
 Let’s take the journey together with Contoso and see how easy it is accomplish all the above with Azure Arc-enabled data services. 
 
-In this lab, you will leverage the existing Kubernetes cluster to deploy the Azure Arc data controller with Directly connect mode and Disconnected Mode, Azure Arc-enabled SQL Managed Instance, and Azure Arc-enabled PostgreSQL Hyperscale all the help on Azure portal,Azure Data studio and Azure CLI. 
+In this lab, you will leverage the existing Kubernetes cluster to deploy the Azure Arc data controller with Directly connect mode and Disconnected Mode, Azure Arc-enabled SQL Managed Instance, and Azure Arc-enabled PostgreSQL Hyperscale all the help on Azure portal,Azure Data studio and Azure CLI. You will be deploying the SQLMI with both type, DIsconnected mode and Direct connected mode.
 
 
 
