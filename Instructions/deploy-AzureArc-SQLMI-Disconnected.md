@@ -77,9 +77,8 @@ In the environment provided, the Azure Arc Data controller is already deployed o
 
 ## Task 2: Create Azure Arc-enabled SQL Managed Instance 
 
-In this task, let's learn how to create Azure Arc-enabled Azure SQL Managed Instance using Azure Arc Data controller.
+In this task, let's learn how to create Azure Arc-enabled Azure SQL Managed Instance using Azure Arc Data controller Disconnected mode.
 
-> Note: please note that we have already deployed the Azure Arc data controller for you in the lab with the help of Azure CLI
 
 1. Open **Azure Data Studio** from the desktop if not already opened. 
    Note: Azure Data Studio is a free cross-platform database tool for data professionals using on-premises and cloud data platforms on Windows, macOS, and Linux
