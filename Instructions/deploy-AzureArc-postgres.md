@@ -632,7 +632,9 @@ Now that you are connected to a data controller, let's view the dashboards for t
 
 ## Task 7: Upload logs, metrics, and usages to Azure Monitor. 
 
-In this task, let's upload logs for your Azure Arc-enabled PostgreSQL Hyperscale server groups to Azure Monitor and view your logs in the Azure portal
+In this task, let's upload logs for your Azure Arc-enabled PostgreSQL Hyperscale server groups to Azure Monitor and view your logs in the Azure portal.
+
+> Note: Please note that you can upload these logs from the other machine also where you have connected to Azure. this is only supported in Disconnected mode and you can use the resources without even connecting to Azure portal
 
 1. Now in the command prompt run the following command to make sure that all environment variables required are set. As you can see from the outputs, we have already set the values in the environment for the variables. Azure Log Analytics Workspace has been pre-created for you and the Workspace ID and Shared Key are also added in the environment variables.
 
