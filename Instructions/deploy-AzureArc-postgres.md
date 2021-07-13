@@ -1,9 +1,9 @@
-# Exercise 3: Azure Arc enabled PostgreSQL Hyperscale with Disconnected Mode. 
+# Exercise 3: Azure Arc-enabled PostgreSQL Hyperscale with Disconnected Mode. 
 
 
 Duration: 40 minutes
 
-Contoso has some applications that use PostgreSQL as the backend database. They have installed PostgreSQL on their Linux servers in their manufacturing plants but these locations don’t necessarily have local IT support to update the operating system and PostgreSQL with the latest security updates. Additionally, they have just recently migrated some of their very large Oracle databases to PostgreSQL. They have explored Azure Database for PostgreSQL Hyperscale and found that it meets their requirements and offers some unique capabilities such as distribution of the data across multiple nodes. However, due to latency issues and some compliance reasons, they want to run PostgreSQL databases in their own environment. Therefore they are excited about the opportunity of deploying PostgreSQL Hyperscale in their Azure Arc enabled environment.
+Contoso has some applications that use PostgreSQL as the backend database. They have installed PostgreSQL on their Linux servers in their manufacturing plants but these locations don’t necessarily have local IT support to update the operating system and PostgreSQL with the latest security updates. Additionally, they have just recently migrated some of their very large Oracle databases to PostgreSQL. They have explored Azure Database for PostgreSQL Hyperscale and found that it meets their requirements and offers some unique capabilities such as distribution of the data across multiple nodes. However, due to latency issues and some compliance reasons, they want to run PostgreSQL databases in their own environment. Therefore they are excited about the opportunity of deploying PostgreSQL Hyperscale in their Azure Arc-enabled environment.
 
 Now that you are familiar with the existing Kubernetes cluster and Data controller, let's perform the following in this exercise:
  - Create a Postgres Hyperscale Server group
@@ -12,7 +12,7 @@ Now that you are familiar with the existing Kubernetes cluster and Data controll
  - Monitor/Visualize with Grafana & Kibana Dashboards
 
 
-## Task 1: Create a Postgres Hyperscale Server group and connect to the Azure Arc enabled PostgreSQL Hyperscale server group.
+## Task 1: Create a Postgres Hyperscale Server group and connect to the Azure Arc-enabled PostgreSQL Hyperscale server group.
 
 Contoso is happy with the current performance of PostgreSQL Hyperscale but they also anticipate that when they go in production, the database will grow significantly and there will be more users querying the database. Therefore they want to leverage the unique capability of PostgreSQL Hyperscale to scale out with additional worker nodes. They also like the fact that they will be able to add nodes and redistribute the data across the worker nodes as an online operation.
 
@@ -77,7 +77,7 @@ Let's begin with learning how to create and connect the Postgres Hyperscale Serv
    
      ![](images/resourcesetting.png "resourcesettings")
    
-1. Once the values are entered, click on the **Deploy** button. This initiates the creation of the Azure Arc enabled PostgreSQL Hyperscale server group on the Arc enabled data services environment.
+1. Once the values are entered, click on the **Deploy** button. This initiates the creation of the Azure Arc-enabled PostgreSQL Hyperscale server group on the Arc-enabled data services environment.
 
    ![](images/deploy.png "deploy")
    
@@ -100,7 +100,7 @@ Let's begin with learning how to create and connect the Postgres Hyperscale Serv
    ![](images/arcpostgres-direct.png "")
 
 
-**Connect source database and Azure Arc enabled PostgreSQL server**
+**Connect source database and Azure Arc-enabled PostgreSQL server**
 
 1. Open the command prompt window and run the following to get the Postgres servers list in AKS using the Azure Arc data controller. You will see the output as mentioned in the screenshot below.
    
@@ -110,7 +110,7 @@ Let's begin with learning how to create and connect the Postgres Hyperscale Serv
   
    ![](./images/serverlist-output.png "")
 
-1. On your JumpVM, open the PgAdmin tool from the start menu to connect to the Azure arc enabled Postgres Hyperscale database 
+1. On your JumpVM, open the PgAdmin tool from the start menu to connect to the Azure Arc-enabled Postgres Hyperscale database 
 
    ![](./images/pgadmin-startmenu.png "")   
 
@@ -162,7 +162,7 @@ Let's begin with learning how to create and connect the Postgres Hyperscale Serv
 
 ## Task 2: How to migrate from different servers?
 
-Now, let's migrate a PostgreSQL database to Azure Arc enabled PostgreSQL Hyperscale server group. The following steps are applicable to PostgreSQL database running on any cloud server or on-premises.
+Now, let's migrate a PostgreSQL database to Azure Arc-enabled PostgreSQL Hyperscale server group. The following steps are applicable to PostgreSQL database running on any cloud server or on-premises.
 
 #### **Backup from Source Server:**
 
@@ -211,7 +211,7 @@ Let's take a backup of the Postgres Server running on a server named **PostgreLo
 
 Now let's restore the sample database **Arc-Demo-Bkp** from source server **PostgresLocal** on to the Postgres server **postgres01** running on an Azure Arc environment with a new Database named **Restored_Arc-Demo-Bkp**. 
 
-First, let's create an empty database on the destination system in your Azure Arc enabled PostgreSQL Hyperscale server group
+First, let's create an empty database on the destination system in your Azure Arc-enabled PostgreSQL Hyperscale server group
 
 1. Right-click on the postgres01 server on the pgAdmin and then Select Create -> Database option from postgres01 database menu
 
@@ -221,7 +221,7 @@ First, let's create an empty database on the destination system in your Azure Ar
 
    ![](./images/pg-dest-db-create02.png "")
 
-Now, you will restore the database into your Arc enabled data services environment:
+Now, you will restore the database into your Arc-enabled data services environment:
 
 
 1. Expand the postres01 server by clicking on the " > " icon next to postgres01.
@@ -245,9 +245,9 @@ Now, you will restore the database into your Arc enabled data services environme
    
 1. Once the restoration is successful, you can close the prompt by clicking on x icon at the top right of the prompt.
 
-#### **Verification of the restored database on Azure Arc enabled PostgreSQL Hyperscale server group**:
+#### **Verification of the restored database on Azure Arc-enabled PostgreSQL Hyperscale server group**:
 
-Now we are done with the backup and restoration, let's verify if the database has been restored from the database running on the source server to the Arc enabled PostgreSQL Server by querying the data in both databases.
+Now we are done with the backup and restoration, let's verify if the database has been restored from the database running on the source server to the Arc-enabled PostgreSQL Server by querying the data in both databases.
 
    Now, use PgAdmin in which you are already connected to both Postgres instances ( local and Arc ).
 
@@ -387,7 +387,7 @@ In the previous sections, you have seen how distributed table rows are placed in
 
 ## Task 4: Backup/Restore and Review the distribution of data 
 
-In this task, let's see how to backup the database in Arc enabled PostgreSQL Servers and restore it.
+In this task, let's see how to backup the database in Arc-enabled PostgreSQL Servers and restore it.
 
 1. To get started, open the Command Prompt window.
 
@@ -408,7 +408,7 @@ In this task, let's see how to backup the database in Arc enabled PostgreSQL Ser
    ```BASH
    azdata arc postgres backup create --name backup01 --server-name arcpostgres
    ```
-   This command will coordinate a distributed full backup across all the nodes that constitute Azure Arc enabled PostgreSQL Hyperscale server group.
+   This command will coordinate a distributed full backup across all the nodes that constitute Azure Arc-enabled PostgreSQL Hyperscale server group.
 
    Where:
    - **name** indicates the name of a backup
@@ -504,7 +504,7 @@ Now let's see how to Configure & Scale, and review the distribution of data on t
 
    ![](./images/workernode-output.png "")
    
-1. Now to scale-out **Azure Arc enabled PostgreSQL Hyperscale**,  in the command prompt run the following command. This will increase the number of worker nodes from 2 to 3.
+1. Now to scale-out **Azure Arc-enabled PostgreSQL Hyperscale**,  in the command prompt run the following command. This will increase the number of worker nodes from 2 to 3.
 
    ```BASH
    azdata arc postgres server edit -n arcpostgres -w 3
@@ -578,7 +578,7 @@ Now that you are connected to a data controller, let's view the dashboards for t
 
    ![](./images/arc-dash.PNG "")
 
-   > ***Info***: Kibana and Grafana web dashboards are provided to bring insight and clarity to the Kubernetes namespaces being used by Azure Arc enabled data services. 
+   > ***Info***: Kibana and Grafana web dashboards are provided to bring insight and clarity to the Kubernetes namespaces being used by Azure Arc-enabled data services. 
 
 1. Now copy the endpoint for Kibana dashboard and paste this endpoint url in a browser. If you get a prompt - connection isn't private, you can click on Advanced and then select Continue to ip address to access the link.
 
@@ -632,7 +632,7 @@ Now that you are connected to a data controller, let's view the dashboards for t
 
 ## Task 7: Upload logs, metrics, and usages to Azure Monitor. 
 
-In this task, let's upload logs for your Azure Arc enabled PostgreSQL Hyperscale server groups to Azure Monitor and view your logs in the Azure portal
+In this task, let's upload logs for your Azure Arc-enabled PostgreSQL Hyperscale server groups to Azure Monitor and view your logs in the Azure portal
 
 1. Now in the command prompt run the following command to make sure that all environment variables required are set. As you can see from the outputs, we have already set the values in the environment for the variables. Azure Log Analytics Workspace has been pre-created for you and the Workspace ID and Shared Key are also added in the environment variables.
 
@@ -722,4 +722,5 @@ In this task, let's upload logs for your Azure Arc enabled PostgreSQL Hyperscale
    - Configure & Scale, and review the distribution of data.
    - Monitor/Visualize with Azure f Studio Dashboards.
    - Upload usage data, metrics, and logs to Azure Monitor.
+{"mode":"full","isActive":false}
 {"mode":"full","isActive":false}
