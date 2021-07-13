@@ -4,11 +4,11 @@
       "Language": "English",
       "Files": [
           {
-          "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/AVW-Arc-enabled-dataservices/aiw-arc/Instructions/README.md",
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/AVW-Arc-enabled-dataservices/AIW_DirectDC/Instructions/README.md",
           "Order": 1  
         },
         {
-          "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/AVW-Arc-enabled-dataservices/aiw-arc/Instructions/01.md",
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/AVW-Arc-enabled-dataservices/AIW_DirectDC/Instructions/01.md",
           "Order": 2 
         },
         {
@@ -16,11 +16,11 @@
           "Order": 3
         },
         {
-          "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/AVW-Arc-enabled-dataservices/AIW_DirectDC/Instructions/deploy-AzureArc-postgres.md",
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/AVW-Arc-enabled-dataservices/AIW_DirectDC/Instructions/deploy-AzureArc-SQLMI-Disconnected.md",
           "Order": 4
         },
         {
-          "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/AVW-Arc-enabled-dataservices/AIW_DirectDC/Instructions/deploy-AzureArc-SQLMI.md",
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/AVW-Arc-enabled-dataservices/AIW_DirectDC/Instructions/deploy-AzureArc-postgres.md",
           "Order": 5
         }
       ]
