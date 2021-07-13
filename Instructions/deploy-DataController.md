@@ -174,15 +174,15 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
      
 1. You can see the namespace and kubernetes cluster details on overview page.
 
-1. Now search for the log analytics workspace in you azure portal and navigate to ```logazure-arc``` workspace. 
+1. Now search for the log analytics workspace in you azure portal and navigate to ```LoganalyticsWS-Direct``` workspace. 
 
 1. Select **Agent managment** from the left side menu.
 
-    ![](./media/50.png "Lab Environment")
+    ![](./media/newws.png "Lab Environment")
     
 1. Now in the Agent managment window copy the value of **Workspace ID** and **Primary key** and save the values in a notepad for later use while creating the Azure arc data controller.
      
-    ![](./media/51.png "Lab Environment")
+    ![](./media/newws2.png "Lab Environment")
       
 ## Task 3: Deploy Azure Arc Data Controller from Azure Portal.
 
@@ -338,17 +338,7 @@ In this exercise, let's create an **SQL Managed Instance - Azure Arc** using Azu
  
 1. After some time you see that the deployment of **SQL Managed Instance - Azure Arc** in completed. Now click on Go to resource button to navigate to the resource.
 
-## validate the **Azure SQL Managed Instance - Azure Arc** is deployed.
- 
-1. Run the following command in powershell and check if the state is ready or not.
- 
-    ```
-     azdata arc sql mi list
-    ```
-  
-    ![](./media/44.png "Lab Environment")
-  
-   > Note: If the state is showing creating then please run the above command after some time and check if the state is changed to ready or not.This can take upto few minutes to change the state to ready.
+1. Now we have suceessfully deployed the Azure Arc-enabled SQLMI on top of Directly connected mode Azure Arc data controller, You can explore more on metric and logs on the same page from left side menu.
 
 
  In this exercise we have connected our AKS cluster to Azure Arc-enabled cluster and deployed custom locaiton and data controller with direct connected mode with the help of Azure portal and Azure CLI and created a Azure Arc-enabled SQLMI server on directly connected mode of Azure Arc data controller.
