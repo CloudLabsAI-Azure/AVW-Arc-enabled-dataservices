@@ -428,6 +428,9 @@ In this scenario, you will be using the command kubectl cp to copy the file from
 ## Task 6: View SQL MI resource and SQL Mi logs in Azure portal.
    
 Now that we have the database created, let us upload some metrics, usages, and logs to the Azure Portal and view SQLMI Resource in the Azure portal.
+
+
+> Note: Please note that you can upload these logs from the other machine also where you have connected to Azure. this is only supported in Disconnected mode and you can use the resources without even connecting to Azure portal
    
 1. Navigate back to the command prompt window. Login to the Azure Arc Data controller using the below command if you are not already logged in.
    
