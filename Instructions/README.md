@@ -4,7 +4,7 @@
 ## Overview
 
 ## What is Azure Arc?
-For customers who want to simplify complex and distributed environments across on-premises, edge, and multi-cloud, [Azure Arc](https://azure.microsoft.com/services/azure-arc/) enables deployment of Azure services anywhere and extends Azure management to any infrastructure. 
+For customers who want to simplify complex and distributed environments across on-premises, edge, and multi-cloud, [Azure Arc] (https://azure.microsoft.com/services/azure-arc/) enables deployment of Azure services anywhere and extends Azure management to any infrastructure. 
 Azure Arc helps you accelerate innovation across hybrid and multi-cloud environments and provides the following benefits to your organization:
    * **Gain central visibility, operations, and compliance** – Standardize visibility, operations, and compliance across a wide range of resources and locations by extending the Azure control plane. Right from Azure, you can easily organize, govern, and secure Windows, Linux, SQL Servers and Kubernetes clusters across datacenters, edge, and multi-cloud.
    * **Build Cloud native apps anywhere, at scale** – Centrally code and deploy applications confidently to any Kubernetes distribution in any location. Accelerate development by using best in class applications services with standardized deployment, configuration, security, and observability.
@@ -14,15 +14,15 @@ Azure Arc helps you accelerate innovation across hybrid and multi-cloud environm
 
 ### How Azure Arc-Enabled Data Services add value?
 
-Azure Arc enables you to bring Azure data services to any infrastructure across on-premises data centers, edge and 3rd party clouds, using Kubernetes on hardware of your choice. For customers who need to maintain data estate onpremises, you will gain unique benefits for those on-premises data workloads.
+Azure Arc enables you to bring Azure data services to any infrastructure across on-premises data centers, edge and 3rd party clouds, using Kubernetes on hardware of your choice. For customers who need to maintain data estate on-premises, you will gain unique benefits for those on-premises data workloads.
 
-**First**, you will always be current, meaning updates and upgrades are fully automated, and the deployment is controlled by your policy. You will gain unique and cloud proven innovation ahead of any other hybrid cloud offering like the evergreen SQL with no end-of-support through Azure SQL Database, and the hyperscale deployment option of Azure Database for PostgreSQL.
+**First**, you will always be current, meaning updates and upgrades are fully automated, and the deployment is controlled by your policy. You will gain unique and cloud proven innovation ahead of any other hybrid cloud offering like the evergreen SQL with no end-of-support through Azure SQL Managed Instance, and the hyperscale deployment option of Azure Database for PostgreSQL.
 
 **Second**, we will bring cloud elasticity on-premises so you can optimize performance of data workloads with the ability to dynamically scale up/down and scale out, without application downtime.
 
-Moreover, by connecting to Azure you will gain unified management. Imagine being able to see your data services running on-premises along side those running in Azure through a single pane of glass, using familiar tools like Azure Portal, Azure Data Studio and Azure CLI.
+Moreover, by connecting to Azure you will gain unified management. Imagine being able to see your data services running on-premises alongside those running in Azure through a single pane of glass, using familiar tools like Azure Portal, Azure Data Studio and Azure CLI.
 
-**Last** but not the least, you can get those benefits even if your environment does not have direct connection to Azure either due to network and security policies, or connection constraints, as long as you can set up a media to indirectly connect to Azure for telemetry data exchange and getting the latest container images. However, when you operate under an indirectly connected mode, you will not be able to fully leverage the unified management benefits such as using Azure Monitor, Azure Role Based Access Control(RBAC), and other value-added services from Azure.
+**Last** but not the least, you can get those benefits even if your environment does not have direct connection to Azure either due to network and security policies, or connection constraints, as long as you can set up a media to indirectly connect to Azure for telemetry data exchange and getting the latest container images. However, when you operate under an indirectly connected mode, you will not be able to fully leverage the unified management benefits such as using Azure Monitor, Azure Role Based Access Control (RBAC), and other value-added services from Azure.
 
 ## Hands-on Labs Scenario
 
@@ -32,16 +32,19 @@ For the purposes of these exercises, let’s consider Contoso is a large manufac
 
 Their IT systems run Windows, Linux, Kubernetes, SQL Servers, Oracle and PostgreSQL across multiple locations, including on-premises data centers, manufacturing plans, distribution centers, and multiple public clouds. This poses operational challenges for Contoso. They’d like a consistent way to govern and operate across these disparate environments, ensure security across the entire organization, and enable innovation and developer agility (especially with their investments in cloud-native practices), all while meeting regulatory and compliance requirements and being able to leverage the latest innovations of database technologies.
 
-Contoso is using both type of Azure Arc-enabled Data controller scanrios: Direct connected mode and Disconnected mode, In this lab you will be working on both of the types, basically Direct moode will be having access to azure portal like and worklike any Azure service and  you will be able to manage it through Azure portal but in disconnected mode you don't have to connect to Azure portal and still you can access the resources with any machines and later you can even upload the logs to azure from a different location.
+Contoso is using both type of Azure Arc-enabled Data controller scenarios: Direct connected mode and Disconnected mode, In this lab you will be working on both of the connection modes, Data controller configured in direct connectivity mode gives administrator an experience which is much like how you would use any other Azure service with provisioning/de-provisioning, scaling, configuring, management, and so on. 
+
+Data controller configured in indirect connectivity mode gives administrators a read-only view in Azure portal, and the management experience is based on locally installed tools such as Azure Data Studio, Azure CLI, or Kubernetes native tools such as kubectl.
+
 
 
 ## Lab Context
 
 Contoso wants to migrate and modernize their databases. They have already migrated some of their Oracle databases to PostgreSQL and they have upgraded some of their SQL Servers to the latest version. Additionally, they would like to reduce the management overhead and stay always current with the evergreen versions of SQL and PostgreSQL Hyperscale. They would also like to get the benefits of the data services in Azure such as elastic scale and cloud billing without moving their databases to the cloud.
 
-Let’s take the journey together with Contoso and see how easy it is accomplish all the above with Azure Arc-enabled data services. 
+Let’s take the journey together with Contoso and see how easy it is to accomplish all the above with Azure Arc-enabled data services. 
 
-In this lab, you will leverage the existing Kubernetes cluster to deploy the Azure Arc data controller with Directly connect mode and Disconnected Mode, Azure Arc-enabled SQL Managed Instance, and Azure Arc-enabled PostgreSQL Hyperscale all the help on Azure portal,Azure Data studio and Azure CLI. You will be deploying the SQLMI with both type, DIsconnected mode and Direct connected mode.
+In this lab, you will leverage the existing Kubernetes cluster to deploy the Azure Arc data controller with Directly connected mode and indirectly connected mode, in directly and indirectly connected mode. You will be deploying both Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL Hyperscale in either of the connectivity modes - using tools such as Azure portal, Azure Data Studio, and Azure CLI. 
 
 
 
