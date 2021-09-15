@@ -102,7 +102,7 @@ Let's begin with learning how to create and connect the Postgres Hyperscale Serv
 
 **Connect source database and Azure Arc-enabled PostgreSQL server**
 
-1. Open the command prompt window and run the following to get the Postgres servers list in AKS using the Azure Arc data controller. You will see the output as mentioned in the screenshot below.
+1. Open the command prompt window and run the following to get the Postgres servers list in Cluster using the Azure Arc data controller. You will see the output as mentioned in the screenshot below.
    
    ```BASH
    azdata arc postgres server list
