@@ -2,21 +2,24 @@
 
 Duration: 40 mins
 
-Contoso has some applications that use SQL Server as the backend database. They have installed SQL Server on their Windows servers in their manufacturing plants but these locations don’t necessarily have local IT support to update the operating system and SQL Server with the latest security updates. They have explored Azure Database for SQL Server and found that it meets their requirements and offers some unique capabilities such as easy to manage and migrate from different cloud platforms. Therefore they are excited about the opportunity of deploying SQL Server in their Azure Arc-enabled environment with the disconnected mode. Also they can use the resource without even connecting to Azure portal.
+Contoso has some applications that use SQL Server as the backend database. They have installed SQL Server on their Windows servers in their manufacturing plants. These locations don't necessarily have local IT support to update the operating system and SQL Server with the latest security updates. They have explored Azure SQL Managed Instance and found that it would meet their requirements. However, their manufacturing plants are not directly connected to the internet and they also need to keep the databases close to their applications at the factory floor. 
 
-In this exercise, let's create an **Azure SQL Managed Instance - Azure Arc** with disconnected mode and restore and migrate the database using multiple methods. 
+Therefore, they are excited about the opportunity of deploying Azure SQL Managed Instance in their local Azure Arc-enabled environment using the indirectly connected mode of Azure Arc data controller. 
 
-Also, we will be exploring the Kibana and Grafana Dashboards and upload the logs and metrics to the Azure portal and view the logs.
 
-## Task 1: Connect to the Pre-deployed Disconnected mode Azure Arc data controller using Azure Data Studio/ Azure Data CLI.
+In this exercise, we are creating an Azure SQL Managed Instance in a local Azure Arc-enabled Kubernetes cluster using indirectly connected mode. We also restore and migrate a database from a backup taken on a SQL Server. 
+
+Also, we will be exploring the Kibana and Grafana dashboards, and uploading the telemetry data such as logs and metrics data to Azure where they are available for viewing. 
+
+## Task 1: Connect to an existing Azure Arc data controller deployed in indirectly connected mode using Azure Data Studio and Azure Data CLI
 
 Now let us connect to the data controller using Azure Data Studio and Azure Data CLI
 
-In the environment provided, the Azure Arc Data controller is already deployed on to the Kubernetes Cluster. We are using **indirect** connectivity mode for the Azure Arc-enabled data services environment to Azure.
+In the environment provided, Azure Arc data controller has already been deployed on to the Azure Arc-enabled Kubernetes cluster in indirectly connected mode. 
   
-   > ***Info***: There are multiple modes available to connect to Azure. if the Azure Arc enabled data services are directly connected to Azure, then users can use Azure Resource Manager APIs, the Azure CLI, and the Azure portal to operate the Azure Arc data services. we have used the directly connected mode in the previous exercise and its much like how you would use any other Azure service with provisioning/de-provisioning, scaling, configuring, and so on all in the Azure portal.
+   > ***Info***: Azure Arc data controller can be configured in directly and indirectly connected mode. The connectivity mode provides you the flexibility to choose how much data is sent to Azure and how users interact with the Azure Arc data controller. Depending on the connectivity mode that is chosen, some functionality of Azure Arc-enabled data services may or may not be available. We used the directly connected mode in the previous exercise and explored the experience which is much like how you would use any other Azure service with provisioning/de-provisioning, scaling, configuring, and so on all in the Azure portal. 
    
-   If you want to know more about this, refer to the [Connectivity Modes](https://docs.microsoft.com/en-us/azure/azure-arc/data/connectivity)
+   If you want to know more about this, refer to the [Connectivity Modes](https://docs.microsoft.com/en-us/azure/azure-Arc/data/connectivity)
 
    First let us see how to connect to the data controller using Azure Data CLI.
 
@@ -38,11 +41,11 @@ In the environment provided, the Azure Arc Data controller is already deployed o
    
 1. Now you are logged in to the Azure Arc data controller. You can minimize the command prompt window.
 
-1. Next, let us see how to connect to Azure Arc Data controller using Azure data studio.
+1. Next, let us see how to connect to Azure Arc data controller using Azure Data Studio.
 
 1. On your JumpVM, open **Azure Data studio** from the desktop shortcut and select **Connections**.
 
-   ![](./images/arcdc.png "Connection")
+   ![](./images/Arcdc.png "Connection")
    
 1. In the **Connections** panel under **Azure Arc Controllers**, click on **Connect Controller**.
 
@@ -50,34 +53,34 @@ In the environment provided, the Azure Arc Data controller is already deployed o
 
    - **Controller URL**: Enter the Azure Arc data controller service API endpoint URL value which you copied to **Notepad** earlier 
    
-   - **Name** : Enter arcdc
+   - **Name** : Enter Arcdc
      ```BASH
-     arcdc
+     Arcdc
      ```
    
-   - **Username** : Enter arcuser
+   - **Username** : Enter Arcuser
      ```BASH
-     arcuser
+     Arcuser
      ```
    
-   - **Password** : Enter Password.1!!
+   - **Password**: Enter Password.1!!
      ```BASH
      Password.1!!
      ```
    
    - Select the Remember Password checkbox
    
-     ![](./images/loginarc.png "")
+     ![](./images/loginArc.png "")
     
 1. Once the connection is successful, you can see the Azure Arc data controller listed under Azure Arc Controllers on the bottom left of the Azure Data Studio.
 
-    ![](./images/arcdatacontroller.png "")
+    ![](./images/Arcdatacontroller.png "")
 
 
 
 ## Task 2: Create Azure Arc-enabled SQL Managed Instance 
 
-In this task, let's learn how to create Azure Arc-enabled Azure SQL Managed Instance using Azure Arc Data controller Disconnected mode.
+In this task, let's learn how to create Azure Arc-enabled SQL Managed Instance using Azure Arc data controller in indirectly connected mode. 
 
 
 1. Open **Azure Data Studio** from the desktop if not already opened. 
@@ -93,7 +96,7 @@ In this task, let's learn how to create Azure Arc-enabled Azure SQL Managed Inst
    
 1. In the next page that opens up, select the **Checkbox** to accept the Microsoft Privacy statement and then click on **Next button** to proceed with the deployment. You can click on the privacy statement link to view the terms and conditions if you want to read through it.
 
-   > **Note**: You will also see a **Required tools** table under the terms and conditions line. These tools are required to deploy the Azure Arc-enabled Azure SQL Managed Instance. You don't have to worry about installation of any of those tools because we have already installed these required tools for you.
+   > **Note**: You will also see a **Required tools** table under the terms and conditions line. These tools are required to deploy the Azure Arc-enabled SQL Managed Instance. You don't have to worry about installation of any of those tools because we have already installed these required tools for you.
 
    ![](images/sqlmi3.png "Confirm")
 
@@ -101,14 +104,14 @@ In this task, let's learn how to create Azure Arc-enabled Azure SQL Managed Inst
 
    **Under SQL Connection information**
    
-   - **Instance name**: Enter arcsql
+   - **Instance name**: Enter Arcsql
      ```BASH
-     arcsql
+     Arcsql
      ```
    
-   - **Username**:  Enter arcsqluser
+   - **Username**:  Enter Arcsqluser
      ```BASH
-     arcsqluser
+     Arcsqluser
      ```
    
    - **Password**: Enter Password.1!!
@@ -138,33 +141,33 @@ In this task, let's learn how to create Azure Arc-enabled Azure SQL Managed Inst
      2
      ```
    
-1. Click the **Deploy** button, this will start the deployment of the  **Azure SQL Managed instance - Azure Arc** on the data controller.
+1. Click the **Deploy** button, this will start the deployment of the  **Azure Arc-enabled SQL Managed Instance** on the data controller.
 
    ![](images/sqlconfig.png "Confirm")
      
-1. After clicking on the deployment button, a Notebook will open up and the cell execution will start automatically to deploy the **SQL Managed Instance**.
+1. After clicking on the deployment button, a Notebook will open and the cell execution will start automatically to deploy the **SQL Managed Instance**.
 
    ![](images/sqlminotebook.png "Confirm")
 
-1. The deployment of **Azure SQL Managed instance - Azure Arc** will take around 5-10 minutes to complete, in this time you can explore through the commands in the notebook.
+1. The deployment of **Azure Arc-enabled SQL Managed Instance** will take around 5-10 minutes to complete, in this time you can explore through the commands in the notebook.
 
-1. Once the deployment is complete, you will see the text **arcsql is Ready** at the bottom of the notebook as shown in the screenshot. 
+1. Once the deployment is complete, you will see the text **Arcsql is Ready** at the bottom of the notebook as shown in the screenshot. 
 
    ![](images/sqlready.png "Confirm")
 
-1. Once the installation is complete, in **Azure Arc Data Controller dashboard** under Azure Arc Resources you can see the newly created Azure Arc-enabled Azure SQL Managed instance.
+1. Once the installation is complete, in **Azure Arc data controller dashboard** under Azure Arc Resources you can see the newly created Azure Arc-enabled SQL Managed Instance.
 
    ![](images/sqlsql.png "Confirm")
 
-   > **Note**: You might have to right-click and refresh on Arc data controller to view the instance if you don't see one after seeing the text **arcsql is Ready** at the bottom of the notebook.
+   > **Note**: You might have to right-click and refresh on Arc data controller to view the instance if you don't see one after seeing the text **Arcsql is Ready** at the bottom of the notebook.
 
-## Task 3: Connect to Azure Arc-enabled Azure SQL Managed Instance using Azure Data Studio.
+## Task 3: Connect to Azure Arc-enabled SQL Managed Instance using Azure Data Studio.
 
-In this task, let us learn how to connect to your newly created Azure Arc-enabled Azure SQL Managed instance using Azure Data Studio.
+In this task, let us learn how to connect to your newly created Azure Arc-enabled SQL Managed Instance using Azure Data Studio.
 
-1. In the **Azure Arc Data Controller dashboard**, under Azure Arc Resources right-click on your newly created Azure SQL Managed instance and select manage, this will open  **Azure SQL Managed instance - Azure Arc Data Controller dashboard**.
+1. In the **Azure Arc data controller dashboard**, under Azure Arc Resources right-click on your newly created Azure SQL Managed instance and select manage, this will open **Azure SQL Managed instance - Azure Arc Data Controller dashboard**.
 
-1. Now in the **Azure SQL Managed instance - Azure Arc Data Controller dashboard**, copy the **IP Address** from under external endpoint. You can also see that the status is **Ready**.
+1. Now in the **Azure Arc-enabled SQL Managed Instance**, copy the **IP Address** from under external endpoint. You can also see that the status is **Ready**.
 
    ![](images/sqldashboard.png "Confirm")
 
@@ -182,9 +185,9 @@ In this task, let us learn how to connect to your newly created Azure Arc-enable
    
    - **Authentication type** : Select **SQL Login** from the drop down options
    
-   - **User name** : Enter arcsqluser
+   - **User name** : Enter Arcsqluser
      ```BASH
-     arcsqluser
+     Arcsqluser
      ```
    
    - **Password** : Enter Password.1!!
@@ -194,38 +197,38 @@ In this task, let us learn how to connect to your newly created Azure Arc-enable
    
    ![](images/sqlconnect.png "Confirm")
    
-1. Now you can see that you are successfully connected with your Azure Arc-enabled SQL MI Server. Under servers you can see that you are successfully connected with your Azure Arc-enabled SQL MI Server. You can explore the SQLMI dashboard to view the databases and run a query.
+1. Now you can see that you are successfully connected with your Azure Arc-enabled SQL MI Server under servers. You can explore the SQLMI dashboard to view the databases.
 
    ![](images/sqlmiserver.png "Confirm")
 
-## Task 3: Configure Azure Arc-enabled Azure SQL Managed Instance
+## Task 4: Configure Azure Arc-enabled Azure SQL Managed Instance
 
-In this task, let's learn to edit the configuration of Azure Arc-enabled Azure SQL Managed instances with Azure Data CLI.
+In this task, Let's learn how to modify the configuration parameters of Azure Arc-enabled SQL Managed Instance using Azure Data CLI.
 
 1. Open Command Prompt from the desktop shortcut and run the following command to see configuration options of Azure SQL Managed instance.
 
    ```BASH
-   azdata arc sql mi edit --help
+   azdata Arc sql mi edit --help
    ```
 
    ![](images/ex4t3-1.png "Confirm")
 
 1. Now run the following command to set the custom CPU core and memory requests and limit. 
 
-   >**Note**: Make sure to replace <NAME_OF_SQL_MI> with your Azure SQL Managed instance name which will be **arcsql** if you also provided the same for Instance name during creation of Azure SQL Managed Instance. Also, you shouldn't select the Core and memory limit more than the given limits.
+   >**Note**: Make sure to replace <NAME_OF_SQL_MI> with your Azure SQL Managed instance name which will be **Arcsql** if you also provided the same for Instance name during creation of Azure SQL Managed Instance. Also, you shouldn't select the Core and memory limit more than the given limits.
 
    ```BASH
-   azdata arc sql mi edit --cores-limit 3 --cores-request 2 --memory-limit 2Gi --memory-request 2Gi -n <NAME_OF_SQL_MI>
+   azdata Arc sql mi edit --cores-limit 3 --cores-request 2 --memory-limit 2Gi --memory-request 2Gi -n <NAME_OF_SQL_MI>
    ```      
 
    ![](images/ex4t3-2.png "Confirm")
 
 1. Now, you can run the below command to view the changes that you made to the Azure SQL Managed instance.
 
-   >**Note**: Make sure to replace <NAME_OF_SQL_MI> with your Azure SQL Managed instance name which will be **arcsql** if you also provided the same for Instance name during creation of Azure SQL Managed Instance.
+   >**Note**: Make sure to replace <NAME_OF_SQL_MI> with your Azure SQL Managed instance name which will be **Arcsql** if you also provided the same for Instance name during creation of Azure SQL Managed Instance.
    
    ```BASH
-   azdata arc sql mi show -n <NAME_OF_SQL_MI>
+   azdata Arc sql mi show -n <NAME_OF_SQL_MI>
    ```
 
    ![](images/ex4t3-3.png "Confirm")
@@ -240,13 +243,13 @@ Now let's restore the sample backup file i.e AdventureWorks backup (.bak) into y
 
 1. In the Command Prompt, run the following command to get the list of pods that are running on your data controller. 
 
-   > **Note**: Please make sure to replace the namespace name with your data controller namespace name which will be **arcdc**.
+   > **Note**: Please make sure to replace the namespace name with your data controller namespace name which will be **Arcdc**.
 
    ```BASH
    kubectl get pods -n <your namespace name>
    ```
    
-1. From the output of the above command, copy the pod name of the SQL MI instance from the output which will be in following format sqlinstancename-0. If you followed the same naming convention as in the instructions, the pod name will be **arcsql-0**.
+1. From the output of the above command, copy the pod name of the SQL MI instance from the output which will be in following format sqlinstancename-0. If you followed the same naming convention as in the instructions, the pod name will be **Arcsql-0**.
 
    > **Note**: Please copy the Pod Name for the next step.
 
@@ -257,17 +260,17 @@ Now let's restore the sample backup file i.e AdventureWorks backup (.bak) into y
    >**Note**: Replace the value of the namespace name and pod name with the value you copied in the previous step.
 
    ```BASH
-   kubectl exec <SQL pod name> -n <your namespace name> -c arc-sqlmi -- wget https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2019.bak -O /var/opt/mssql/data/AdventureWorks2019.bak
+   kubectl exec <SQL pod name> -n <your namespace name> -c Arc-sqlmi -- wget https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2019.bak -O /var/opt/mssql/data/AdventureWorks2019.bak
    ```
 
    ![](images/ex4t4-3.png "Confirm")
 
 1. Now, to restore the AdventureWorks database, you can run the following command.
 
-   > **Note**: Ensure to replace the value of the pod and the namespace name before you run it. Rest of the values we have already added in the command, you can go through the command and figure out what all are being passed as arguements.
+   > **Note**: Ensure to replace the value of the pod and the namespace name before you run it. Rest of the values we have already added in the command, you can go through the command and figure out what all are being passed as arguments.
 
    ```BASH
-   kubectl exec <SQL pod name> -n <your namespace name> -c arc-sqlmi -- /opt/mssql-tools/bin/sqlcmd -S localhost -U arcsqluser -P Password.1!! -Q "RESTORE DATABASE AdventureWorks2019 FROM  DISK = N'/var/opt/mssql/data/AdventureWorks2019.bak' WITH MOVE 'AdventureWorks2017' TO '/var/opt/mssql/data/AdventureWorks2019.mdf', MOVE 'AdventureWorks2017_Log' TO '/var/opt/mssql/data/AdventureWorks2019_Log.ldf'"
+   kubectl exec <SQL pod name> -n <your namespace name> -c Arc-sqlmi -- /opt/mssql-tools/bin/sqlcmd -S localhost -U Arcsqluser -P Password.1!! -Q "RESTORE DATABASE AdventureWorks2019 FROM  DISK = N'/var/opt/mssql/data/AdventureWorks2019.bak' WITH MOVE 'AdventureWorks2017' TO '/var/opt/mssql/data/AdventureWorks2019.mdf', MOVE 'AdventureWorks2017_Log' TO '/var/opt/mssql/data/AdventureWorks2019_Log.ldf'"
    ```
 
    ![](images/ex4t4-4.png "Confirm")
@@ -278,7 +281,7 @@ Now let's restore the sample backup file i.e AdventureWorks backup (.bak) into y
 
    ![](images/ex4t4-6.png "Confirm")
 
-## Task 5: Migrate and Restore SQL Server DB to Azure Arc-enabled Azure SQL Managed instance from Blob storage and Azure arc pod.
+## Task 5: Migrate and Restore SQL Server DB to Azure Arc-enabled Azure SQL Managed instance from Blob storage and Azure Arc pod.
 
 Now that we have the Azure SQL Managed instance ready, let's migrate and restore the SQL server database to the Azure Arc-enabled SQLMI. 
    
@@ -294,7 +297,7 @@ There are two methods to do the migration and restore - One is by using the Azur
 
    ![](images/ex4t5-2.png "Confirm")
 
-1. From the next page, open the resource group you have access to. You will be able to find a resource of type Azure blob storage with name as arcstorageUNIQUEID. Click on that resource. 
+1. From the next page, open the resource group you have access to. You will be able to find a resource of type Azure blob storage with name as ArcstorageUNIQUEID. Click on that resource. 
 
    ![](images/ex4t5-s1-2.gif "Confirm")
 
@@ -312,7 +315,7 @@ There are two methods to do the migration and restore - One is by using the Azur
 
    ![](images/Blob_SAS.PNG "Confirm")
 
-   > **Note**: After copying SAS token to notepad remove **?** at the beginning of the token before useing it later.
+   > **Note**: After copying SAS token to notepad remove **?** at the beginning of the token before using it later.
 
    ![](images/ex4t5-s1-4.gif "Confirm")
 
@@ -345,13 +348,13 @@ There are two methods to do the migration and restore - One is by using the Azur
 
    ![](images/SQL_q2.PNG "Confirm")
    
-1. Open the Azure portal and validate that the backup file created in the previous step is visible in the Blob container. For this, you have to go to the storage account and click on the container button and then open the arccontainer to view the backup file.
+1. Open the Azure portal and validate that the backup file created in the previous step is visible in the Blob container. For this, you have to go to the storage account and click on the container button and then open the **Arccontainer** to view the backup file.
   
    ![](images/sqlquery2.png "Confirm")
 
 **Step 2: Restore the database from Azure blob storage to Azure SQL Managed instance - Azure Arc**
 
-1. Navigate back to Azure Data Studio, login and connect to the Azure SQL Managed instance - Azure Arc if not already .
+1. Navigate back to Azure Data Studio, login and connect to the Azure SQL Managed instance - Azure Arc if not already.
 
 1. Expand the System Databases, right-click on the master database, and select New Query.
 
@@ -368,7 +371,7 @@ There are two methods to do the migration and restore - One is by using the Azur
    RESTORE FILELISTONLY FROM URL = 'https://<Storage account name>.blob.core.windows.net/<Container name>/<File Name>.bak'
    ```
 
-1. Prepare and run the RESTORE DATABASE command as follows to restore the backup file to a database on Azure SQL Managed instance - Azure Arc. Make sure you update the test and test_log value to the logical values from the previous step.    
+1. Prepare and run the RESTORE DATABASE command as follows to restore the backup file to a database on Azure SQL Managed instance - Azure Arc. Make sure you update the test and test log value to the logical values from the previous step.    
 
    ```
    RESTORE DATABASE <database name> FROM URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>/<file name>'
@@ -386,7 +389,7 @@ There are two methods to do the migration and restore - One is by using the Azur
    
 This method shows you how to take a backup file that you create via any method and then copy it into local storage in the Azure SQL Managed instance pod.
    
-So you can restore from there much like you would on a typical file system on Windows or Linux.
+So, you can restore from there much like you would on a typical file system on Windows or Linux.
    
 In this scenario, you will be using the command kubectl cp to copy the file from one place into the pod's file system.
    
@@ -408,10 +411,10 @@ In this scenario, you will be using the command kubectl cp to copy the file from
 3. Copy the backup file from the local storage to the SQL pod in the cluster using the below SQL query. Make sure you replace the SQLMI pod name and DB name.
    
    ```
-   kubectl cp C:\temp\<DB name>.bak <SQLMI pod name>:var/opt/mssql/data/<DB Name>.bak -n arc
+   kubectl cp C:\temp\<DB name>.bak <SQLMI pod name>:var/opt/mssql/data/<DB Name>.bak -n Arc
    ```
 
-4. Run the below query to restore the database to the Azure SQL Managed instance - Azure arc
+4. Run the below query to restore the database to the Azure SQL Managed instance - Azure Arc
      
    ```
    RESTORE DATABASE test FROM DISK = '/var/opt/mssql/data/<file name>.bak'
@@ -495,7 +498,7 @@ Now that we have the database created, let us upload some metrics, usages, and l
 1. Export all logs to the specified file:
    
    ```
-   azdata arc dc export --type logs --path logs.json
+   azdata Arc dc export --type logs --path logs.json
    ```
 
 1. Upload logs to an Azure monitor log analytics workspace:
@@ -503,14 +506,14 @@ Now that we have the database created, let us upload some metrics, usages, and l
    > **Note**: We have already deployed the log analytics workspace in the previous exercise.
    
    ```
-   azdata arc dc upload --path logs.json
+   azdata Arc dc upload --path logs.json
    ```
       
 1. After some time, you will see some outputs uploaded to Azure.
 
    ![](images/logs.png "Confirm")
     
-1. Now open the Azure portal and search for **Azure SQL Managed instances - azure arc**  and select the resource.
+1. Now open the Azure portal and seArch for **Azure SQL Managed instances - azure Arc** and select the resource.
 
    ![](images/sqlportal1.png "Confirm")
       
@@ -548,13 +551,13 @@ Now let us Monitor the SQL MI status using Grafana and Kibana.
   
 1. Now copy the endpoint for Kibana dashboard and browser this endpoint in a browser.
   
-1. Enter below user name and password for SQLMI.
+1. Enter below username and password for SQLMI.
   
    > **Note** You have to enter the credentials of Azure Arc data controller.
   
-   - **User name** : arcuser
+   - **User name** : Arcuser
      ```BASH
-     arcuser
+     Arcuser
      ```
 
    - **Password** : Password.1!!
@@ -568,21 +571,21 @@ Now let us Monitor the SQL MI status using Grafana and Kibana.
 
 1. You can explore the page for kibana. 
   
-   > ***Info***: You can learn more about kibana here: [View logs and metrics using Kibana and Grafana](https://docs.microsoft.com/en-us/azure/azure-arc/data/monitor-grafana-kibana)
+   > ***Info***: You can learn more about Kibana here: [View logs and metrics using Kibana and Grafana](https://docs.microsoft.com/en-us/azure/azure-Arc/data/monitor-grafana-kibana)
     
-## View the Visualization and metric using grafana graph
+## View the Visualization and metric using Grafana graph
   
 1. Now go back to the Azure Data Studio which you had opened earlier on the provided JumpVM on the left.
   
 1. Now copy the endpoint for the Grafana dashboard and browser this endpoint in a browser.
   
-1. Enter below user name and password for SQLMI.
+1. Enter below username and password for SQLMI.
   
    > **Note** You have to enter the credentials of the Azure Arc data controller.
       
-   - **User name** : arcuser
+   - **User name** : Arcuser
      ```BASH
-     arcuser
+     Arcuser
      ```
 
    - **Password** : Password.1!!
@@ -594,7 +597,7 @@ Now let us Monitor the SQL MI status using Grafana and Kibana.
    
 1. You can explore the page for Grafana. 
   
-   > ***Info***:  You can learn more about Grafana here: [View logs and metrics using Kibana and Grafana](https://docs.microsoft.com/en-us/azure/azure-arc/data/monitor-grafana-kibana)  
+   > ***Info***:  You can learn more about Grafana here: [View logs and metrics using Kibana and Grafana](https://docs.microsoft.com/en-us/azure/azure-Arc/data/monitor-grafana-kibana)  
   
 
 ## After this exercise, you have performed the following
@@ -603,7 +606,7 @@ Now let us Monitor the SQL MI status using Grafana and Kibana.
    - Connected to Azure Arc-enabled Azure SQL Managed instance.
    - Configured Azure Arc-enabled SQL Managed Instance.
    - Restored the AdventureWorks sample database into Azure SQL Managed instance - Azure Arc.
-   - Migrated and Restored SQL Server DB to Azure Arc-enabled Azure SQL Managed instance from Blob storage and Azure arc pod.
+   - Migrated and Restored SQL Server DB to Azure Arc-enabled Azure SQL Managed instance from Blob storage and Azure Arc pod.
    - Viewed SQL MI resources and logs in Azure portal.
-   - Monitored with kibana and grafana.
+   - Monitored with Kibana and Grafana.
 {"mode":"full","isActive":false}
