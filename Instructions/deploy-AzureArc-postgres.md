@@ -3,7 +3,7 @@
 
 Duration: 40 minutes
 
-Contoso has some applications that use PostgreSQL as the backend database. They have installed PostgreSQL on their Linux servers in their manufacturing plants but these locations don’t necessarily have local IT support to update the operating system and PostgreSQL with the latest security updates. Additionally, they have just recently migrated some of their very large Oracle databases to PostgreSQL. They have explored Azure Database for PostgreSQL Hyperscale and found that it meets their requirements and offers some unique capabilities such as distribution of the data across multiple nodes. However, due to latency issues and some compliance reasons, they want to run PostgreSQL databases in their own environment. Therefore they are excited about the opportunity of deploying PostgreSQL Hyperscale in their Azure Arc-enabled environment.
+Contoso has some applications that use PostgreSQL as the backend database. They have installed PostgreSQL on their Linux servers in their manufacturing plants, but these locations don’t necessarily have local IT support to update the operating system and PostgreSQL with the latest security updates. Additionally, they have just recently migrated some of their very large Oracle databases to PostgreSQL. They have explored Azure Database for PostgreSQL Hyperscale and found that it meets their requirements and offers some unique capabilities such as distribution of the data across multiple nodes. However, due to latency issues and some compliance reasons, they want to run PostgreSQL databases in their own environment. Therefore, they are excited about the opportunity of deploying PostgreSQL Hyperscale in their Azure Arc-enabled environment.
 
 Now that you are familiar with the existing Kubernetes cluster and Data controller, let's perform the following in this exercise:
  - Create a Postgres Hyperscale Server group
@@ -14,7 +14,7 @@ Now that you are familiar with the existing Kubernetes cluster and Data controll
 
 ## Task 1: Create a Postgres Hyperscale Server group and connect to the Azure Arc-enabled PostgreSQL Hyperscale server group.
 
-Contoso is happy with the current performance of PostgreSQL Hyperscale but they also anticipate that when they go in production, the database will grow significantly and there will be more users querying the database. Therefore they want to leverage the unique capability of PostgreSQL Hyperscale to scale out with additional worker nodes. They also like the fact that they will be able to add nodes and redistribute the data across the worker nodes as an online operation.
+Contoso is happy with the current performance of PostgreSQL Hyperscale, but they also anticipate that when they go in production, the database will grow significantly and there will be more users querying the database. Therefore, they want to leverage the unique capability of PostgreSQL Hyperscale to scale out with additional worker nodes. They also like the fact that they will be able to add nodes and redistribute the data across the worker nodes as an online operation.
 
 >**Info**: (**Server group**)- The nodes in the server group collectively hold more data and use more CPU cores than would be possible on a single server. This architecture also allows the database to scale by adding more nodes to the server group.
 
@@ -285,7 +285,7 @@ Now we are done with the backup and restoration, let's verify if the database ha
    
 The database migration was successful if the row counts are the same in both **Arc-Demo-PG** and **Restored_Arc-Demo-PG** Databases.
 
-## Task 3: Distribution(Shard) of data on worker nodes in Azure Arc PostgreSQL – Hyperscale 
+## Task 3: Distribution (Shard) of data on worker nodes in Azure Arc PostgreSQL – Hyperscale 
 
 In this task, let us work on the Distribution (Shard) of data on worker nodes.
 
@@ -443,7 +443,7 @@ In this task, let's see how to backup the database in Arc-enabled PostgreSQL Ser
 
 ### Reviewing Distribution of data 
 
-> **Note**: Distributing a table assigns each row to a logical group called a shard. Here only the table and it's rows are distributed to different shards. So, the resulted output data will remain same even after distributing the table rows. 
+> **Note**: Distributing a table assigns each row to a logical group called a shard. Here only the table and its rows are distributed to different shards. So, the resulted output data will remain same even after distributing the table rows. 
 
 1. Now, go back to the pgAdmin. In distributed table by default create_distributed_table() makes 32 shards, as you can see by counting in the metadata table **pg_dist_shard**
 
@@ -473,7 +473,7 @@ In this task, let's see how to backup the database in Arc-enabled PostgreSQL Ser
    
    ![](./images/pg-shard-query-06.png "")
    
-   > **Note**: In the above result you can see distribution of shards into different worker nodes under *host text* coloumn. 
+   > **Note**: In the above result you can see distribution of shards into different worker nodes under *host text* column. 
 
 
 1. Run the following query to find the average age of users which gets data from distributed table **users**. 
@@ -504,7 +504,7 @@ Now let's see how to Configure & Scale, and review the distribution of data on t
 
    ![](./images/workernode-output.png "")
    
-1. Now to scale-out **Azure Arc-enabled PostgreSQL Hyperscale**,  in the command prompt run the following command. This will increase the number of worker nodes from 2 to 3.
+1. Now to scale-out **Azure Arc-enabled PostgreSQL Hyperscale**, in the command prompt run the following command. This will increase the number of worker nodes from 2 to 3.
 
    ```BASH
    azdata arc postgres server edit -n arcpostgres -w 3
@@ -524,7 +524,7 @@ Now let's see how to Configure & Scale, and review the distribution of data on t
 
 ### Reviewing Distribution of data 
 
-> **Note**: Distributing a table assigns each row to a logical group called a shard. Here only the table and it's rows are distributed to different shards. So, the resulted output data will remain same even after distributing the table rows. 
+> **Note**: Distributing a table assigns each row to a logical group called a shard. Here only the table and its rows are distributed to different shards. So, the resulted output data will remain same even after distributing the table rows. 
 
 1. In distributed table by default create_distributed_table() makes 32 shards, as you can see by counting in the metadata table **pg_dist_shard**
 
@@ -554,7 +554,7 @@ Now let's see how to Configure & Scale, and review the distribution of data on t
    
    ![](./images/pg-shard-query-06.png "")
    
-   > **Note**: In the above result you can see distribution of shards into different worker nodes under *host text* coloumn. 
+   > **Note**: In the above result you can see distribution of shards into different worker nodes under *host text* column. 
 
 1. Run the following query to find the average age of users which gets data from distributed table **users**. 
 
@@ -570,7 +570,7 @@ Now let's see how to Configure & Scale, and review the distribution of data on t
 
 Now that you are connected to a data controller, let's view the dashboards for the data controller and any SQL managed instances or PostgreSQL Hyperscale server group resources that you have.
 
-1. Open Azure Data Studio. In the **Connections** panel, under **Arc Controllers** right-click on the  arcdc data controller and select **Manage**. and then click on **arcpostgres** under Azure Arc Resources.
+1. Open Azure Data Studio. In the **Connections** panel, under **Arc Controllers** right-click on the arcdc data controller and select **Manage**. and then click on **arcpostgres** under Azure Arc Resources.
 
    ![](./images/Mondata-studio01.PNG "")
 
@@ -580,7 +580,7 @@ Now that you are connected to a data controller, let's view the dashboards for t
 
    > ***Info***: Kibana and Grafana web dashboards are provided to bring insight and clarity to the Kubernetes namespaces being used by Azure Arc-enabled data services. 
 
-1. Now copy the endpoint for Kibana dashboard and paste this endpoint url in a browser. If you get a prompt - connection isn't private, you can click on Advanced and then select Continue to ip address to access the link.
+1. Now copy the endpoint for Kibana dashboard and paste this endpoint URL in a browser. If you get a prompt - connection isn't private, you can click on Advanced and then select Continue to ip address to access the link.
 
       ![](images/sql-mon-kibana-login.png "")
   
@@ -602,13 +602,13 @@ Now that you are connected to a data controller, let's view the dashboards for t
 
    You can see all logs under discover tab from left side menu.
   
-  > ***Info***: You can learn more about kibana here: https://docs.microsoft.com/en-us/azure/azure-arc/data/monitor-grafana-kibana
+  > ***Info***: You can learn more about Kibana here: https://docs.microsoft.com/en-us/azure/azure-arc/data/monitor-grafana-kibana
  
-### View the Visualization and metric using grafana graph
+### View the Visualization and metric using Grafana graph
     
 1. Now copy the endpoint for the Grafana dashboard and paste this endpoint url in a browser. If you get a prompt - connection isn't private, you can click on Advanced and then select Continue to ip address to access the link.
   
-1. Enter below user name and password for Postgres DB.
+1. Enter below username and password for Postgres DB.
   
    - **Note** You have to enter the credentials of the Azure Arc data controller.
 
@@ -713,7 +713,7 @@ In this task, let's upload logs for your Azure Arc-enabled PostgreSQL Hyperscale
 
    ![](./images/Logs-editor-run.PNG "")
 
-   > **Note**  Now you have created the **Log Analytics workspaces** but you can't upload any usages or logs. Move on to next exercise to upload the Logs and usages.
+   > **Note** Now you have created the **Log Analytics workspaces** but you can't upload any usages or logs. Move on to next exercise to upload the Logs and usages.
    
 ## After this exercise, you have learned the following
 
@@ -726,3 +726,4 @@ In this task, let's upload logs for your Azure Arc-enabled PostgreSQL Hyperscale
    - Upload usage data, metrics, and logs to Azure Monitor.
 {"mode":"full","isActive":false}
 {"mode":"full","isActive":false}
+
