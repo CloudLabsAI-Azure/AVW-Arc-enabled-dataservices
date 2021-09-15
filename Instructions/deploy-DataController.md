@@ -1,14 +1,14 @@
 # Exercise 1: Deploy Azure Arc Data Controller 
   Duration: 30 Minutes
   
- In this Exercise you will Connect the AKS to Azure Arc Kuberenetes cluster and after you will be deploying Azure Arc Data Controller with direct connected mode and custom location with the help of Azure Portal and Az CLI on top of Azure Arc kubernetes cluster.
+ In this exercise you will connect an existing Kubernetes cluster to Azure using Azure Arc-enabled Kubernetes. You will also deploy an Azure data controller in direct connectivity mode to a customer location using Azure portal and Azure CLI. 
  
  
-# Connect Existing Azure Kuberenets Cluset to Azure Arc Kuberenetes cluster.
+# Connect an existing Kubernetes cluster to Azure using Azure Arc-enabled Kubernetes
  
  ## Task 1: Login to Azure and install Azure CLI extensions.
  
-1. Open **Windows Powershell** from the desktop of your ARCHOST VM and run the below command to login to Azure.
+1. Open **Windows PowerShell** from the desktop of your ARCHOST VM and run the below command to login to Azure.
     ```
     az login
     ```
@@ -24,7 +24,7 @@
 
     ![](./media/4.png "Lab Environment")
 
-1. Now switch back to Windows Powershell and you will be able to see that you have logged in to Azure.
+1. Now switch back to Windows PowerShell and you will be able to see that you have logged in to Azure.
 
 1. Now run the below commands to install required Azure CLI extensions.
    
@@ -36,7 +36,7 @@
    ```
    
     ![](./media/5.png "Lab Environment")
-1. If you've previously installed the connectedk8s, k8s-extension, and customlocation extensions, update to the latest version using the following command:
+1. If you've previously installed the connectedk8s, k8s-extension, and custom location extensions, update to the latest version using the following command:
 
    ```
    az extension update --name connectedk8s
@@ -50,7 +50,7 @@
    az version
    ```
    
-1. After making sure the required tools are installed, next step is to register your subscription with Arc for kubernetes.
+1. After making sure the required tools are installed, next step is to register your subscription with Arc for Kubernetes.
 
 1. Run the below command to register the required Resource providers if not already registered. 
 
@@ -61,24 +61,24 @@
  
    ```
 
-## Task 2: Connect Azure Kubernetes cluster to Azure Arc kuberenets cluster and enable features on top op Azure Arc CLuster.
+## Task 2: Onboard an existing Kubernetes cluster to Azure using Azure Arc-enabled Kubernetes.
 
-In this Task you will be Connecting the existing AKS to Azure Arc kubernetes cluster and will be enabling custom features to create the extension and custom location on Azure Arc kubernetes cluster.
+In this Task you will be connecting an existing Kubernetes cluster to Azure using Azure Arc-enabled Kubernetes and will be enabling custom features by adding an Azure Arc data services extension and a custom location on the Azure Arc-enabled Kubernetes cluster. 
 
-1. Run the below command to Connect the existing AKS to Azure Arc kubernetes cluster. Once you run the below command, it will take few minutes to Connect the AKS to Azure Arc.
+1. Also, you should reword this to: Run the below command to connect the existing Kubernetes to your Azure subscription using Azure Arc-enabled Kubernetes. Once you run the below command, it will take a few minutes to onboard the cluster to Azure Arc. 
 
    ```
    az connectedk8s connect --name Arc-Data-Demo --resource-group azure-arc
    
    ```
   
-   > **Note:** We hav already defined  your Cluster name and Azure resouce group name in the above commands, If you are trying this in your subscription please make sure that you have entered correct details.
+   > **Note:** We have already defined your Cluster name and Azure resource group name in the above commands, If you are trying this in your own subscription, please make sure that you have entered correct details.
    
 1. Once the previous command is executed successfully, the provisioning state in output will show as succeeded.
 
     ![](./media/6.png "Lab Environment")
 
-1. Verify whether the Azure Arc Kubernets cluster is connected by running the following command:
+1. Verify whether the Azure Arc-enabled Kubernetes cluster is onboarded and connected to the resource group in the Azure subscription by running the following command:
 
     ```
     az connectedk8s list -g azure-arc -o table
@@ -101,7 +101,9 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
 
     ![](./media/9.png "Lab Environment")
         
-## Create custom location of Arc Cluster. 
+## Create a custom location on the Azure Arc-enabled Kubernetes cluster.
+
+   Custom Locations provides administrators a way to deploy Azure Arc data services and other Azure Arc-enabled services to their own locations, similar to Azure locations. 
  
 1. Now run the below command to enable features to create the custom location:
 
@@ -113,21 +115,21 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
     
      ![](./media/10.png "Lab Environment")
         
-      > **Note:** Custom Locations feature is dependent on the Cluster Connect feature. So both features have to be enabled for custom locations to work.Also az connectedk8s enable-features needs to be run on a machine where the kubeconfig file is pointing to the cluster on which the features are to be enabled.
+      > **Note:** Custom Locations feature is dependent on the Cluster Connect feature. So both features have to be enabled for custom locations to work. Also, az connectedk8s enable-features needs to be run on a machine where the kubeconfig file is pointing to the cluster on which the features are to be enabled.
     
-1. Now run the below command to deploy the extenstion of Azure Arc-enabled Data Services on Azure Arc kubernetes cluster.
+1. Now run the below command to deploy the extension of Azure Arc-enabled Data Services on Azure Arc Kubernetes cluster.
   
      ```
     az k8s-extension create --name azdata --extension-type microsoft.arcdataservices --cluster-type connectedClusters -c Arc-Data-Demo -g azure-arc --scope cluster --release-namespace arcdc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
      
      ```
-1. After running the above command you will notive that the **Installstate** in still pending, this is because the extension will take a few minutes to complete the installation.
+1. After running the above command you will notice that the **Install state** in still pending, this is because the extension will take a few minutes to complete the installation.
 
     ![](./media/11.png "Lab Environment")
 
-1. To verify the extension installation, Switch back to browser and search for **Kuberenetes - Azure Arc** and select your cluster.
+1. To verify the extension installation, switch back to browser and search for **Kubernetes - Azure Arc** and select your cluster.
 
-1. Now select **Extension (preview)** from left side menu and check if the Install status in **Installed** or not, if not please refresh after sometime and then check.
+1. Now select **Extension (preview)** from left side menu and check if the Install status in **Installed** or not, if not please refresh after some time and then check.
 
     ![](./media/12.png "Lab Environment")
 
@@ -162,7 +164,7 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
     
      ![](./media/15.png "Lab Environment")
      
-1. To verify the custom location deployment, Switch back to the browser and login to portal.azure.com if not already done.
+1. To verify the custom location deployment, switch back to the browser and login to portal.azure.com if not already done.
 
 1. Search for custom location in search bar and select custom locations. 
 
@@ -172,19 +174,19 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
 
     ![](./media/17.png "Lab Environment")
      
-1. You can see the namespace and kubernetes cluster details on overview page.
+1. You can see the namespace and Kubernetes cluster details on overview page.
 
 1. Now search for the log analytics workspace in you azure portal and navigate to ```LoganalyticsWS-Direct``` workspace. 
 
-1. Select **Agent managment** from the left side menu.
+1. Select **Agent management** from the left side menu.
 
     ![](./media/newws.png "Lab Environment")
     
-1. Now in the Agent managment window copy the value of **Workspace ID** and **Primary key** and save the values in a notepad for later use while creating the Azure arc data controller.
+1. Now in the Agent management window copy the value of **Workspace ID** and **Primary key** and save the values in a notepad for later use while creating the Azure arc data controller.
      
     ![](./media/newws2.png "Lab Environment")
       
-## Task 3: Deploy Azure Arc Data Controller from Azure Portal.
+## Task 3: Deploy Azure Arc Data Controller in directly connected mode using Azure Portal. 
 
 1. From the Azure Portal, search for ```Azure arc data controller``` from the search box and then click on it.  
 
@@ -194,11 +196,11 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
 
     ![](./media/19.png "Lab Environment")
      
-1. Now, on ```Create Azure Arc data controller``` blade select **Azure Arc-enabled Kubernete (direct mode)**. and click on **Next: Data Controller details**.
+1. Now, on ```Create Azure Arc data controller``` blade select **Azure Arc-enabled Kubernetes (direct mode)**. and click on **Next: Data Controller details**.
 
     ![](./media/20.png "Lab Environment")
    
-1. On **Data controller details** blade enter the following  details:
+1. On **Data controller details** blade enter the following details:
 
    * Select the available subscription from drop down.
    * Resource Group: Select **Azure-arc** from drop down.
@@ -215,7 +217,7 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
    * Log Storage class: Leave default 
    * Service type: Load balancer
    
-   Under Administrator account enter the below detals.
+   Under Administrator account enter the below details.
    * Data controller login: ``` arcuser ```
    * Password: ``` Password.1!! ```
 
@@ -227,9 +229,9 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
 
     ![](./media/22.png "Lab Environment")
    
-   After entering all the required details click on **Next : Additional settings**.
+   After entering all the required details click on **Next: Additional settings**.
 
-1. In Addintional setting blade, Enter the **Log analytics workspace ID and key** that you copied from previos steps and click on **Next : Tags** button.
+1. In Additional setting blade, Enter the **Log analytics workspace ID and key** that you copied from previous steps and click on **Next: Tags** button.
 
     ![](./media/23.png "Lab Environment")
     
@@ -247,34 +249,34 @@ In this Task you will be Connecting the existing AKS to Azure Arc kubernetes clu
 
    ![](./media/26.png "Lab Environment")
    
-  # Monitor the creation of azure Arc data controller on cluster.
+  # Monitor the creation of Azure Arc data controller on cluster.
    
-1. When the Azure portal deployment status shows the deployment was successful, you can check the status of the Arc data controller deployment on the cluster to run the below command on powershell window:
+1. When the Azure portal deployment status shows the deployment was successful, you can check the status of the Arc data controller deployment on the cluster by running the below command on PowerShell window:
 
    ```
    kubectl get datacontrollers -n arcdc
    ```
- 1. Once the data controller state is changed to ready then proceed to next steps, Please note the data controller deployment can take 5 to 10 minutes to change it to ready.
+ 1. Once the data controller state is changed to ready then proceed to next steps, please note the data controller deployment can take 5 to 10 minutes to change it to ready.
 
 
 ## Deploy Azure Arc-enabled SQL Managed Instance with Direct Connected Mode.
 
-In this exercise, let's create an **SQL Managed Instance - Azure Arc** using Azure Portal on top of a directly connect Azure Arc Data controller.
+In this exercise, let's create an **Azure Arc-enabled SQL Managed Instance** using Azure Portal on a directly connected Azure Arc data controller in a custom location. 
 
  Also, we will be exploring the Kibana and Grafana Dashboards and upload the logs and metrics to the Azure portal and view the logs.
  
  
- Task 1. Deploy Azure Arc SQL Managed instance.
+ Task 1. Deploy **Azure Arc-enabled SQL Managed Instance**.
  
  1. Open your browser and login to Azure portal if not already done.
 
-1. Now Search for SQL Managed Instance -  Azure Arc and select it.
+1. Now Search for **SQL Managed Instance - Azure Arc** and select it.
 
-   ![](./media/27.png "Lab Environment")
+    ![](./media/27.png "Lab Environment")
    
 1. Click on create ** + Create ** button to create the SQL Managed instance - Azure Arc.
 
-   ![](./media/28.png "Lab Environment")
+    ![](./media/28.png "Lab Environment")
  
 1. Now on **Basics** tab enter the below details:
  
@@ -302,14 +304,14 @@ In this exercise, let's create an **SQL Managed Instance - Azure Arc** using Azu
       
     Now on **Compute+ Storage** blade enter the following details:
     
-     * High availability : Select ```1``` replica
-     * Memory Limit(in Gi): Enter ```4```
+     * High availability: Select ```1``` replica
+     * Memory Limit (in Gi): Enter ```4```
      * CPU Limit: Enter ```2```
      * Data storage class: leave default
-     * data volume size (in Gi): ```2```
+     * Data volume size (in Gi): ```2```
      * Data-logs storage class: leave ```default```
-     * Data-logs volume size(in Gi): ```1```
-     * Logs storage class: Leave ```deault```
+     * Data-logs volume size (in Gi): ```1```
+     * Logs storage class: Leave ```default```
      * Logs storage class: Enter ```1```
      * Backup Storage class: leave ```default```
      * Backups volume size (in Gi): ```1```
@@ -338,7 +340,7 @@ In this exercise, let's create an **SQL Managed Instance - Azure Arc** using Azu
  
 1. After some time you see that the deployment of **SQL Managed Instance - Azure Arc** in completed. Now click on Go to resource button to navigate to the resource.
 
-1. Now we have suceessfully deployed the Azure Arc-enabled SQLMI on top of Directly connected mode Azure Arc data controller, You can explore more on metric and logs on the same page from left side menu.
+1. Now we have successfully deployed the Azure Arc-enabled SQLMI on top of Directly connected mode Azure Arc data controller, you can explore more on metric and logs on the same page from left side menu.
 
 
- In this exercise we have connected our AKS cluster to Azure Arc-enabled cluster and deployed custom locaiton and data controller with direct connected mode with the help of Azure portal and Azure CLI and created a Azure Arc-enabled SQLMI server on directly connected mode of Azure Arc data controller.
+ In this exercise we have connected our AKS cluster to Azure Arc-enabled cluster and deployed custom location and data controller with direct connected mode with the help of Azure portal and Azure CLI and created a Azure Arc-enabled SQLMI server on directly connected mode of Azure Arc data controller.
