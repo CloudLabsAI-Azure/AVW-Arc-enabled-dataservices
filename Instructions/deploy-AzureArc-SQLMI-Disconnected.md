@@ -247,12 +247,14 @@ Now let's restore the sample backup file i.e AdventureWorks backup (.bak) into y
    
 Now that we have the database created, let us export some metrics, usages, and logs to the system.
 
+In real-life scenario we will transfer the JSON export of the logs to a different location that has Internet connectivity and then the logs will be uploaded to Azure, in that location the environment has access to Azure to view the logs using Azure Monitor.
 
-> Note: Please note that you can upload these logs from the other machine also where you have connected to Azure. this is only supported in Disconnected mode, and you can use the resources without even connecting to Azure portal.
+In this setup, we are explaining you that how we can export and upload the logs to Azure and view the logs.
+
    
 1. Navigate back to the command prompt window.
 
-1. Export all logs to the specified file:
+1. Export all logs to the specified file using the below query. The logs will be saved in ' C:\Users\arcadmin\logs.json' directory.
    
    ```
    az arcdata dc export --type logs --path logs.json --k8s-namespace arcdc --use-k8s
@@ -365,4 +367,6 @@ Now let us Monitor the SQL MI status using Grafana and Kibana.
    - Configured Azure Arc-enabled SQL Managed Instance.
    - Restored the AdventureWorks sample database into Azure SQL Managed instance - Azure Arc.
    - Exported the Azure Arc data controller logs.
+   - Monitored with kibana and grafana.
+
 
