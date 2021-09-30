@@ -197,10 +197,10 @@ In this task, Let's learn how to modify the configuration parameters of Azure Ar
 
    >**Note**: Make sure to replace <NAME_OF_SQL_MI> with your Azure SQL Managed instance name which will be **Arcsql** if you also provided the same for Instance name during creation of Azure SQL Managed Instance.
    
-   ```BASH
+    ```BASH
     az sql mi-arc show -n arcsql --k8s-namespace arcdc --use-k8s
 
-   ```
+    ```
 
    ![](images/ex4t3-3.png "Confirm")
 
@@ -230,10 +230,9 @@ Now let's restore the sample backup file i.e AdventureWorks backup (.bak) into y
 
    ```BASH
      kubectl exec arcsql-0 -n arcdc -c arc-sqlmi -- /opt/mssql-tools/bin/sqlcmd -S localhost -U arcsqluser -P Password.1!! -Q "RESTORE DATABASE AdventureWorks2019 FROM  DISK = N'/var/opt/mssql/data/AdventureWorks2019.bak' WITH MOVE 'AdventureWorks2017' TO '/var/opt/mssql/data/AdventureWorks2019.mdf', MOVE 'AdventureWorks2017_Log' TO '/var/opt/mssql/data/AdventureWorks2019_Log.ldf'"
-  
-  ```
+    ```
 
-   ![](images/ex4t4-4.png "Confirm")
+  ![](images/ex4t4-4.png "Confirm")
 
 1. Now you can switch back to Azure Data Studio, and then right-click on the SQL MI Server under CONNECTIONS on the top left of the Azure Data Studio and click on refresh
 
