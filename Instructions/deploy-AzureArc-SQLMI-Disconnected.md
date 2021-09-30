@@ -206,7 +206,8 @@ In this task, Let's learn how to modify the configuration parameters of Azure Ar
 
 ## Task 4: Restore the AdventureWorks sample database into Azure SQL Managed instance - Azure Arc Using Kubectl.
 
-Restore an existing SQL database from a SQL Server to Azure Arc-enabled SQL MI is very simple. All you have to do is to take a backup from your existing SQL Server, and then restore that backup to SQL MI. In our scanario we have already a back copied in kubernetes cluster from one of the SQLServer, you will be restoring the database from cluster to Azure Arc-enabled SQL MI. 
+Restore an existing SQL database from a SQL Server to Azure Arc-enabled SQL MI is very simple. All you have to do is to take a backup from your existing SQL Server, and then restore that backup to SQL MI. 
+In our scanario we already have an AdventureWorks backup file copied in one of kubernetes cluster pod. The backup file was generated from a SQL Server 2019 database server and moved to the Kubernetes cluster.
 
 Now let's restore the sample backup file i.e AdventureWorks backup (.bak) into your Azure SQL Managed instance container using Kubectl commands.
 
@@ -228,11 +229,11 @@ Now let's restore the sample backup file i.e AdventureWorks backup (.bak) into y
    
 1. Now, to restore the AdventureWorks database, you can run the following command.
 
-   ```BASH
-     kubectl exec arcsql-0 -n arcdc -c arc-sqlmi -- /opt/mssql-tools/bin/sqlcmd -S localhost -U arcsqluser -P Password.1!! -Q "RESTORE DATABASE AdventureWorks2019 FROM  DISK = N'/var/opt/mssql/data/AdventureWorks2019.bak' WITH MOVE 'AdventureWorks2017' TO '/var/opt/mssql/data/AdventureWorks2019.mdf', MOVE 'AdventureWorks2017_Log' TO '/var/opt/mssql/data/AdventureWorks2019_Log.ldf'"
-    ```
+     ```BASH
+      kubectl exec arcsql-0 -n arcdc -c arc-sqlmi -- /opt/mssql-tools/bin/sqlcmd -S localhost -U arcsqluser -P Password.1!! -Q "RESTORE DATABASE AdventureWorks2019 FROM  DISK = N'/var/opt/mssql/data/AdventureWorks2019.bak' WITH MOVE 'AdventureWorks2017' TO '/var/opt/mssql/data/AdventureWorks2019.mdf', MOVE 'AdventureWorks2017_Log' TO '/var/opt/mssql/data/AdventureWorks2019_Log.ldf'"
+      ```
 
-  ![](images/ex4t4-4.png "Confirm")
+    ![](images/ex4t4-4.png "Confirm")
 
 1. Now you can switch back to Azure Data Studio, and then right-click on the SQL MI Server under CONNECTIONS on the top left of the Azure Data Studio and click on refresh
 
