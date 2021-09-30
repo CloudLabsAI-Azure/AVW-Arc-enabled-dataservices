@@ -257,6 +257,7 @@ Now that we have the database created, let us export some metrics, usages, and l
    ```
    az arcdata dc export --type logs --path logs.json --k8s-namespace arcdc --use-k8s
    ```
+   > **Note**: You may see a message "Bypass server certificate check: (y/n):", then enter `Y` to bypass the certificate check.
 
 1. Upload logs to an Azure monitor log analytics workspace:
       
