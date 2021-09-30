@@ -204,10 +204,11 @@ In this task, Let's learn how to modify the configuration parameters of Azure Ar
 
    ![](images/ex4t3-3.png "Confirm")
 
-## Task 4: Restore the AdventureWorks sample database into Azure SQL Managed instance - Azure Arc Using Kubectl.
+## Task 5: Restore the AdventureWorks sample database into Azure SQL Managed instance - Azure Arc Using Kubectl.
 
 Restore an existing SQL database from a SQL Server to Azure Arc-enabled SQL MI is very simple. All you have to do is to take a backup from your existing SQL Server, and then restore that backup to SQL MI. 
-In our scenario we already have an AdventureWorks backup file copied in one of Kubernetes cluster pod. The backup file was generated from a SQL Server 2019 database server and moved to the Kubernetes cluster.
+
+In this lab we already have an AdventureWorks backup file copied in one of Kubernetes cluster pod. The backup file was generated from a SQL Server 2019 database server and moved to the Kubernetes cluster.
 
 Now let's restore the sample backup file i.e AdventureWorks backup (.bak) into your Azure SQL Managed instance container using Kubectl commands.
 
