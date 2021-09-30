@@ -255,7 +255,7 @@ But in this lab, we will show how you can export the logs to the local machine w
    
 1. Navigate back to the command prompt window.
 
-1. Export all logs to the specified file using the below query. The logs will be saved in ' C:\Users\arcadmin\logs.json' directory.
+1. Export all logs to the specified file using the below query. The logs will be saved in 'C:\Users\arcadmin\logs.json' directory.
    
    ```
    az arcdata dc export --type logs --path logs.json --k8s-namespace arcdc --use-k8s
