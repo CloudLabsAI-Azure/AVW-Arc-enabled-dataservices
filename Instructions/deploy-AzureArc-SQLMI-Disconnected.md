@@ -249,7 +249,7 @@ Now that we have the database created, let us export some metrics, usages, and l
 
 In real-life scenario we will transfer the JSON export of the logs to a different location that has Internet connectivity and then the logs will be uploaded to Azure, in that location the environment has access to Azure to view the logs using Azure Monitor.
 
-In this setup, we are explaining you that how we can export and upload the logs to Azure and view the logs.
+But in this lab, we will show how you can export the logs to the local machine which will then be uploaded to Azure and view the logs in Azure Monitor.
 
    
 1. Navigate back to the command prompt window.
@@ -263,7 +263,7 @@ In this setup, we are explaining you that how we can export and upload the logs 
 
 1. Upload logs to an Azure monitor log analytics workspace:
       
-   > **Note**: We have already deployed the log analytics workspace in the previous exercise.
+   > **Note**: We have already deployed the log analytics workspace in this environment and have s.
    
    ```
    azdata Arc dc upload --path logs.json
