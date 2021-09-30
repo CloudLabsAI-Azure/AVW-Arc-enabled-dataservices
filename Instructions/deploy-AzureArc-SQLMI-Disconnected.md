@@ -191,7 +191,7 @@ In this task, Let's learn how to modify the configuration parameters of Azure Ar
    az sql mi-arc edit --cores-limit 3 --cores-request 2 --memory-limit 2Gi --memory-request 2Gi -n arcsql --k8s-namespace arcdc --use-k8s
    ```      
 
-   ![](arcsqlmnw12.png "Confirm")
+    ![](arcsqlmnw12.png "Confirm")
 
 1. Now, you can run the below command to view the changes that you made to the Azure SQL Managed instance.
 
