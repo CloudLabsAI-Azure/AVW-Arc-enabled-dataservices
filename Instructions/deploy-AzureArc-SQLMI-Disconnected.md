@@ -313,7 +313,7 @@ Now that we have the database created, let us upload some metrics, usages, and l
 1. Export all logs to the specified file:
    
    ```
-   azdata Arc dc export --type logs --path logs.json
+   az arcdata dc export --type logs --path logs.json --k8s-namespace arcdc --use-k8s
    ```
 
 1. Upload logs to an Azure monitor log analytics workspace:
