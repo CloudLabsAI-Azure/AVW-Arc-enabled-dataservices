@@ -245,70 +245,12 @@ Now let's restore the sample backup file i.e AdventureWorks backup (.bak) into y
    
 ## Task 6: View SQL MI resource and SQL Mi logs in Azure portal.
    
-Now that we have the database created, let us upload some metrics, usages, and logs to the Azure Portal and view SQLMI Resource in the Azure portal.
+Now that we have the database created, let us export some metrics, usages, and logs to the system.
 
 
-> Note: Please note that you can upload these logs from the other machine also where you have connected to Azure. this is only supported in Disconnected mode and you can use the resources without even connecting to Azure portal
+> Note: Please note that you can upload these logs from the other machine also where you have connected to Azure. this is only supported in Disconnected mode and you can use the resources without even connecting to Azure portal.
    
-1. Navigate back to the command prompt window. Login to the Azure Arc Data controller using the below command if you are not already logged in.
-   
-   ```
-   azdata login
-   ```
-
-1. Run these below commands to check if the variables are set or not.
-   
-   ```BASH
-   echo %WORKSPACE_ID%
-   ```
-
-   ```BASH
-   echo %WORKSPACE_SHARED_KEY%
-   ```
-
-   ```BASH
-   echo %SPN_TENANT_ID%
-   ```
-
-   ```BASH
-   echo %SPN_CLIENT_ID%
-   ```
-
-   ```BASH
-   echo %SPN_CLIENT_SECRET%
-   ```
-
-   ```BASH
-   echo %SPN_AUTHORITY%
-   ```
-       
-1. If the variables are not defined, set it now using the below commands.
-   
-   ```
-   SET WORKSPACE_ID=<customerId>
-   ```
-
-   ```
-   SET WORKSPACE_SHARED_KEY=<primarySharedKey>
-   ```
-
-   ```
-   SET SPN_CLIENT_ID=<appId>
-   ```
-
-   ```   
-   SET SPN_CLIENT_SECRET=<password>
-   ```
-
-   ```
-   SET SPN_TENANT_ID=<tenant>
-   ```
-
-   ```
-   SET SPN_AUTHORITY=https://login.microsoftonline.com
-   ```
-
-   > **Note**: You can get the workspace ID and key from the Azure portal and service principal details from the Environment Details tab at the top and then navigating to Service Principal details.
+1. Navigate back to the command prompt window.
 
 1. Export all logs to the specified file:
    
@@ -421,7 +363,5 @@ Now let us Monitor the SQL MI status using Grafana and Kibana.
    - Connected to Azure Arc-enabled Azure SQL Managed instance.
    - Configured Azure Arc-enabled SQL Managed Instance.
    - Restored the AdventureWorks sample database into Azure SQL Managed instance - Azure Arc.
-   - Migrated and Restored SQL Server DB to Azure Arc-enabled Azure SQL Managed instance from Blob storage and Azure Arc pod.
-   - Viewed SQL MI resources and logs in Azure portal.
-   - Monitored with Kibana and Grafana.
+   - Exported the Azure Arc data controller logs.
 {"mode":"full","isActive":false}
