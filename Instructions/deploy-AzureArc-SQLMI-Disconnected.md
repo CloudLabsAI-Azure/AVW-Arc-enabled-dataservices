@@ -364,4 +364,4 @@ Now let us Monitor the SQL MI status using Grafana and Kibana.
    - Configured Azure Arc-enabled SQL Managed Instance.
    - Restored the AdventureWorks sample database into Azure SQL Managed instance - Azure Arc.
    - Exported the Azure Arc data controller logs.
-{"mode":"full","isActive":false}
+
