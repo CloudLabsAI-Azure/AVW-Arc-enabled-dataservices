@@ -185,13 +185,13 @@ In this task, Let's learn how to modify the configuration parameters of Azure Ar
 
 1. Now run the following command to set the custom CPU core and memory requests and limit. 
 
-   >**Note**: Make sure to replace <NAME_OF_SQL_MI> with your Azure SQL Managed instance name which will be **Arcsql** if you also provided the same for Instance name during creation of Azure SQL Managed Instance. Also, you shouldn't select the Core and memory limit more than the given limits.
+   >**Note**: Please make sure to not modify the core and memory limits.
 
    ```BASH
    az sql mi-arc edit --cores-limit 3 --cores-request 2 --memory-limit 2Gi --memory-request 2Gi -n arcsql --k8s-namespace arcdc --use-k8s
    ```      
 
-    ![](arcsqlmnw12.png "Confirm")
+    ![](images/arcsqlmnw12.png "Confirm")
 
 1. Now, you can run the below command to view the changes that you made to the Azure SQL Managed instance.
 
