@@ -75,12 +75,12 @@ In this task, let's learn how to create Azure Arc-enabled SQL Managed Instance u
 
    **Under SQL Connection information**
    
-   - **Instance name**: Enter Arcsql
+   - **Instance name**: Enter arcsql
      ```BASH
      arcsql
      ```
    
-   - **Username**:  Enter Arcsqluser
+   - **Username**:  Enter arcsqluser
      ```BASH
      arcsqluser
      ```
@@ -116,13 +116,13 @@ In this task, let's learn how to create Azure Arc-enabled SQL Managed Instance u
 
    ![](images/sqlconfig.png "Confirm")
      
-1. After clicking on the deployment button, a Notebook will open and the cell execution will start automatically to deploy the **SQL Managed Instance**.
+1. After clicking on the deployment button, a Notebook will open, and the cell execution will start automatically to deploy the **SQL Managed Instance**.
 
    ![](images/sqlminw.png "Confirm")
 
 1. The deployment of **Azure Arc-enabled SQL Managed Instance** will take around 5-10 minutes to complete, in this time you can explore through the commands in the notebook.
 
-1. Once the deployment is complete, you will see the text **Arcsql is Ready** at the bottom of the notebook as shown in the screenshot. 
+1. Once the deployment is complete, you will see the text **arcsql is Ready** at the bottom of the notebook as shown in the screenshot. 
 
    ![](images/sqlminw2.png "Confirm")
 
@@ -130,7 +130,7 @@ In this task, let's learn how to create Azure Arc-enabled SQL Managed Instance u
 
    ![](images/sqlsql.png "Confirm")
 
-   > **Note**: You might have to right-click and refresh on Arc data controller to view the instance if you don't see one after seeing the text **Arcsql is Ready** at the bottom of the notebook.
+   > **Note**: You might have to right-click and refresh on Arc data controller to view the instance if you don't see one after seeing the text **arcsql is Ready** at the bottom of the notebook.
 
 ## Task 3: Connect to Azure Arc-enabled SQL Managed Instance using Azure Data Studio.
 
@@ -155,9 +155,9 @@ In this task, let us learn how to connect to your newly created Azure Arc-enable
      
    - **Authentication type** : Select **SQL Login** from the drop down options
    
-   - **User name** : Enter Arcsqluser
+   - **User name** : Enter arcsqluser
      ```BASH
-     Arcsqluser
+     arcsqluser
      ```
    
    - **Password** : Enter Password.1!!
@@ -195,7 +195,7 @@ In this task, Let's learn how to modify the configuration parameters of Azure Ar
 
 1. Now, you can run the below command to view the changes that you made to the Azure SQL Managed instance.
 
-   >**Note**: Make sure to replace <NAME_OF_SQL_MI> with your Azure SQL Managed instance name which will be **Arcsql** if you also provided the same for Instance name during creation of Azure SQL Managed Instance.
+   >**Note**: Make sure to replace <NAME_OF_SQL_MI> with your Azure SQL Managed instance name which will be **arcsql** if you also provided the same for Instance name during creation of Azure SQL Managed Instance.
    
     ```BASH
     az sql mi-arc show -n arcsql --k8s-namespace arcdc --use-k8s
@@ -207,7 +207,7 @@ In this task, Let's learn how to modify the configuration parameters of Azure Ar
 ## Task 4: Restore the AdventureWorks sample database into Azure SQL Managed instance - Azure Arc Using Kubectl.
 
 Restore an existing SQL database from a SQL Server to Azure Arc-enabled SQL MI is very simple. All you have to do is to take a backup from your existing SQL Server, and then restore that backup to SQL MI. 
-In our scanario we already have an AdventureWorks backup file copied in one of kubernetes cluster pod. The backup file was generated from a SQL Server 2019 database server and moved to the Kubernetes cluster.
+In our scenario we already have an AdventureWorks backup file copied in one of Kubernetes cluster pod. The backup file was generated from a SQL Server 2019 database server and moved to the Kubernetes cluster.
 
 Now let's restore the sample backup file i.e AdventureWorks backup (.bak) into your Azure SQL Managed instance container using Kubectl commands.
 
@@ -241,14 +241,14 @@ Now let's restore the sample backup file i.e AdventureWorks backup (.bak) into y
 
    ![](images/ex4t4-6.png "Confirm")
 
-1. Now, you have successfuly restored the sample database from an existing cluster to you Azure Arc-enabled SQL MI.
+1. Now, you have successfully restored the sample database from an existing backup file to your Azure Arc-enabled SQL MI.
    
 ## Task 6: View SQL MI resource and SQL Mi logs in Azure portal.
    
 Now that we have the database created, let us export some metrics, usages, and logs to the system.
 
 
-> Note: Please note that you can upload these logs from the other machine also where you have connected to Azure. this is only supported in Disconnected mode and you can use the resources without even connecting to Azure portal.
+> Note: Please note that you can upload these logs from the other machine also where you have connected to Azure. this is only supported in Disconnected mode, and you can use the resources without even connecting to Azure portal.
    
 1. Navigate back to the command prompt window.
 
@@ -271,7 +271,7 @@ Now that we have the database created, let us export some metrics, usages, and l
 
    ![](images/logs.png "Confirm")
     
-1. Now open the Azure portal and seArch for **Azure SQL Managed instances - azure Arc** and select the resource.
+1. Now open the Azure portal and search for **Azure SQL Managed instances - azure Arc** and select the resource.
 
    ![](images/sqlportal1.png "Confirm")
       
@@ -313,9 +313,9 @@ Now let us Monitor the SQL MI status using Grafana and Kibana.
   
    > **Note** You have to enter the credentials of Azure Arc data controller.
   
-   - **User name** : Arcuser
+   - **User name** : arcuser
      ```BASH
-     Arcuser
+     arcuser
      ```
 
    - **Password** : Password.1!!
@@ -341,9 +341,9 @@ Now let us Monitor the SQL MI status using Grafana and Kibana.
   
    > **Note** You have to enter the credentials of the Azure Arc data controller.
       
-   - **User name** : Arcuser
+   - **User name** : arcuser
      ```BASH
-     Arcuser
+     arcuser
      ```
 
    - **Password** : Password.1!!
